@@ -1,0 +1,10 @@
+/.cvsignore/1.1/Sat Dec  5 09:07:27 1998//TTHUNDERBIRD_2_0_0_24_RELEASE
+/Makefile.in/1.33.18.2/Sun Mar 26 17:03:23 2006//TTHUNDERBIRD_2_0_0_24_RELEASE
+/xpfe.pkg/1.2/Wed Jan  7 01:22:25 2004//TTHUNDERBIRD_2_0_0_24_RELEASE
+D/appshell////
+D/bootstrap////
+D/browser////
+D/communicator////
+D/components////
+D/global////
+D/test////

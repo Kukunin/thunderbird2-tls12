@@ -1,0 +1,11 @@
+/.cvsignore/1.2/Sat May 12 00:53:26 2001//TTHUNDERBIRD_2_0_0_24_RELEASE
+/Makefile.in/1.24/Thu Dec 13 03:13:36 2007//TTHUNDERBIRD_2_0_0_24_RELEASE
+/configure/1.242.2.3/Sat Oct  3 02:23:34 2009//TTHUNDERBIRD_2_0_0_24_RELEASE
+/configure.in/1.246.2.3/Sat Oct  3 02:23:34 2009//TTHUNDERBIRD_2_0_0_24_RELEASE
+D/admin////
+D/build////
+D/config////
+D/lib////
+D/pkg////
+D/pr////
+D/tools////

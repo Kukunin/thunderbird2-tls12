@@ -1,0 +1,10 @@
+/.cvsignore/1.1/Sat Dec  5 09:06:17 1998//TTHUNDERBIRD_2_0_0_24_RELEASE
+/Makefile.in/1.18/Sun Jun  5 00:41:19 2005//TTHUNDERBIRD_2_0_0_24_RELEASE
+D/base////
+D/build////
+D/chrome////
+D/datasource////
+D/opendir////
+D/resources////
+D/tests////
+D/util////
