@@ -2,6 +2,7 @@
 *.a
 *.pc
 *.so
+*.log
 _xpidlgen/
 .deps/
 Makefile
