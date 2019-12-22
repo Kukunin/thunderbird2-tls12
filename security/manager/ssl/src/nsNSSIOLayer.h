@@ -1,231 +1,268 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+ * ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is mozilla.org code.
+ *
+ * The Initial Developer of the Original Code is
+ * Netscape Communications Corporation.
+ * Portions created by the Initial Developer are Copyright (C) 1998
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *   Brian Ryner <bryner@brianryner.com>
+ *   Kai Engert <kengert@redhat.com>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
 
 #ifndef _NSNSSIOLAYER_H
 #define _NSNSSIOLAYER_H
 
-#include "TransportSecurityInfo.h"
+#include "prtypes.h"
+#include "prio.h"
+#include "certt.h"
+#include "nsString.h"
+#include "nsIInterfaceRequestor.h"
+#include "nsIInterfaceRequestorUtils.h"
+#include "nsITransportSecurityInfo.h"
 #include "nsISSLSocketControl.h"
+#include "nsISSLStatus.h"
+#include "nsISSLStatusProvider.h"
+#include "nsXPIDLString.h"
+#include "nsNSSShutDown.h"
 #include "nsIClientAuthDialogs.h"
-#include "nsNSSCertificate.h"
-#include "nsDataHashtable.h"
-#include "nsTHashtable.h"
-#include "mozilla/TimeStamp.h"
-#include "sslt.h"
 
-namespace mozilla {
-namespace psm {
-class SharedSSLState;
-}
-}
+class nsIChannel;
+class nsSSLThread;
 
-class nsIObserver;
-
-class nsNSSSocketInfo : public mozilla::psm::TransportSecurityInfo,
-                        public nsISSLSocketControl,
-                        public nsIClientAuthUserDecision
+/*
+ * This class is used to store SSL socket I/O state information,
+ * that is not being executed directly, but defered to 
+ * the separate SSL thread.
+ */
+class nsSSLSocketThreadData
 {
 public:
-  nsNSSSocketInfo(mozilla::psm::SharedSSLState& aState, uint32_t providerFlags);
+  nsSSLSocketThreadData();
+  ~nsSSLSocketThreadData();
+
+  PRBool ensure_buffer_size(PRInt32 amount);
   
-  NS_DECL_ISUPPORTS_INHERITED
+  enum ssl_state { 
+    ssl_idle,          // not in use by SSL thread, no activity pending
+    ssl_pending_write, // waiting for SSL thread to complete writing
+    ssl_pending_read,  // waiting for SSL thread to complete reading
+    ssl_writing_done,  // SSL write completed, results are ready
+    ssl_reading_done   // SSL read completed, results are ready
+  };
+  
+  ssl_state mSSLState;
+
+  // Used to transport I/O error codes between SSL thread
+  // and initial caller thread.
+  PRErrorCode mPRErrorCode;
+
+  // A buffer used to transfer I/O data between threads
+  char *mSSLDataBuffer;
+  PRInt32 mSSLDataBufferAllocatedSize;
+
+  // The amount requested to read or write by the caller.
+  PRInt32 mSSLRequestedTransferAmount;
+
+  // A pointer into our buffer, to the first byte
+  // that has not yet been delivered to the caller.
+  // Necessary, as the caller of the read function
+  // might request smaller chunks.
+  const char *mSSLRemainingReadResultData;
+  
+  // The caller previously requested to read or write.
+  // As the initial request to read or write is defered,
+  // the caller might (in theory) request smaller chunks
+  // in subsequent calls.
+  // This variable stores the amount of bytes successfully
+  // transfered, that have not yet been reported to the caller.
+  PRInt32 mSSLResultRemainingBytes;
+
+  // When defering SSL read/write activity to another thread,
+  // we switch the SSL level file descriptor of the original
+  // layered file descriptor to a pollable event,
+  // so we can wake up the original caller of the I/O function
+  // as soon as data is ready.
+  // This variable is used to save the SSL level file descriptor,
+  // to allow us to restore the original file descriptor layering.
+  PRFileDesc *mReplacedSSLFileDesc;
+
+  PRBool mOneBytePendingFromEarlierWrite;
+  unsigned char mThePendingByte;
+  PRInt32 mOriginalRequestedTransferAmount;
+};
+
+class nsNSSSocketInfo : public nsITransportSecurityInfo,
+                        public nsISSLSocketControl,
+                        public nsIInterfaceRequestor,
+                        public nsISSLStatusProvider,
+                        public nsIClientAuthUserDecision,
+                        public nsNSSShutDownObject,
+                        public nsOnPK11LogoutCancelObject
+{
+public:
+  nsNSSSocketInfo();
+  virtual ~nsNSSSocketInfo();
+  
+  NS_DECL_ISUPPORTS
+  NS_DECL_NSITRANSPORTSECURITYINFO
   NS_DECL_NSISSLSOCKETCONTROL
+  NS_DECL_NSIINTERFACEREQUESTOR
+  NS_DECL_NSISSLSTATUSPROVIDER
   NS_DECL_NSICLIENTAUTHUSERDECISION
- 
-  nsresult SetForSTARTTLS(bool aForSTARTTLS);
-  nsresult GetForSTARTTLS(bool *aForSTARTTLS);
+
+  nsresult SetSecurityState(PRUint32 aState);
+  nsresult SetShortSecurityDescription(const PRUnichar *aText);
+
+  nsresult SetForSTARTTLS(PRBool aForSTARTTLS);
+  nsresult GetForSTARTTLS(PRBool *aForSTARTTLS);
 
   nsresult GetFileDescPtr(PRFileDesc** aFilePtr);
   nsresult SetFileDescPtr(PRFileDesc* aFilePtr);
 
-  bool IsHandshakePending() const { return mHandshakePending; }
-  void SetHandshakeNotPending() { mHandshakePending = false; }
+  nsresult GetHandshakePending(PRBool *aHandshakePending);
+  nsresult SetHandshakePending(PRBool aHandshakePending);
 
-  void GetPreviousCert(nsIX509Cert** _result);
+  nsresult GetHostName(char **aHostName);
+  nsresult SetHostName(const char *aHostName);
+
+  nsresult GetPort(PRInt32 *aPort);
+  nsresult SetPort(PRInt32 aPort);
+
+  void SetCanceled(PRBool aCanceled);
+  PRBool GetCanceled();
   
-  void SetHasCleartextPhase(bool aHasCleartextPhase);
-  bool GetHasCleartextPhase();
+  void SetHasCleartextPhase(PRBool aHasCleartextPhase);
+  PRBool GetHasCleartextPhase();
   
-  void SetTLSVersionRange(SSLVersionRange range) { mTLSVersionRange = range; }
-  SSLVersionRange GetTLSVersionRange() const { return mTLSVersionRange; };
+  void SetHandshakeInProgress(PRBool aIsIn);
+  PRBool GetHandshakeInProgress() { return mHandshakeInProgress; }
+  PRBool HandshakeTimeout();
 
-  PRStatus CloseSocketAndDestroy(
-                const nsNSSShutDownPreventionLock & proofOfLock);
-  
-  void SetNegotiatedNPN(const char *value, uint32_t length);
-  void SetHandshakeCompleted(bool aResumedSession);
-  void NoteTimeUntilReady();
+  void SetAllowTLSIntoleranceTimeout(PRBool aAllow);
 
-  // Note that this is only valid *during* a handshake; at the end of the handshake,
-  // it gets reset back to false.
-  void SetFullHandshake() { mIsFullHandshake = true; }
-  bool IsFullHandshake() const { return mIsFullHandshake; }
-
-  bool GetJoined() { return mJoined; }
-  void SetSentClientCert() { mSentClientCert = true; }
-
-  uint32_t GetProviderFlags() const { return mProviderFlags; }
-
-  mozilla::psm::SharedSSLState& SharedState();
-
-  // XXX: These are only used on for diagnostic purposes
-  enum CertVerificationState {
-    before_cert_verification,
-    waiting_for_cert_verification,
-    after_cert_verification
+  enum BadCertUIStatusType {
+    bcuis_not_shown, bcuis_active, bcuis_was_shown
   };
-  void SetCertVerificationWaiting();
-  // Use errorCode == 0 to indicate success; in that case, errorMessageType is
-  // ignored.
-  void SetCertVerificationResult(PRErrorCode errorCode,
-              ::mozilla::psm::SSLErrorMessageType errorMessageType);
+
+  void SetBadCertUIStatus(BadCertUIStatusType aNewStatus);
+  BadCertUIStatusType GetBadCertUIStatus() { return mBadCertUIStatus; }
+
+  nsresult RememberCAChain(CERTCertList *aCertList);
+
+  /* Set SSL Status values */
+  nsresult SetSSLStatus(nsISSLStatus *aSSLStatus);  
   
-  // for logging only
-  PRBool IsWaitingForCertVerification() const
-  {
-    return mCertVerificationState == waiting_for_cert_verification;
-  }
-  void AddPlaintextBytesRead(uint64_t val) { mPlaintextBytesRead += val; }
-
-  bool IsPreliminaryHandshakeDone() const { return mPreliminaryHandshakeDone; }
-  void SetPreliminaryHandshakeDone() { mPreliminaryHandshakeDone = true; }
-
-  void SetKEAUsed(uint16_t kea) { mKEAUsed = kea; }
-  inline int16_t GetKEAExpected() // infallible in nsISSLSocketControl
-  {
-    int16_t result;
-    mozilla::DebugOnly<nsresult> rv = GetKEAExpected(&result);
-    MOZ_ASSERT(NS_SUCCEEDED(rv));
-    return result;
-  }
-  void SetSymmetricCipherUsed(uint16_t symmetricCipher)
-  {
-    mSymmetricCipherUsed = symmetricCipher;
-  }
-  inline int16_t GetSymmetricCipherExpected() // infallible in nsISSLSocketControl
-  {
-    int16_t result;
-    mozilla::DebugOnly<nsresult> rv = GetSymmetricCipherExpected(&result);
-    MOZ_ASSERT(NS_SUCCEEDED(rv));
-    return result;
-  }
-
-private:
+  PRStatus CloseSocketAndDestroy();
+  
+protected:
+  nsCOMPtr<nsIInterfaceRequestor> mCallbacks;
   PRFileDesc* mFd;
-
-  CertVerificationState mCertVerificationState;
-
-  mozilla::psm::SharedSSLState& mSharedState;
-  bool mForSTARTTLS;
-  SSLVersionRange mTLSVersionRange;
-  bool mHandshakePending;
-  bool mHasCleartextPhase;
-  bool mRememberClientAuthCertificate;
-  bool mPreliminaryHandshakeDone; // after false start items are complete
+  enum { 
+    blocking_state_unknown, is_nonblocking_socket, is_blocking_socket 
+  } mBlockingState;
+  PRUint32 mSecurityState;
+  nsString mShortDesc;
+  PRPackedBool mForSTARTTLS;
+  PRPackedBool mHandshakePending;
+  PRPackedBool mCanceled;
+  PRPackedBool mHasCleartextPhase;
+  PRPackedBool mHandshakeInProgress;
+  PRPackedBool mAllowTLSIntoleranceTimeout;
+  PRPackedBool mRememberClientAuthCertificate;
+  BadCertUIStatusType mBadCertUIStatus;
   PRIntervalTime mHandshakeStartTime;
-  bool mFirstServerHelloReceived;
+  PRInt32 mPort;
+  nsXPIDLCString mHostName;
+  CERTCertList *mCAChain;
+
+  /* SSL Status */
+  nsCOMPtr<nsISSLStatus> mSSLStatus;
 
   nsresult ActivateSSL();
 
-  nsCString mNegotiatedNPN;
-  bool      mNPNCompleted;
-  bool      mIsFullHandshake;
-  bool      mHandshakeCompleted;
-  bool      mJoined;
-  bool      mSentClientCert;
-  bool      mNotedTimeUntilReady;
+  nsSSLSocketThreadData *mThreadData;
 
-  // mKEA* and mSymmetricCipher* are used in false start detetermination
-  // values are from nsISSLSocketControl
-  int16_t mKEAUsed;
-  int16_t mKEAExpected;
-  int16_t mSymmetricCipherUsed;
-  int16_t mSymmetricCipherExpected;
+private:
+  virtual void virtualDestroyNSSReference();
+  void destructorSafeDestroyNSSReference();
 
-  uint32_t mProviderFlags;
-  mozilla::TimeStamp mSocketCreationTimestamp;
-  uint64_t mPlaintextBytesRead;
+friend class nsSSLThread;
 };
+
+class nsCStringHashSet;
 
 class nsSSLIOLayerHelpers
 {
 public:
-  nsSSLIOLayerHelpers();
-  ~nsSSLIOLayerHelpers();
+  static nsresult Init();
+  static void Cleanup();
 
-  nsresult Init();
-  void Cleanup();
-
-  static bool nsSSLIOLayerInitialized;
+  static PRBool nsSSLIOLayerInitialized;
   static PRDescIdentity nsSSLIOLayerIdentity;
-  static PRDescIdentity nsSSLPlaintextLayerIdentity;
   static PRIOMethods nsSSLIOLayerMethods;
-  static PRIOMethods nsSSLPlaintextLayerMethods;
 
-  nsTHashtable<nsCStringHashKey> *mRenegoUnrestrictedSites;
-  bool mTreatUnsafeNegotiationAsBroken;
-  int32_t mWarnLevelMissingRFC5746;
+  static PRLock *mutex;
+  static nsCStringHashSet *mTLSIntolerantSites;
+  
+  static PRBool rememberPossibleTLSProblemSite(PRFileDesc* fd, nsNSSSocketInfo *socketInfo);
 
-  void setTreatUnsafeNegotiationAsBroken(bool broken);
-  bool treatUnsafeNegotiationAsBroken();
-  void setWarnLevelMissingRFC5746(int32_t level);
-  int32_t getWarnLevelMissingRFC5746();
-
-private:
-  struct IntoleranceEntry
-  {
-    uint16_t tolerant;
-    uint16_t intolerant;
-
-    void AssertInvariant() const
-    {
-      MOZ_ASSERT(intolerant == 0 || tolerant < intolerant);
-    }
-  };
-  nsDataHashtable<nsCStringHashKey, IntoleranceEntry> mTLSIntoleranceInfo;
-public:
-  void rememberTolerantAtVersion(const nsACString & hostname, int16_t port,
-                                 uint16_t tolerant);
-  bool rememberIntolerantAtVersion(const nsACString & hostname, int16_t port,
-                                   uint16_t intolerant, uint16_t minVersion);
-  void adjustForTLSIntolerance(const nsACString & hostname, int16_t port,
-                               /*in/out*/ SSLVersionRange & range);
-
-  void setRenegoUnrestrictedSites(const nsCString &str);
-  bool isRenegoUnrestrictedSite(const nsCString &str);
-  void clearStoredData();
-
-  bool mFalseStartRequireNPN;
-  bool mFalseStartRequireForwardSecrecy;
-private:
-  mozilla::Mutex mutex;
-  nsCOMPtr<nsIObserver> mPrefObserver;
+  static void addIntolerantSite(const nsCString &str);
+  static PRBool isKnownAsIntolerantSite(const nsCString &str);
+  
+  static PRFileDesc *mSharedPollableEvent;
+  static nsNSSSocketInfo *mSocketOwningPollableEvent;
+  
+  static PRBool mPollableEventCurrentlySet;
 };
 
-nsresult nsSSLIOLayerNewSocket(int32_t family,
+nsresult nsSSLIOLayerNewSocket(PRInt32 family,
                                const char *host,
-                               int32_t port,
+                               PRInt32 port,
                                const char *proxyHost,
-                               int32_t proxyPort,
+                               PRInt32 proxyPort,
                                PRFileDesc **fd,
                                nsISupports **securityInfo,
-                               bool forSTARTTLS,
-                               uint32_t flags);
+                               PRBool forSTARTTLS);
 
-nsresult nsSSLIOLayerAddToSocket(int32_t family,
+nsresult nsSSLIOLayerAddToSocket(PRInt32 family,
                                  const char *host,
-                                 int32_t port,
+                                 PRInt32 port,
                                  const char *proxyHost,
-                                 int32_t proxyPort,
+                                 PRInt32 proxyPort,
                                  PRFileDesc *fd,
                                  nsISupports **securityInfo,
-                                 bool forSTARTTLS,
-                                 uint32_t flags);
+                                 PRBool forSTARTTLS);
 
 nsresult nsSSLIOLayerFreeTLSIntolerantSites();
 nsresult displayUnknownCertErrorAlert(nsNSSSocketInfo *infoObject, int error);
-
+ 
 #endif /* _NSNSSIOLAYER_H */

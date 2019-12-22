@@ -57,67 +57,49 @@ MOZILLA_INTERNAL_API = 1
 PACKAGE_FILE = pipnss.pkg
 
 CPPSRCS = 				\
-  CertVerifier.cpp \
-  CryptoTask.cpp \
-  JARSignatureVerification.cpp \
-  nsCertificatePrincipal.cpp \
-  nsCertOverrideService.cpp \
-  nsCertPicker.cpp \
-  nsCertVerificationThread.cpp \
-  nsClientAuthRemember.cpp \
-  nsCMS.cpp \
-  nsCMSSecureMessage.cpp \
-  nsCrypto.cpp \
-  nsCryptoHash.cpp \
-  nsDataSignatureVerifier.cpp \
-  nsIdentityChecking.cpp \
-  nsKeygenHandler.cpp \
-  nsKeygenThread.cpp \
-  nsKeyModule.cpp \
-  nsNSSASN1Object.cpp \
-  nsNSSCallbacks.cpp \
+        nsClientAuthRemember.cpp        \
+	nsPSMBackgroundThread.cpp       \
+	nsSSLThread.cpp                 \
+	nsCertVerificationThread.cpp    \
+	nsCipherInfo.cpp \
+	nsNSSCallbacks.cpp		\
+	nsNSSComponent.cpp		\
+	nsNSSIOLayer.cpp		\
+	nsNSSModule.cpp			\
+	nsSSLSocketProvider.cpp		\
+	nsTLSSocketProvider.cpp		\
+	nsSDR.cpp			\
+	nsPK11TokenDB.cpp		\
+	nsNSSCertificate.cpp		\
+	nsPKCS12Blob.cpp                \
+	nsNSSASN1Object.cpp		\
+	nsKeygenHandler.cpp		\
+	nsCrypto.cpp			\
+  nsPKCS11Slot.cpp                \
+  nsKeygenThread.cpp              \
+  nsCMSSecureMessage.cpp          \
+  nsCMS.cpp 	                \
+  nsCertPicker.cpp                \
+  nsCRLInfo.cpp \
   nsNSSCertCache.cpp \
   nsNSSCertHelper.cpp \
-  nsNSSCertificate.cpp \
   nsNSSCertificateDB.cpp \
-  nsNSSCertificateFakeTransport.cpp \
   nsNSSCertTrust.cpp \
   nsNSSCertValidity.cpp \
-  nsNSSCleaner.cpp \
-  nsNSSComponent.cpp \
-  nsNSSErrors.cpp \
-  nsNSSIOLayer.cpp \
-  nsNSSModule.cpp \
-  nsNSSShutDown.cpp \
-  nsNSSVersion.cpp \
-  nsNTLMAuthModule.cpp \
-  nsPK11TokenDB.cpp \
-  nsPKCS11Slot.cpp \
-  nsPKCS12Blob.cpp \
-  nsProtectedAuthThread.cpp \
-  nsPSMBackgroundThread.cpp \
-  nsRandomGenerator.cpp \
-  nsRecentBadCerts.cpp \
-  nsSDR.cpp \
-  NSSErrorsService.cpp \
-  nsSSLSocketProvider.cpp \
-  nsSSLStatus.cpp \
-  nsStreamCipher.cpp \
-  nsTLSSocketProvider.cpp \
+  nsOCSPResponder.cpp \
   nsUsageArrayHelper.cpp \
-  PSMContentListener.cpp \
-  PSMRunnable.cpp \
-  SharedSSLState.cpp \
-  SSLServerCertVerification.cpp \
-  TransportSecurityInfo.cpp \
+  nsCRLManager.cpp \
+  nsNSSShutDown.cpp \
+  nsNTLMAuthModule.cpp \
+  nsNSSEvent.cpp \
+  nsSmartCardMonitor.cpp \
+  nsSmartCardEvent.cpp \
+  nsStreamCipher.cpp \
+  nsKeyModule.cpp \
 	$(NULL)
 
 ifdef MOZ_XUL
 CPPSRCS += nsCertTree.cpp
-endif
-
-ifndef MOZ_DISABLE_CRYPTOLEGACY
-CPPSRCS += nsSmartCardMonitor.cpp
 endif
 
 CSRCS += md4.c
