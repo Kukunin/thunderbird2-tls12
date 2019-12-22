@@ -1,6 +1,7 @@
-#ifndef _HASH_H_
-#define _HASH_H_
-/* ***** BEGIN LICENSE BLOCK *****
+/*
+ * Return SSLKEAType derived from cert's Public Key algorithm info.
+ *
+ * ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
  *
  * The contents of this file are subject to the Mozilla Public License Version
@@ -21,6 +22,7 @@
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
+ *   Dr Vipul Gupta <vipul.gupta@sun.com>, Sun Microsystems Laboratories
  *
  * Alternatively, the contents of this file may be used under the terms of
  * either the GNU General Public License Version 2 or later (the "GPL"), or
@@ -35,56 +37,42 @@
  * the terms of any one of the MPL, the GPL or the LGPL.
  *
  * ***** END LICENSE BLOCK ***** */
-/* $Id: sechash.h,v 1.8 2008/12/10 22:48:04 nelson%bolyard.com Exp $ */
+/* $Id: nsskea.c,v 1.7 2005/08/16 03:42:26 nelsonb%netscape.com Exp $ */
 
-#include "seccomon.h"
-#include "hasht.h"
-#include "secoidt.h"
+#include "cert.h"
+#include "ssl.h"	/* for SSLKEAType */
+#include "secoid.h"
 
-SEC_BEGIN_PROTOS
+SSLKEAType
+NSS_FindCertKEAType(CERTCertificate * cert)
+{
+  SSLKEAType keaType = kt_null; 
+  int tag;
+  
+  if (!cert) goto loser;
+  
+  tag = SECOID_GetAlgorithmTag(&(cert->subjectPublicKeyInfo.algorithm));
+  
+  switch (tag) {
+  case SEC_OID_X500_RSA_ENCRYPTION:
+  case SEC_OID_PKCS1_RSA_ENCRYPTION:
+    keaType = kt_rsa;
+    break;
+  case SEC_OID_X942_DIFFIE_HELMAN_KEY:
+    keaType = kt_dh;
+    break;
+#ifdef NSS_ENABLE_ECC
+  case SEC_OID_ANSIX962_EC_PUBLIC_KEY:
+    keaType = kt_ecdh;
+    break;
+#endif /* NSS_ENABLE_ECC */
+  default:
+    keaType = kt_null;
+  }
+  
+ loser:
+  
+  return keaType;
 
-/*
-** Generic hash api.  
-*/
+}
 
-extern unsigned int  HASH_ResultLen(HASH_HashType type);
-
-extern unsigned int  HASH_ResultLenContext(HASHContext *context);
-
-extern unsigned int  HASH_ResultLenByOidTag(SECOidTag hashOid);
-
-extern SECStatus     HASH_HashBuf(HASH_HashType type,
-				 unsigned char *dest,
-				 unsigned char *src,
-				 PRUint32 src_len);
-
-extern HASHContext * HASH_Create(HASH_HashType type);
-
-extern HASHContext * HASH_Clone(HASHContext *context);
-
-extern void          HASH_Destroy(HASHContext *context);
-
-extern void          HASH_Begin(HASHContext *context);
-
-extern void          HASH_Update(HASHContext *context,
-				const unsigned char *src,
-				unsigned int len);
-
-extern void          HASH_End(HASHContext *context,
-			     unsigned char *result,
-			     unsigned int *result_len,
-			     unsigned int max_result_len);
-			     
-extern HASH_HashType HASH_GetType(HASHContext *context);
-
-extern const SECHashObject * HASH_GetHashObject(HASH_HashType type);
-
-extern const SECHashObject * HASH_GetHashObjectByOidTag(SECOidTag hashOid);
-
-extern HASH_HashType HASH_GetHashTypeByOidTag(SECOidTag hashOid);
-extern SECOidTag HASH_GetHashOidTagByHMACOidTag(SECOidTag hmacOid);
-extern SECOidTag HASH_GetHMACOidTagByHashOidTag(SECOidTag hashOid);
-
-SEC_END_PROTOS
-
-#endif /* _HASH_H_ */
