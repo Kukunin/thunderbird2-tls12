@@ -221,7 +221,7 @@ export:: .nss.cleaned
 
 .nss.cleaned: .nss.checkout
 ifndef MOZ_NATIVE_NSS
-	$(MAKE) -C $(topsrcdir)/security/coreconf $(DEFAULT_GMAKE_FLAGS) clean
+	$(MAKE) -C $(topsrcdir)/security/nss/coreconf $(DEFAULT_GMAKE_FLAGS) clean
 	$(MAKE) -C $(topsrcdir)/security/nss/lib $(DEFAULT_GMAKE_FLAGS) clean
 ifndef SKIP_CHK
 	$(MAKE) -C $(topsrcdir)/security/nss/cmd/lib $(DEFAULT_GMAKE_FLAGS) clean
@@ -245,7 +245,7 @@ endif
 
 libs::
 ifndef MOZ_NATIVE_NSS
-	$(MAKE) -C $(topsrcdir)/security/coreconf $(DEFAULT_GMAKE_FLAGS)
+	$(MAKE) -C $(topsrcdir)/security/nss/coreconf $(DEFAULT_GMAKE_FLAGS)
 endif
 ifeq ($(OS_ARCH),WINNT)
 	cd $(DIST)/lib; cp -f $(LIB_PREFIX)dbm$(MOZ_BITS).$(LIB_SUFFIX) $(LIB_PREFIX)dbm.$(LIB_SUFFIX)
@@ -360,7 +360,7 @@ ifdef MOZ_XUL
 	$(MAKE) -C pki $@
 endif
 ifndef MOZ_NATIVE_NSS
-	$(MAKE) -C $(topsrcdir)/security/coreconf $(DEFAULT_GMAKE_FLAGS) clean
+	$(MAKE) -C $(topsrcdir)/security/nss/coreconf $(DEFAULT_GMAKE_FLAGS) clean
 	$(MAKE) -C $(topsrcdir)/security/nss/lib $(DEFAULT_GMAKE_FLAGS) clean
 ifndef SKIP_CHK
 	$(MAKE) -C $(topsrcdir)/security/nss/cmd/lib $(DEFAULT_GMAKE_FLAGS) clean

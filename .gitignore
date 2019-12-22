@@ -5,5 +5,5 @@
 _xpidlgen/
 .deps/
 Makefile
-/dist
-
+dist/
+*.OBJ/

@@ -1,40 +1,7 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* ***** BEGIN LICENSE BLOCK *****
- * Version: MPL 1.1/GPL 2.0/LGPL 2.1
- *
- * The contents of this file are subject to the Mozilla Public License Version
- * 1.1 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- * http://www.mozilla.org/MPL/
- *
- * Software distributed under the License is distributed on an "AS IS" basis,
- * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
- * for the specific language governing rights and limitations under the
- * License.
- *
- * The Original Code is the Netscape Portable Runtime (NSPR).
- *
- * The Initial Developer of the Original Code is
- * Netscape Communications Corporation.
- * Portions created by the Initial Developer are Copyright (C) 1998-2000
- * the Initial Developer. All Rights Reserved.
- *
- * Contributor(s):
- *   Masayuki Nakano <masayuki@d-toybox.com>
- *
- * Alternatively, the contents of this file may be used under the terms of
- * either the GNU General Public License Version 2 or later (the "GPL"), or
- * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
- * in which case the provisions of the GPL or the LGPL are applicable instead
- * of those above. If you wish to allow use of your version of this file only
- * under the terms of either the GPL or the LGPL, and not to allow others to
- * use your version of this file under the terms of the MPL, indicate your
- * decision by deleting the provisions above and replace them with the notice
- * and other provisions required by the GPL or the LGPL. If you do not delete
- * the provisions above, a recipient may use your version of this file under
- * the terms of any one of the MPL, the GPL or the LGPL.
- *
- * ***** END LICENSE BLOCK ***** */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /* Windows 95 IO module
  *
@@ -48,7 +15,6 @@
 #ifdef MOZ_UNICODE
 #include <wchar.h>
 #endif /* MOZ_UNICODE */
-
 
 struct _MDLock               _pr_ioq_lock;
 
@@ -69,25 +35,6 @@ static DWORD dirAccessTable[] = {
     FILE_GENERIC_WRITE|FILE_DELETE_CHILD,
     FILE_GENERIC_EXECUTE
 };
-
-/*
- * The NSPR epoch (00:00:00 1 Jan 1970 UTC) in FILETIME.
- * We store the value in a PRTime variable for convenience.
- * This constant is used by _PR_FileTimeToPRTime().
- */
-#if defined(__MINGW32__)
-static const PRTime _pr_filetime_offset = 116444736000000000LL;
-#else
-static const PRTime _pr_filetime_offset = 116444736000000000i64;
-#endif
-
-typedef BOOL (WINAPI *GetFileAttributesExFn)(LPCTSTR,
-                                             GET_FILEEX_INFO_LEVELS,
-                                             LPVOID); 
-static GetFileAttributesExFn getFileAttributesEx;
-static void InitGetFileInfo(void);
-
-static void InitUnicodeSupport(void);
 
 static PRBool IsPrevCharSlash(const char *str, const char *current);
 
@@ -127,10 +74,6 @@ _PR_MD_INIT_IO()
 #endif /* DEBUG */
 
     _PR_NT_InitSids();
-
-    InitGetFileInfo();
-
-    InitUnicodeSupport();
 
     _PR_MD_InitSockets();
 }
@@ -227,13 +170,13 @@ _PR_MD_OPEN(const char *name, PRIntn osflags, int mode)
             flags = OPEN_EXISTING;
     }
 
-    file = CreateFile(name,
-                      access,
-                      FILE_SHARE_READ|FILE_SHARE_WRITE,
-                      NULL,
-                      flags,
-                      flag6,
-                      NULL);
+    file = CreateFileA(name,
+                       access,
+                       FILE_SHARE_READ|FILE_SHARE_WRITE,
+                       NULL,
+                       flags,
+                       flag6,
+                       NULL);
     if (file == INVALID_HANDLE_VALUE) {
 		_PR_MD_MAP_OPEN_ERROR(GetLastError());
         return -1; 
@@ -285,13 +228,13 @@ _PR_MD_OPEN_FILE(const char *name, PRIntn osflags, int mode)
             flags = OPEN_EXISTING;
     }
 
-    file = CreateFile(name,
-                      access,
-                      FILE_SHARE_READ|FILE_SHARE_WRITE,
-                      lpSA,
-                      flags,
-                      flag6,
-                      NULL);
+    file = CreateFileA(name,
+                       access,
+                       FILE_SHARE_READ|FILE_SHARE_WRITE,
+                       lpSA,
+                       flags,
+                       flag6,
+                       NULL);
     if (lpSA != NULL) {
         _PR_NT_FreeSecurityDescriptorACL(pSD, pACL);
     }
@@ -471,7 +414,7 @@ _MD_CloseFile(PROsfd osfd)
 #define GetFileFromDIR(d)       (d)->d_entry.cFileName
 #define FileIsHidden(d)	((d)->d_entry.dwFileAttributes & FILE_ATTRIBUTE_HIDDEN)
 
-void FlipSlashes(char *cp, size_t len)
+static void FlipSlashes(char *cp, size_t len)
 {
     while (len-- > 0) {
         if (cp[0] == '/') {
@@ -489,20 +432,20 @@ void FlipSlashes(char *cp, size_t len)
 **
 */
 
-PRStatus
+PRInt32
 _PR_MD_CLOSE_DIR(_MDDir *d)
 {
     if ( d ) {
         if (FindClose(d->d_hdl)) {
         d->magic = (PRUint32)-1;
-        return PR_SUCCESS;
+        return 0;
 		} else {
 			_PR_MD_MAP_CLOSEDIR_ERROR(GetLastError());
-        	return PR_FAILURE;
+        	return -1;
 		}
     }
     PR_SetError(PR_INVALID_ARGUMENT_ERROR, 0);
-    return PR_FAILURE;
+    return -1;
 }
 
 
@@ -530,7 +473,7 @@ _PR_MD_OPEN_DIR(_MDDir *d, const char *name)
     strcpy(&filename[len], "\\*.*");
     FlipSlashes( filename, strlen(filename) );
 
-    d->d_hdl = FindFirstFile( filename, &(d->d_entry) );
+    d->d_hdl = FindFirstFileA( filename, &(d->d_entry) );
     if ( d->d_hdl == INVALID_HANDLE_VALUE ) {
 		_PR_MD_MAP_OPENDIR_ERROR(GetLastError());
         return PR_FAILURE;
@@ -553,7 +496,7 @@ _PR_MD_READ_DIR(_MDDir *d, PRIntn flags)
                 d->firstEntry = PR_FALSE;
                 rv = 1;
             } else {
-                rv = FindNextFile(d->d_hdl, &(d->d_entry));
+                rv = FindNextFileA(d->d_hdl, &(d->d_entry));
             }
             if (rv == 0) {
                 break;
@@ -582,7 +525,7 @@ _PR_MD_READ_DIR(_MDDir *d, PRIntn flags)
 PRInt32
 _PR_MD_DELETE(const char *name)
 {
-    if (DeleteFile(name)) {
+    if (DeleteFileA(name)) {
         return 0;
     } else {
 		_PR_MD_MAP_DELETE_ERROR(GetLastError());
@@ -778,111 +721,10 @@ IsRootDirectory(char *fn, size_t buflen)
     return rv;
 }
 
-/*
- * InitGetFileInfo --
- *
- * Called during IO init. Checks for the existence of the system function
- * GetFileAttributeEx, which when available is used in GETFILEINFO calls. 
- * If the routine exists, then the address of the routine is stored in the
- * variable getFileAttributesEx, which will be used to call the routine.
- */
-static void InitGetFileInfo(void)
-{
-    HMODULE module;
-    module = GetModuleHandle("Kernel32.dll");
-    if (!module) {
-        PR_LOG(_pr_io_lm, PR_LOG_DEBUG,
-                ("InitGetFileInfo: GetModuleHandle() failed: %d",
-                GetLastError()));
-        return;
-    }
-
-    getFileAttributesEx = (GetFileAttributesExFn)
-            GetProcAddress(module, "GetFileAttributesExA");
-}
-
-/*
- * If GetFileAttributeEx doesn't exist, we call FindFirstFile as a
- * fallback.
- */
-static BOOL
-GetFileAttributesExFB(const char *fn, WIN32_FIND_DATA *findFileData)
-{
-    HANDLE hFindFile;
-
-    /*
-     * FindFirstFile() expands wildcard characters.  So
-     * we make sure the pathname contains no wildcard.
-     */
-    if (NULL != _mbspbrk(fn, "?*")) {
-        SetLastError(ERROR_INVALID_NAME);
-        return FALSE;
-    }
-
-    hFindFile = FindFirstFile(fn, findFileData);
-    if (INVALID_HANDLE_VALUE == hFindFile) {
-        DWORD len;
-        char *filePart;
-        char pathbuf[MAX_PATH + 1];
-
-        /*
-         * FindFirstFile() does not work correctly on root directories.
-         * It also doesn't work correctly on a pathname that ends in a
-         * slash.  So we first check to see if the pathname specifies a
-         * root directory.  If not, and if the pathname ends in a slash,
-         * we remove the final slash and try again.
-         */
-
-        /*
-         * If the pathname does not contain ., \, and /, it cannot be
-         * a root directory or a pathname that ends in a slash.
-         */
-        if (NULL == _mbspbrk(fn, ".\\/")) {
-            return FALSE;
-        } 
-        len = GetFullPathName(fn, sizeof(pathbuf), pathbuf,
-                &filePart);
-        if (0 == len) {
-            return FALSE;
-        }
-        if (len > sizeof(pathbuf)) {
-            SetLastError(ERROR_FILENAME_EXCED_RANGE);
-            return FALSE;
-        }
-        if (IsRootDirectory(pathbuf, sizeof(pathbuf))) {
-            findFileData->dwFileAttributes = FILE_ATTRIBUTE_DIRECTORY;
-            /* The file size doesn't have a meaning for directories. */
-            findFileData->nFileSizeHigh = 0;
-            findFileData->nFileSizeLow = 0;
-            /*
-             * For a directory, these timestamps all specify when the
-             * directory is created.  The creation time doesn't make
-             * sense for root directories, so we set it to (NSPR) time 0.
-             */
-            memcpy(&findFileData->ftCreationTime, &_pr_filetime_offset, 8);
-            findFileData->ftLastAccessTime = findFileData->ftCreationTime;
-            findFileData->ftLastWriteTime = findFileData->ftCreationTime;
-            return TRUE;
-        }
-        if (!IsPrevCharSlash(pathbuf, pathbuf + len)) {
-            return FALSE;
-        } else {
-            pathbuf[len - 1] = '\0';
-            hFindFile = FindFirstFile(pathbuf, findFileData);
-            if (INVALID_HANDLE_VALUE == hFindFile) {
-                return FALSE;
-            }
-        }
-    }
-
-    FindClose(hFindFile);
-    return TRUE;
-}
-
 PRInt32
 _PR_MD_GETFILEINFO64(const char *fn, PRFileInfo64 *info)
 {
-    WIN32_FIND_DATA findFileData;
+    WIN32_FILE_ATTRIBUTE_DATA findFileData;
     BOOL rv;
     
     if (NULL == fn || '\0' == *fn) {
@@ -890,12 +732,7 @@ _PR_MD_GETFILEINFO64(const char *fn, PRFileInfo64 *info)
         return -1;
     }
 
-    /* GetFileAttributesEx is supported on Win 2K and up. */
-    if (getFileAttributesEx) {
-        rv = getFileAttributesEx(fn, GetFileExInfoStandard, &findFileData);
-    } else {
-        rv = GetFileAttributesExFB(fn, &findFileData);
-    }
+    rv = GetFileAttributesEx(fn, GetFileExInfoStandard, &findFileData);
     if (!rv) {
         _PR_MD_MAP_OPENDIR_ERROR(GetLastError());
         return -1;
@@ -1029,7 +866,7 @@ PRInt32
 _PR_MD_RENAME(const char *from, const char *to)
 {
     /* Does this work with dot-relative pathnames? */
-    if (MoveFile(from, to)) {
+    if (MoveFileA(from, to)) {
         return 0;
     } else {
 		_PR_MD_MAP_RENAME_ERROR(GetLastError());
@@ -1064,7 +901,7 @@ PRInt32
 _PR_MD_MKDIR(const char *name, PRIntn mode)
 {
     /* XXXMB - how to translate the "mode"??? */
-    if (CreateDirectory(name, NULL)) {
+    if (CreateDirectoryA(name, NULL)) {
         return 0;
     } else {
 		_PR_MD_MAP_MKDIR_ERROR(GetLastError());
@@ -1088,7 +925,7 @@ _PR_MD_MAKE_DIR(const char *name, PRIntn mode)
         sa.bInheritHandle = FALSE;
         lpSA = &sa;
     }
-    rv = CreateDirectory(name, lpSA);
+    rv = CreateDirectoryA(name, lpSA);
     if (lpSA != NULL) {
         _PR_NT_FreeSecurityDescriptorACL(pSD, pACL);
     }
@@ -1103,7 +940,7 @@ _PR_MD_MAKE_DIR(const char *name, PRIntn mode)
 PRInt32
 _PR_MD_RMDIR(const char *name)
 {
-    if (RemoveDirectory(name)) {
+    if (RemoveDirectoryA(name)) {
         return 0;
     } else {
 		_PR_MD_MAP_RMDIR_ERROR(GetLastError());
@@ -1183,39 +1020,10 @@ static GetDriveTypeWFn getDriveTypeW = GetDriveTypeW;
 
 #endif /* MOZ_UNICODE */
 
-PRBool _pr_useUnicode = PR_FALSE;
-
-static void InitUnicodeSupport(void)
-{
-    /*
-     * The W functions exist on Win9x as stubs that fail with the
-     * ERROR_CALL_NOT_IMPLEMENTED error.  We plan to emulate the
-     * MSLU W functions on Win9x in the future.
-     */
-
-    /* Find out if we are running on a Unicode enabled version of Windows */
-    OSVERSIONINFOA osvi = {0};
-
-    osvi.dwOSVersionInfoSize = sizeof(osvi);
-    if (GetVersionExA(&osvi)) {
-        _pr_useUnicode = (osvi.dwPlatformId >= VER_PLATFORM_WIN32_NT);
-    } else {
-        _pr_useUnicode = PR_FALSE;
-    }
-#ifdef DEBUG
-    /*
-     * In debug builds, allow explicit use of ANSI methods to simulate
-     * a Win9x environment for testing purposes.
-     */
-    if (getenv("WINAPI_USE_ANSI"))
-        _pr_useUnicode = PR_FALSE;
-#endif
-}
-
 #ifdef MOZ_UNICODE
 
 /* ================ UTF16 Interfaces ================================ */
-void FlipSlashesW(PRUnichar *cp, size_t len)
+static void FlipSlashesW(PRUnichar *cp, size_t len)
 {
     while (len-- > 0) {
         if (cp[0] == L'/') {
@@ -1359,20 +1167,20 @@ _PR_MD_READ_DIR_UTF16(_MDDirUTF16 *d, PRIntn flags)
     return NULL;
 }
  
-PRStatus
+PRInt32
 _PR_MD_CLOSE_DIR_UTF16(_MDDirUTF16 *d)
 {
     if ( d ) {
         if (FindClose(d->d_hdl)) {
             d->magic = (PRUint32)-1;
-            return PR_SUCCESS;
+            return 0;
         } else {
             _PR_MD_MAP_CLOSEDIR_ERROR(GetLastError());
-            return PR_FAILURE;
+            return -1;
         }
     }
     PR_SetError(PR_INVALID_ARGUMENT_ERROR, 0);
-    return PR_FAILURE;
+    return -1;
 }
 
 #define _PR_IS_W_SLASH(ch) ((ch) == L'/' || (ch) == L'\\')

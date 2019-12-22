@@ -1,0 +1,3 @@
+#define _BUILD_STRING "2019-12-22 21:30:19"
+#define _BUILD_TIME 1577043019920782LL
+#define _PRODUCTION "libnspr4.so"

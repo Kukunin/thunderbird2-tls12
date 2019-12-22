@@ -30,16 +30,12 @@ ifndef USE_SYSTEM_ZLIB
 ZLIB_SRCDIR = zlib  # Add the zlib directory to DIRS.
 endif
 
-ifndef MOZILLA_CLIENT
 ifndef NSS_USE_SYSTEM_SQLITE
 SQLITE_SRCDIR = sqlite  # Add the sqlite directory to DIRS.
 endif
-endif
 
-ifndef MOZILLA_CLIENT
 ifeq ($(OS_ARCH),Linux)
 SYSINIT_SRCDIR = sysinit  # Add the sysinit directory to DIRS.
-endif
 endif
 
 ifndef NSS_DISABLE_DBM

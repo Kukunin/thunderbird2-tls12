@@ -6,9 +6,9 @@ CORE_DEPTH = ../..
 
 MODULE = nss
 
-LIBRARY_NAME = sqlite
+LIBRARY_NAME = nsssqlt
 LIBRARY_VERSION = 3
-MAPFILE = $(OBJDIR)/sqlite.def
+MAPFILE = $(OBJDIR)/nsssqlt.def
 DEFINES += -DSQLITE_THREADSAFE=1
 
 EXPORTS = \
