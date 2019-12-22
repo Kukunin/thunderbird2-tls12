@@ -1,0 +1,10 @@
+*.o
+*.def
+*.a
+*.pc
+*.so
+_xpidlgen/
+.deps/
+Makefile
+/dist
+
