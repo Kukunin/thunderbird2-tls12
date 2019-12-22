@@ -83,4 +83,8 @@ ifndef NSS_LIB_DIR
     NSS_LIB_DIR = $(DIST)/lib
 endif
 
+ifndef NSSUTIL_LIB_DIR
+    NSSUTIL_LIB_DIR = $(DIST)/lib
+endif
+
 MK_LOCATION = included
