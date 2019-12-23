@@ -1,9 +1,0 @@
-/.cvsignore/1.1/Sat Dec  5 09:02:00 1998//TTHUNDERBIRD_2_0_0_24_RELEASE
-/Makefile.in/1.12/Sat Jul  2 01:36:23 2005//TTHUNDERBIRD_2_0_0_24_RELEASE
-/gfx-config.h.in/1.2/Wed Aug 25 23:02:45 2004//TTHUNDERBIRD_2_0_0_24_RELEASE
-D/cairo////
-D/idl////
-D/public////
-D/src////
-D/tests////
-D/thebes////
