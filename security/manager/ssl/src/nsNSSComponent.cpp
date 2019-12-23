@@ -87,6 +87,7 @@
 #include "plevent.h"
 #include "nsCRT.h"
 #include "nsCRLInfo.h"
+#include "nsIThread.h"
 
 #include "nsIWindowWatcher.h"
 #include "nsIPrompt.h"
@@ -1397,6 +1398,94 @@ nsNSSComponent::TryCFM2MachOMigration(nsIFile *cfmPath, nsIFile *machoPath)
 }
 #endif
 
+// Enable the TLS versions given in the prefs, defaulting to SSL 3.0 (min
+// version) and TLS 1.2 (max version) when the prefs aren't set or set to
+// invalid values.
+nsresult
+nsNSSComponent::setEnabledTLSVersions()
+{
+  // keep these values in sync with security-prefs.js
+  static const int32_t PSM_DEFAULT_MIN_TLS_VERSION = 0;
+  static const int32_t PSM_DEFAULT_MAX_TLS_VERSION = 3;
+
+  PRInt32 minVersion, maxVersion;
+  mPrefBranch->GetIntPref("security.tls.version.min", &minVersion);
+  mPrefBranch->GetIntPref("security.tls.version.max", &maxVersion);
+
+  // 0 means SSL 3.0, 1 means TLS 1.0, 2 means TLS 1.1, etc.
+  minVersion += SSL_LIBRARY_VERSION_3_0;
+  maxVersion += SSL_LIBRARY_VERSION_3_0;
+
+  SSLVersionRange range = { (uint16_t) minVersion, (uint16_t) maxVersion };
+
+  if (minVersion != (int32_t) range.min || // prevent truncation
+      maxVersion != (int32_t) range.max || // prevent truncation
+      SSL_VersionRangeSetDefault(ssl_variant_stream, &range) != SECSuccess) {
+    range.min = SSL_LIBRARY_VERSION_3_0 + PSM_DEFAULT_MIN_TLS_VERSION;
+    range.max = SSL_LIBRARY_VERSION_3_0 + PSM_DEFAULT_MAX_TLS_VERSION;
+    if (SSL_VersionRangeSetDefault(ssl_variant_stream, &range)
+          != SECSuccess) {
+      return NS_ERROR_UNEXPECTED;
+    }
+  }
+
+  return NS_OK;
+}
+
+static void configureMD5(bool enabled)
+{
+  if (enabled) { // set flags
+    NSS_SetAlgorithmPolicy(SEC_OID_MD5,
+                           NSS_USE_ALG_IN_CERT_SIGNATURE | NSS_USE_ALG_IN_CMS_SIGNATURE, 0);
+    NSS_SetAlgorithmPolicy(SEC_OID_PKCS1_MD5_WITH_RSA_ENCRYPTION,
+                           NSS_USE_ALG_IN_CERT_SIGNATURE | NSS_USE_ALG_IN_CMS_SIGNATURE, 0);
+    NSS_SetAlgorithmPolicy(SEC_OID_PKCS5_PBE_WITH_MD5_AND_DES_CBC,
+                           NSS_USE_ALG_IN_CERT_SIGNATURE | NSS_USE_ALG_IN_CMS_SIGNATURE, 0);
+  }
+  else { // clear flags
+    NSS_SetAlgorithmPolicy(SEC_OID_MD5,
+                           0, NSS_USE_ALG_IN_CERT_SIGNATURE | NSS_USE_ALG_IN_CMS_SIGNATURE);
+    NSS_SetAlgorithmPolicy(SEC_OID_PKCS1_MD5_WITH_RSA_ENCRYPTION,
+                           0, NSS_USE_ALG_IN_CERT_SIGNATURE | NSS_USE_ALG_IN_CMS_SIGNATURE);
+    NSS_SetAlgorithmPolicy(SEC_OID_PKCS5_PBE_WITH_MD5_AND_DES_CBC,
+                           0, NSS_USE_ALG_IN_CERT_SIGNATURE | NSS_USE_ALG_IN_CMS_SIGNATURE);
+  }
+}
+
+nsresult InitializeCipherSuite(nsCOMPtr<nsIPrefBranch> mPrefBranch)
+{
+  NS_ASSERTION(nsIThread::IsMainThread(), "InitializeCipherSuite() can only be accessed in main thread");
+
+  if (NSS_SetDomesticPolicy() != SECSuccess) {
+    return NS_ERROR_FAILURE;
+  }
+
+  // Disable any ciphers that NSS might have enabled by default
+  for (uint16_t i = 0; i < SSL_NumImplementedCiphers; ++i) {
+    uint16_t cipher_id = SSL_ImplementedCiphers[i];
+    SSL_CipherPrefSetDefault(cipher_id, false);
+  }
+
+  PRBool enabled;
+  // Now only set SSL/TLS ciphers we knew about at compile time
+  for (const CipherPref* cp = CipherPrefs; cp->pref; ++cp) {
+    mPrefBranch->GetBoolPref(cp->pref, &enabled);
+    SSL_CipherPrefSetDefault(cp->id, enabled);
+  }
+
+  // Enable ciphers for PKCS#12
+  SEC_PKCS12EnableCipher(PKCS12_RC4_40, 1);
+  SEC_PKCS12EnableCipher(PKCS12_RC4_128, 1);
+  SEC_PKCS12EnableCipher(PKCS12_RC2_CBC_40, 1);
+  SEC_PKCS12EnableCipher(PKCS12_RC2_CBC_128, 1);
+  SEC_PKCS12EnableCipher(PKCS12_DES_56, 1);
+  SEC_PKCS12EnableCipher(PKCS12_DES_EDE3_168, 1);
+  SEC_PKCS12SetPreferredCipher(PKCS12_DES_EDE3_168, 1);
+  PORT_SetUCS2_ASCIIConversionFunction(pip_ucs2_ascii_conversion_fn);
+
+  return NS_OK;
+}
+
 nsresult
 nsNSSComponent::InitializeNSS(PRBool showWarningBox)
 {
@@ -1493,7 +1582,14 @@ nsNSSComponent::InitializeNSS(PRBool showWarningBox)
 
     ConfigureInternalPKCS11Token();
 
-    SECStatus init_rv = ::NSS_InitReadWrite(profileStr.get());
+    // The NSS_INIT_NOROOTINIT flag turns off the loading of the root certs
+    // module by NSS_Initialize because we will load it in InstallLoadableRoots
+    // later.  It also allows us to work around a bug in the system NSS in
+    // Ubuntu 8.04, which loads any nonexistent "<configdir>/libnssckbi.so" as
+    // "/usr/lib/nss/libnssckbi.so".
+    uint32_t init_flags = NSS_INIT_NOROOTINIT | NSS_INIT_OPTIMIZESPACE;
+    SECStatus init_rv = ::NSS_Initialize(profileStr.get(), "", "",
+                                         SECMOD_DB, init_flags);
 
     if (init_rv != SECSuccess) {
       PR_LOG(gPIPNSSLog, PR_LOG_DEBUG, ("can not init NSS r/w in %s\n", profileStr.get()));
@@ -1506,13 +1602,18 @@ nsNSSComponent::InitializeNSS(PRBool showWarningBox)
       }
 
       // try to init r/o
-      init_rv = NSS_Init(profileStr.get());
+      init_flags |= NSS_INIT_READONLY;
+      init_rv = ::NSS_Initialize(profileStr.get(), "", "",
+                                 SECMOD_DB, init_flags);
 
       if (init_rv != SECSuccess) {
         PR_LOG(gPIPNSSLog, PR_LOG_DEBUG, ("can not init in r/o either\n"));
         which_nss_problem = problem_no_security_at_all;
 
-        NSS_NoDB_Init(profileStr.get());
+        init_rv = NSS_NoDB_Init(profileStr.get());
+        if (init_rv != SECSuccess) {
+          return NS_ERROR_NOT_AVAILABLE;
+        }
       }
     }
 
@@ -1522,48 +1623,35 @@ nsNSSComponent::InitializeNSS(PRBool showWarningBox)
 
       mNSSInitialized = PR_TRUE;
 
-      ::NSS_SetDomesticPolicy();
-      //  SSL_EnableCipher(SSL_RSA_WITH_NULL_MD5, SSL_ALLOWED);
-      //  SSL_EnableCipher(SSL_RSA_WITH_NULL_SHA, SSL_ALLOWED);
-
       PK11_SetPasswordFunc(PK11PasswordPrompt);
 
       // Register an observer so we can inform NSS when these prefs change
       nsCOMPtr<nsIPrefBranch2> pbi = do_QueryInterface(mPrefBranch);
       pbi->AddObserver("security.", this, PR_FALSE);
 
+      SSL_OptionSetDefault(SSL_ENABLE_SSL2, false);
+      SSL_OptionSetDefault(SSL_V2_COMPATIBLE_HELLO, false);
+
+      rv = setEnabledTLSVersions();
+      if (NS_FAILED(rv)) {
+        return NS_ERROR_UNEXPECTED;
+      }
+
       PRBool enabled;
-      mPrefBranch->GetBoolPref("security.enable_ssl2", &enabled);
-      SSL_OptionSetDefault(SSL_ENABLE_SSL2, enabled);
-      SSL_OptionSetDefault(SSL_V2_COMPATIBLE_HELLO, enabled);
-      mPrefBranch->GetBoolPref("security.enable_ssl3", &enabled);
-      SSL_OptionSetDefault(SSL_ENABLE_SSL3, enabled);
-      mPrefBranch->GetBoolPref("security.enable_tls", &enabled);
-      SSL_OptionSetDefault(SSL_ENABLE_TLS, enabled);
+      mPrefBranch->GetBoolPref("security.enable_md5_signatures", &enabled);
+      configureMD5(enabled);
 
-      // Disable any ciphers that NSS might have enabled by default
-      for (PRUint16 i = 0; i < SSL_NumImplementedCiphers; ++i)
-      {
-        PRUint16 cipher_id = SSL_ImplementedCiphers[i];
-        SSL_CipherPrefSetDefault(cipher_id, PR_FALSE);
+      SSL_OptionSetDefault(SSL_ENABLE_SESSION_TICKETS, true);
+
+      mPrefBranch->GetBoolPref("security.ssl.require_safe_negotiation", &enabled);
+      SSL_OptionSetDefault(SSL_REQUIRE_SAFE_NEGOTIATION, enabled);
+
+      SSL_OptionSetDefault(SSL_ENABLE_FALSE_START, false);
+
+      if (NS_FAILED(InitializeCipherSuite(mPrefBranch))) {
+        PR_LOG(gPIPNSSLog, PR_LOG_ERROR, ("Unable to initialize cipher suite settings\n"));
+        return NS_ERROR_FAILURE;
       }
-
-      // Now only set SSL/TLS ciphers we knew about at compile time
-      for (CipherPref* cp = CipherPrefs; cp->pref; ++cp) {
-        mPrefBranch->GetBoolPref(cp->pref, &enabled);
-
-        SSL_CipherPrefSetDefault(cp->id, enabled);
-      }
-
-      // Enable ciphers for PKCS#12
-      SEC_PKCS12EnableCipher(PKCS12_RC4_40, 1);
-      SEC_PKCS12EnableCipher(PKCS12_RC4_128, 1);
-      SEC_PKCS12EnableCipher(PKCS12_RC2_CBC_40, 1);
-      SEC_PKCS12EnableCipher(PKCS12_RC2_CBC_128, 1);
-      SEC_PKCS12EnableCipher(PKCS12_DES_56, 1);
-      SEC_PKCS12EnableCipher(PKCS12_DES_EDE3_168, 1);
-      SEC_PKCS12SetPreferredCipher(PKCS12_DES_EDE3_168, 1);
-      PORT_SetUCS2_ASCIIConversionFunction(pip_ucs2_ascii_conversion_fn);
 
       // Set up OCSP //
       setOCSPOptions(mPrefBranch);

@@ -258,6 +258,7 @@ private:
   void InstallLoadableRoots();
   void LaunchSmartCardThreads();
   void ShutdownSmartCardThreads();
+  nsresult setEnabledTLSVersions();
   nsresult InitializePIPNSSBundle();
   nsresult ConfigureInternalPKCS11Token();
   nsresult RegisterPSMContentListener();

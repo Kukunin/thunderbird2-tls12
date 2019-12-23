@@ -1,8 +1,10 @@
 pref("general.useragent.security",       "U");
 
-pref("security.enable_ssl2",             false);
-pref("security.enable_ssl3",             true);
-pref("security.enable_tls",		 true);
+pref("security.tls.version.min", 0);
+pref("security.tls.version.max", 3);
+pref("security.enable_md5_signatures", false);
+
+pref("security.ssl.require_safe_negotiation",  false);
 
 pref("security.ssl3.ecdhe_rsa_aes_128_gcm_sha256", true);
 pref("security.ssl3.ecdhe_ecdsa_aes_128_gcm_sha256", true);
