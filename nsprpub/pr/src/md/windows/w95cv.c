@@ -336,6 +336,12 @@ void _PR_MD_INIT_LOCKS(void)
  */
 #define LOCK_SPIN_COUNT 1500
 
+// VS2003 has the following error:
+// error C2065: 'CRITICAL_SECTION_NO_DEBUG_INFO' : undeclared identifier
+#ifndef CRITICAL_SECTION_NO_DEBUG_INFO
+#define CRITICAL_SECTION_NO_DEBUG_INFO 0x01000000
+#endif
+
 PRStatus _PR_MD_NEW_LOCK(_MDLock *lock)
 {
     CRITICAL_SECTION *cs = &lock->mutex;

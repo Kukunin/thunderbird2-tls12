@@ -964,7 +964,7 @@ static CipherPref CipherPrefs[] = {
  {"security.ssl3.ecdh_rsa_rc4_128_sha", TLS_ECDH_RSA_WITH_RC4_128_SHA}, // 128-bit RC4 encryption with ECDH-RSA and a SHA1 MAC
  {"security.ssl3.dhe_dss_camellia_128_sha", TLS_DHE_DSS_WITH_CAMELLIA_128_CBC_SHA}, // 128-bit Camellia encryption with DSA, DHE, and a SHA1 MAC
  {"security.ssl3.rsa_seed_sha", TLS_RSA_WITH_SEED_CBC_SHA}, // SEED encryption with RSA and a SHA1 MAC
- {nullptr, 0} /* end marker */
+ {NULL, 0} /* end marker */
 };
 
 nsresult nsNSSComponent::GetNSSCipherIDFromPrefString(const nsACString &aPrefString, PRUint16 &aCipherId)
@@ -1405,8 +1405,8 @@ nsresult
 nsNSSComponent::setEnabledTLSVersions()
 {
   // keep these values in sync with security-prefs.js
-  static const int32_t PSM_DEFAULT_MIN_TLS_VERSION = 0;
-  static const int32_t PSM_DEFAULT_MAX_TLS_VERSION = 3;
+  static const PRInt32 PSM_DEFAULT_MIN_TLS_VERSION = 0;
+  static const PRInt32 PSM_DEFAULT_MAX_TLS_VERSION = 3;
 
   PRInt32 minVersion, maxVersion;
   mPrefBranch->GetIntPref("security.tls.version.min", &minVersion);
@@ -1416,10 +1416,10 @@ nsNSSComponent::setEnabledTLSVersions()
   minVersion += SSL_LIBRARY_VERSION_3_0;
   maxVersion += SSL_LIBRARY_VERSION_3_0;
 
-  SSLVersionRange range = { (uint16_t) minVersion, (uint16_t) maxVersion };
+  SSLVersionRange range = { (PRUint16) minVersion, (PRUint16) maxVersion };
 
-  if (minVersion != (int32_t) range.min || // prevent truncation
-      maxVersion != (int32_t) range.max || // prevent truncation
+  if (minVersion != (PRInt32) range.min || // prevent truncation
+      maxVersion != (PRInt32) range.max || // prevent truncation
       SSL_VersionRangeSetDefault(ssl_variant_stream, &range) != SECSuccess) {
     range.min = SSL_LIBRARY_VERSION_3_0 + PSM_DEFAULT_MIN_TLS_VERSION;
     range.max = SSL_LIBRARY_VERSION_3_0 + PSM_DEFAULT_MAX_TLS_VERSION;
@@ -1461,8 +1461,8 @@ nsresult InitializeCipherSuite(nsCOMPtr<nsIPrefBranch> mPrefBranch)
   }
 
   // Disable any ciphers that NSS might have enabled by default
-  for (uint16_t i = 0; i < SSL_NumImplementedCiphers; ++i) {
-    uint16_t cipher_id = SSL_ImplementedCiphers[i];
+  for (PRUint16 i = 0; i < SSL_NumImplementedCiphers; ++i) {
+    PRUint16 cipher_id = SSL_ImplementedCiphers[i];
     SSL_CipherPrefSetDefault(cipher_id, false);
   }
 
@@ -1587,7 +1587,7 @@ nsNSSComponent::InitializeNSS(PRBool showWarningBox)
     // later.  It also allows us to work around a bug in the system NSS in
     // Ubuntu 8.04, which loads any nonexistent "<configdir>/libnssckbi.so" as
     // "/usr/lib/nss/libnssckbi.so".
-    uint32_t init_flags = NSS_INIT_NOROOTINIT | NSS_INIT_OPTIMIZESPACE;
+    PRUint32 init_flags = NSS_INIT_NOROOTINIT | NSS_INIT_OPTIMIZESPACE;
     SECStatus init_rv = ::NSS_Initialize(profileStr.get(), "", "",
                                          SECMOD_DB, init_flags);
 
