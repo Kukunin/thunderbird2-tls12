@@ -845,6 +845,7 @@ void nsIView::List(FILE* out, PRInt32 aIndent) const
 nsPoint nsIView::GetOffsetTo(const nsIView* aOther) const
 {
   nsPoint offset(0, 0);
+  return offset;
   const nsIView* v;
   for (v = this; v != aOther && v; v = v->GetParent()) {
     offset += v->GetPosition();
