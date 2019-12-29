@@ -119,7 +119,7 @@ OS_LFLAGS=/DEBUG /DEBUGTYPE:CV /PDB:NONE /OPT:REF /OPT:nowin98
 
 # if MOZ_DEBUG is not set and MOZ_MAPINFO
 !if defined (MOZ_MAPINFO)
-OS_LFLAGS=$(OS_LFLAGS) /MAP:$(MAPFILE) /MAPINFO:LINES
+OS_LFLAGS=$(OS_LFLAGS) /MAP:$(MAPFILE)
 !endif
 #MOZ_MAPINFO
 
@@ -162,7 +162,7 @@ RTL_FLAGS=-MDd         # Dynamically linked, multithreaded MSVC4.0 debug RTL
 #//
 #//------------------------------------------------------------------------
 OS_CFLAGS=$(OPTIMIZER) $(RTL_FLAGS) -W3 -nologo -D_X86_ -D_WINDOWS  -DWIN32 \
-            -DXP_PC -DXP_WIN -DXP_WIN32 -DHW_THREADS -DWINVER=0x400 -Gy
+            -DXP_PC -DXP_WIN -DXP_WIN32 -DHW_THREADS -DWINVER=0x501 -Gy
 
 OS_CFLAGS=$(OS_CFLAGS) -DMSVC4 
 

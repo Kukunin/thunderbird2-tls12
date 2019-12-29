@@ -425,6 +425,8 @@ case "$target" in
             _CC_SUITE=7
         elif test "$_CC_MAJOR_VERSION" = "14"; then
             _CC_SUITE=8
+        elif test "$_CC_MAJOR_VERSION" = "16"; then
+            _CC_SUITE=10
         else
             AC_MSG_ERROR([This version of the MSVC compiler, $CC_VERSION , is unsupported.])
         fi

@@ -51,7 +51,7 @@
 #include "nsAccessNode.h"
 #include "OLEIDL.H"
 #include "OLEACC.H"
-#include "winable.h"
+#include "winuser.h"
 #undef ERROR /// Otherwise we can't include nsIDOMNSEvent.h if we include this
 
 typedef LRESULT (STDAPICALLTYPE *LPFNNOTIFYWINEVENT)(DWORD event,HWND hwnd,LONG idObjectType,LONG idObject);

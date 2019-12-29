@@ -113,10 +113,13 @@
 
 #ifdef ACCESSIBILITY
 #include "OLEIDL.H"
-#include "winable.h"
+#include <winuser.h>
 #include "nsIAccessible.h"
 #include "nsIAccessibleDocument.h"
 #include "nsIAccessNode.h"
+#if !defined(WINABLEAPI)
+#include <winable.h>
+#endif // !defined(WINABLEAPI)
 #ifndef WM_GETOBJECT
 #define WM_GETOBJECT 0x03d
 #endif

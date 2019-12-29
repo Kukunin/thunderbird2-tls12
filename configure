@@ -3022,6 +3022,8 @@ cross_compiling=$ac_cv_prog_cc_cross
             _CC_SUITE=7
         elif test "$_CC_MAJOR_VERSION" = "14"; then
             _CC_SUITE=8
+        elif test "$_CC_MAJOR_VERSION" = "16"; then
+            _CC_SUITE=10
         else
             { echo "configure: error: This version of the MSVC compiler, $CC_VERSION , is unsupported." 1>&2; exit 1; }
         fi
@@ -6295,7 +6297,7 @@ EOF
 EOF
 
     cat >> confdefs.h <<EOF
-#define WINVER 0x400
+#define WINVER 0x501
 EOF
 
     cat >> confdefs.h <<\EOF
@@ -6420,11 +6422,11 @@ EOF
 EOF
 
     cat >> confdefs.h <<EOF
-#define WINVER 0x400
+#define WINVER 0x501
 EOF
 
     cat >> confdefs.h <<EOF
-#define _WIN32_WINNT 0x400
+#define _WIN32_WINNT 0x501
 EOF
 
     cat >> confdefs.h <<\EOF
