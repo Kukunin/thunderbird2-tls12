@@ -74,6 +74,39 @@ all dependencies on Windows. Versions 1.4 and 1.5 are known to work.
 I couldn't find Windows SDK 7.0 so I used 7.1 without problems, with
 only a little change in MozillaBuild startup scripts (`s/7.0/7.1/g`).
 
+### Locales
+
+Mozilla keeps locales in a different repository. Unfortunately, for versions
+of that time, they used CVS server which is shutdown, so you can't freely
+checkout it.
+
+Instead, you can download [the latest dump](https://archive.mozilla.org/pub/vcs-archive/cvs-l10n.tjz)
+and run own CVS server.
+
+You can use docker to simplify the task:
+
+    wget https://archive.mozilla.org/pub/vcs-archive/cvs-l10n.tjz
+    tar -xvf cvs-l10n.tjz
+    docker run
+    docker run --name cvsserver --rm -v $(pwd)/cvs/jail/l10n:/var/lib/cvs -p 2401:2401 jglick/cvs-demo
+    # in a different terminal
+    docker exec cvsserver chown -R nobody /var/lib/cvs
+    docker exec cvsserver echo nobody: > /var/lib/cvs/CVSROOT/passwd
+    docker exec cvsserver mkdir /var/lib/cvs
+    docker exec cvsserver chown -R nobody /var/lib/cvs
+
+After that, you can checkout the repository
+
+    export CVSROOT=:pserver:nobody@localhost:/var/lib/cvs
+    cvs checkout -d locale -r THUNDERBIRD_2_0_0_24_RELEASE .
+
+Checkout locales on the same level as this project,
+so you have both this and `l10n` on the same level.
+
+Select the required locale in `mozconfig`:
+
+    ac_add_options --enable-ui-locale=fr
+
 ### Troubleshooting the build
 
 * **Endless loop for: `Updating dependencies for: .deps/.all.pp`**
