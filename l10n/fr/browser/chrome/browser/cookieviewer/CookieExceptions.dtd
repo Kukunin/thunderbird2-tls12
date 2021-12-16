@@ -1,0 +1,10 @@
+<!ENTITY window.title                 "Exceptions">
+<!ENTITY treehead.sitename.label      "Site">
+<!ENTITY treehead.status.label        "Statut">
+<!ENTITY addpermission.label          "Nouveau site">
+<!ENTITY removepermission.label       "Enlever le site">
+<!ENTITY removeallpermissions.label   "Enlever tous les sites">
+<!ENTITY address.label                "Adresse du site Web :">
+<!ENTITY block.label                  "Bloquer">
+<!ENTITY session.label                "Autoriser pour la session">
+<!ENTITY allow.label                  "Autoriser">

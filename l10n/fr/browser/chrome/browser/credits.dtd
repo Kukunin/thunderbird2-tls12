@@ -1,0 +1,36 @@
+<!ENTITY brandMotto       "Redécouvrez le Web">
+<!ENTITY credit.leads     "Direction de la conception">
+<!ENTITY credit.core      "Équipe de développement principale">
+<!ENTITY credit.gecko     "Moteur d'affichage Gecko">
+<!ENTITY credit.thanks    "Remerciements particuliers">
+
+<!ENTITY credit.thanks2      "Merci beaucoup à nos">
+<!ENTITY credit.prethanks    "">
+<!ENTITY credit.friends      "amis">
+<!ENTITY credit.and          "et">
+<!ENTITY credit.contributors "contributeurs" >
+<!ENTITY credit.postthanks   "">
+
+<!-- localization credits look like this: -->
+<!--
+<!ENTITY credit.translation
+  "<h3>Translators</h3><ul><li>Name Here</li></ul>">
+-->
+<!ENTITY credit.translation "<h3>Traduction</h3><ul><li><strong>L'équipe FrenchMozilla</strong></li><li>Philippe Dessante</li><li>Benoît Leseul</li><li>Vincent Béron</li><li>Cédric Corazza</li><li>Marie Léger-St-Jean</li><li>Jérôme Schell</li></ul>">
+
+<!ENTITY credit.visuals     "Coordination de l'identité visuelle">
+<!ENTITY credit.theme       "Réalisation du thème">
+<!ENTITY credit.brand       "Identité de la marque">
+<!ENTITY credit.web         "Habillage Web">
+<!ENTITY credit.update      "Mozilla Update">
+<!ENTITY credit.qalead      "Direction de l'Assurance qualité">
+<!ENTITY credit.qa          "Assurance qualité">
+<!ENTITY credit.build       "Compilation et distribution">
+<!ENTITY credit.infra       "Infrastructure">
+<!ENTITY credit.support     "Ressources de soutien">
+<!ENTITY credit.manage      "Gestion du projet">
+<!ENTITY credit.marketleads "Direction Marketing">
+<!ENTITY credit.market      "Marketing">
+<!ENTITY credit.creators    "Créé par">
+<!ENTITY credit.memory      "À la mémoire de">
+<!ENTITY credit.poweredByGecko "Propulsé par Gecko&trade;">

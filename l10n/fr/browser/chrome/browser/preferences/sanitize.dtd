@@ -1,0 +1,20 @@
+<!ENTITY sanitizeDialog.title         "Effacer mes traces">
+
+<!ENTITY clearDataSettings.label      "Quand je demande à &brandShortName; d'effacer mes traces, il doit effacer :">
+
+<!-- XXX rearrange entities to match physical layout when l10n isn't an issue -->
+
+<!ENTITY itemHistory.label            "Historique de navigation">
+<!ENTITY itemHistory.accesskey        "H">
+<!ENTITY itemFormData.label           "Données de formulaires enregistrées">
+<!ENTITY itemFormData.accesskey       "f">
+<!ENTITY itemPasswords.label          "Mots de passe enregistrés">
+<!ENTITY itemPasswords.accesskey      "M">
+<!ENTITY itemCookies.label            "Cookies">
+<!ENTITY itemCookies.accesskey        "C">
+<!ENTITY itemCache.label              "Cache">
+<!ENTITY itemCache.accesskey          "a">
+<!ENTITY itemDownloads.label          "Historique de téléchargement">
+<!ENTITY itemDownloads.accesskey      "t">
+<!ENTITY itemSessions.label           "Sessions d'identification">
+<!ENTITY itemSessions.accesskey       "S">

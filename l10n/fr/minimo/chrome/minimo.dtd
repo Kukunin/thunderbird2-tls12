@@ -1,0 +1,82 @@
+<!-- Main menu --> 
+
+<!ENTITY prefs.label                  "Préférences…">
+<!ENTITY quit.label                   "Quitter">
+<!ENTITY tabs.label                   "Onglets">
+<!ENTITY homebase.label               "Accueil">
+<!ENTITY newtab.label                 "Nouvel onglet">
+<!ENTITY closetab.label               "Fermer l'onglet">
+<!ENTITY fileopen.label               "Fichier">
+
+<!-- Toolbar -->
+
+<!ENTITY backButton.label             "Précédente">
+<!ENTITY backButton.tooltip           "Ramène à la page précédente">
+<!ENTITY forwardButton.label          "Suivante">
+<!ENTITY forwardButton.tooltip        "Amène à la page suivante">
+<!ENTITY reloadButton.label           "Actualiser">
+<!ENTITY reloadButton.tooltip         "Actualise la page en cours">
+<!ENTITY stopButton.label             "Arrêter">
+<!ENTITY stopButton.tooltip           "Arrête le chargement de la page">
+<!ENTITY searchButton.label           "Rechercher">
+<!ENTITY searchButton.tooltip         "Saisissez un mot dans le champ à gauche puis cliquez sur Rechercher">
+
+<!ENTITY toggleSNavOn.label           "Naviguer avec les touches flèches">
+<!ENTITY toggleSNavOff.label          "Faire défiler avec les touches flèches">
+
+<!ENTITY gotoFullScreen.label         "Plein écran">
+<!ENTITY toggleFullScreen.label       "Basculer en plein écran">
+<!ENTITY toggleSSR.label              "Basculer en affichage simple colonne">
+
+<!ENTITY openFrameInTab.label         "Voir les cadres dans un nouvel onglet">
+
+<!ENTITY textSizePlus.label           "Taille du texte +">
+<!ENTITY textSizeMinus.label          "Taille du texte -">
+
+<!-- Context menu -->
+
+<!ENTITY homeCmd.label                "Accueil">
+<!ENTITY backCmd.label                "Précédente">
+<!ENTITY forwardCmd.label             "Suivante">
+<!ENTITY stopCmd.label                "Arrêter">
+<!ENTITY goCmd.label                  "Aller à">
+<!ENTITY panCmd.label                 "Panoramique…">
+<!ENTITY reloadCmd.label              "Actualiser">
+<!ENTITY linknewtab.label             "Ouvrir dans un nouvel onglet">
+<!ENTITY bookmarks.label              "Base d'accueil…">
+<!ENTITY bookmarkthispage.label       "Marquer cette page">
+<!ENTITY contextCopy.label            "Copier" >
+<!ENTITY contextPaste.label           "Coller" >
+
+<!-- Page modifiers --> 
+
+<!ENTITY togglet_google.label          "Affichage Google Mobile" >
+
+<!-- deprecated...--> 
+
+<!ENTITY decksb.label                  "Rechercher sur del.icio.us" >
+<!ENTITY decksearch.label              "Recherche Google" >
+<!ENTITY deckdefault.label             "Parcourir les sites" >
+
+<!-- toolbar view rss --> 
+<!ENTITY rssText.label                 "Marque :" >
+<!ENTITY rssBMtitle.label              "Marque-pages de la tribu" >
+
+<!-- toolbar search -->
+<!ENTITY searchText.label              "Rechercher : " >
+<!ENTITY searchToolbar.label           "Rechercher" >
+
+<!-- toolbar find -->
+<!ENTITY findText.label              "Rechercher : " >
+<!ENTITY findToolbar.label           "Rechercher…" >
+<!ENTITY nextText.label              "Suivant" >
+
+<!-- toolbar download -->
+<!ENTITY downloadText.label          "Télécharger la visionneuse " >
+<!ENTITY downloadCancelText.label    "Annuler" >
+
+<!-- toolbar pan -->
+<!ENTITY panText.label               "Déplacement panoramique activé. Cliquer pour désactiver." >
+
+<!-- toolbar homebar -->
+<!ENTITY homebarToolbar.label        "Basculer vers la barre personnelle" >

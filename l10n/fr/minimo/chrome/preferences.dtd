@@ -1,0 +1,63 @@
+<!ENTITY advanced.label              "Avancé">
+<!ENTITY layout.label                "Disposition">
+<!ENTITY privacy.label               "Vie privée">
+<!ENTITY proxy.label                 "Proxy">
+<!ENTITY general.label               "Général">
+<!ENTITY okayButton.label            "Enregistrer">
+<!ENTITY cancelButton.label          "Annuler">
+
+<!-- Toolbar -->
+<!ENTITY closeWindow "F">
+
+<!-- Layout pane -->
+
+<!ENTITY layoutBackgroundColor.label        "Couleur de fond de Minimo">
+<!ENTITY layoutControlbar.label             "Personnaliser les éléments de la barre de contrôle">
+
+<!-- Privacy pane -->
+<!ENTITY sanitizeButton.label        "Effacer mes traces">
+<!ENTITY sanitizeBookmarks.label     "Effacer tous les marque-pages">
+
+<!-- ConnectionsDialogPane --> 
+<!ENTITY networkCaption.label        "Réseau">
+<!ENTITY proxyCaption.label          "Paramètres du proxy HTTP">
+<!ENTITY useproxyCheckbox.label      "Utiliser un proxy">
+<!ENTITY proxyPortCaption.label      "Port">
+<!ENTITY proxyURL.label              "URL">
+
+<!ENTITY downloadMediaCaption.label  "Dossier de téléchargement par défaut">
+<!ENTITY useDownloadDir.label        "Utiliser le dossier de téléchargement">
+<!ENTITY dontAskForLaunch.label      "Toujours télécharger sur la carte mémoire quand c'est possible">
+<!ENTITY setSaveDirectory.label      "Définir le répertoire de sauvegarde">
+
+<!-- General pane --> 
+<!ENTITY homeCaption.label           "Page d'accueil">
+<!ENTITY loadHomePageCurrent.label   "Pages en cours">
+<!ENTITY loadHomePageBlank.label     "Page vide">
+<!ENTITY loadHomePageHomebase.label  "Base d'accueil">
+
+<!-- System Integration --> 
+<!ENTITY systemCaption.label         "Intégration système">
+<!ENTITY setDefaultBrowser.label     "Définir Minimo comme navigateur par défaut">
+<!ENTITY fullScreenEnabled.label     "Mode plein écran activé">
+<!ENTITY homebarEnabled.label        "Panneau latéral activé">
+
+<!-- Small Screen Settings --> 
+<!ENTITY sssCaption.label            "Paramètres pour petit écran">
+<!ENTITY imagesCheckbox.label        "Afficher les images">
+<!ENTITY useSSRCheckbox.label        "Utiliser SSR">
+<!ENTITY usesiteSSRCheckbox.label    "Utiliser le SSR spécifique au site">
+
+<!-- Advanced Settings --> 
+<!ENTITY miscCaption.label           "Paramètres divers">
+<!ENTITY useSWKeyboard.label         "Utiliser un clavier virtuel">
+<!ENTITY dumpJSConsole.label         "Vider la console JS lors de l'arrêt">
+<!ENTITY useDiskCache.label          "Utiliser le cache disque">
+<!ENTITY useDiskCacheNone.label      "Pas de cache disque">
+<!ENTITY downloadPrompt.label        "Demander le dossier de téléchargement">
+<!ENTITY enablePreFetching.label     "Activer le pré-téléchargement">
+<!ENTITY cacheSettings.label         "Cache disque">
+<!ENTITY cacheSize.label             "Taille du cache (Ko)">
+
+<!-- Summary Pane -->
+<!ENTITY summaryCaption.label        "Résumé">

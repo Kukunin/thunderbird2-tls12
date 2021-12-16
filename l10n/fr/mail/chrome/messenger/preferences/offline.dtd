@@ -1,0 +1,24 @@
+<!ENTITY offlineDialog.title "Paramètres hors ligne">
+
+<!ENTITY textStartUp "Au démarrage :">
+<!ENTITY radioRememberPrevState "Se souvenir de l'état précédent">
+<!ENTITY radioRememberPrevState.accesskey "S">
+<!ENTITY radioAskMe "Demander à passer en mode connecté">
+<!ENTITY radioAskMe.accesskey "D">
+<!ENTITY radioAlwaysOnline "Toujours démarrer en mode connecté">
+<!ENTITY radioAlwaysOnline.accesskey "T">
+
+<!ENTITY textGoingOnline "Envoyer les messages en attente lors du passage en mode connecté ?">
+<!ENTITY radioAutoSend "Oui">
+<!ENTITY radioAutoSend.accesskey "u">
+<!ENTITY radioNotSend "Non">
+<!ENTITY radioNotSend.accesskey "N">
+<!ENTITY radioAskUnsent "Demander">
+<!ENTITY radioAskUnsent.accesskey "e">
+<!ENTITY textGoingOffline "Télécharger les messages pour une utilisation hors ligne lors du passage en mode déconnecté ?">
+<!ENTITY radioAutoDownload "Oui">
+<!ENTITY radioAutoDownload.accesskey "i">
+<!ENTITY radioNotDownload "Non">
+<!ENTITY radioNotDownload.accesskey "o">
+<!ENTITY radioAskDownload "Demander">
+<!ENTITY radioAskDownload.accesskey "m">

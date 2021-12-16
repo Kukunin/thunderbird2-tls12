@@ -1,2 +1,3 @@
 ac_add_options --enable-application=mail
+# ac_add_options --enable-ui-locale=fr
 ac_cv_visibility_pragma=no

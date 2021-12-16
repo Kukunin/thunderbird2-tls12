@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/locale/intl.css" type="text/css"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"[
+    <!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd" >
+    %brandDTD;
+    <!ENTITY % platformDTD SYSTEM "chrome://browser/locale/help/platformStrings.dtd" >
+    %platformDTD;
+    <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd" >
+    %browserDTD;
+    <!ENTITY % pageReportDTD SYSTEM "chrome://browser/locale/pageReport.dtd" >
+    %pageReportDTD;
+    <!ENTITY % prefDTD SYSTEM "chrome://browser/locale/preferences/preferences.dtd" >
+    %prefDTD;
+    <!ENTITY % contentDTD SYSTEM "chrome://browser/locale/preferences/content.dtd" >
+    %contentDTD;
+    <!ENTITY % permissionsDTD SYSTEM "chrome://browser/locale/preferences/permissions.dtd" >
+    %permissionsDTD;
+    <!ENTITY % cookieExceptionsDTD SYSTEM "chrome://browser/locale/cookieviewer/CookieExceptions.dtd" >
+    %cookieExceptionsDTD;
+]>
+
+<!--
+Contributors:
+  David Tenser <david.tenser@comhem.se> (original author)
+  Steffen Wilberg <steffen.wilberg@web.de>
+Traduction:
+  Alexandre Lissy <alexandrelissy@free.fr> (traduction originale)
+  Cédric Corazza <cedric.corazza@wanadoo.fr> (corrections)
+  Benoît Leseul <benoit.leseul@easynet.be> (mise à jour pour la 1.0)
+  Marie Léger-St-Jean <marie.leger-st-jean@videotron.ca> (révision)
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<head>
+        <title>Contr&ocirc;le des fen&ecirc;tres popup</title>
+        <link rel="stylesheet" type="text/css" href="chrome://help/skin/helpFileLayout.css"/>
+</head>
+
+<body>
+
+<h1>Contr&ocirc;le des fen&ecirc;tres popup</h1>
+  
+  <p>Ce document d&eacute;taille toutes les &pref.plural; disponibles dans
+    &brandFullName; pour contr&ocirc;ler les fen&ecirc;tres popup.</p>
+
+  <div class="contentsBox">
+    Dans cette section&nbsp;:
+    <ul>
+      <li><a href="#what_are_popups">D&eacute;finition d'une fen&ecirc;tre popup</a></li>
+      <li><a href="#popup_blocker_preferences">&pref.pluralCaps; du bloqueur de
+        fen&ecirc;tres popup</a></li>
+    </ul>
+  </div>
+
+  <h2 id="what_are_popups">D&eacute;finition d'une fen&ecirc;tre popup</h2>
+  
+    <p>Les fen&ecirc;tres popup sont des fen&ecirc;tres qui peuvent surgir sans
+      votre permission. Elles varient en taille, mais ne couvrent
+      g&eacute;n&eacute;ralement pas toute la surface de l'&eacute;cran.
+      Certaines s'ouvrent devant la fen&ecirc;tre en cours de
+      &brandShortName; tandis que d'autres apparaissent derri&egrave;re
+       (<cite>popunders</cite>).</p>
+
+    <p>&brandShortName; vous permet de contr&ocirc;ler l'ouverture de ces
+      fen&ecirc;tres  gr&acirc;ce au panneau <a
+      href="prefs.xhtml#content_options">
+      <em>&paneContent.title;</em></a> dans
+      <span class="menuPath">&pref.menuPath;</span>. Le blocage est activ&eacute;
+      par d&eacute;faut, vous n'avez donc pas &agrave; vous en soucier pour
+      pr&eacute;venir l'apparition de popups dans &brandShortName;.</p>
+
+    <p>Lorsqu'une fen&ecirc;tre popup est bloqu&eacute;e, &brandShortName;
+      affiche une barre d'information ainsi qu'une ic&ocirc;ne <img src="chrome://browser/skin/Info.png"
+      alt="Ic&ocirc;ne de blocage d'une popup" style="width: 16px; height: 16px"/> 
+      dans la barre d'&eacute;tat. Lorsque vous cliquez sur le bouton <em>&pref.pluralCaps;</em> de la barre d'information ou sur l'ic&ocirc;ne de la barre d'&eacute;tat, un menu
+      s'affiche vous proposant les choix suivants&nbsp;:
+    </p>
+    <ul>
+     <li>Autoriser/bloquer les popups pour ce site</li>
+     <li>&Eacute;diter les <a href="#popup_blocker_preferences">&pref.plural; de blocage de popups&hellip;</a></li>
+     <li>Ne pas afficher ce message (message d'information) lorsque des popups sont bloqu&eacute;s</li>
+     <li>(Afficher un popup bloqu&eacute;)</li>
+    </ul>
+
+    <dl>
+      <dt>Le blocage des popups peut nuire au bon fonctionnement de certains sites</dt>
+      <dd>Certains sites, dont certaines banques, utilisent les popups pour
+        des fonctionnalit&eacute;s importantes. Le blocage de tous les popups
+        les d&eacute;sactive. Pour autoriser des sites &agrave; afficher des
+        popups, tout en bloquant ceux des autres, il vous suffit d'ajouter leur
+        adresse &agrave; la liste des sites autoris&eacute;s.</dd>
+      <dt>Le blocage des popups ne fonctionne pas toujours </dt>
+      <dd>M&ecirc;me si &brandShortName; bloque la grande majorit&eacute; des
+        popups, certains sites arrivent &agrave; passer outre.</dd>
+    </dl>
+
+  <h2 id="popup_blocker_preferences">&pref.pluralCaps; du bloqueur de fen&ecirc;tres
+    popup</h2>
+
+<p>Les &pref.pluralCaps; du bloqueur de fen&ecirc;tres popup sont situ&eacute;es dans
+    <a href="prefs.xhtml#content_options">le panneau <em>&paneContent.title;</em></a> dans &pref.menuPath;.</p>
+
+<p>Depuis ce panneau, vous pouvez&nbsp;:</p>
+
+    <dl>
+      <dt>&blockPopups.label;</dt>
+      <dd>D&eacute;s&eacute;lectionnez cette &pref.singular; pour d&eacute;sactiver le bloqueur de popups.</dd>
+      <dt>&popupExceptions.label;</dt>
+      <dd>liste les sites pour lesquels vous autorisez les popups. La bo&icirc;te de dialogue offre les choix suivants&nbsp;:
+        <dl>
+          <dt>&addpermission.label;</dt>
+          <dd>Cliquez sur ce bouton pour ajouter un site &agrave; la liste des exceptions.</dd>
+          <dt>&removepermission.label;</dt>
+          <dd>Cliquez sur ce bouton pour retirer un site de la liste des exceptions.</dd>
+          <dt>&removeallpermissions.label;</dt>
+          <dd>Cliquez sur ce bouton pour retirer tous les sites de la liste des exceptions.</dd>
+        </dl>
+      </dd>
+    </dl>
+
+      <p><strong>Remarque</strong>&nbsp;: Le blocage de popups ne fonctionne
+        pas toujours et peut nuire au bon fonctionnement de certains sites Web. Pour
+        plus d'informations, voir la section <a href="#what_are_popups">D&eacute;finition
+	d'une fen&ecirc;tre popup&nbsp;</a>.</p>
+
+  <div class="contentsBox"><em>12 septembre 2006</em></div>
+  
+  <p>Copyright &copy; 2003-2006 Les contributeurs du Projet Mozilla Help Viewer.</p>
+
+  <p><em>Traduction&nbsp;: derni&egrave;re r&eacute;vision&nbsp;: 14 septembre 2006</em></p>
+  <p>Ce texte a &eacute;t&eacute; traduit et adapt&eacute; par une &eacute;quipe
+    internationale de b&eacute;n&eacute;voles francophones. Pour plus
+    d'informations, visitez notre site&nbsp;: <a
+    href="http://frenchmozilla.sourceforge.net/" target="_blank">http://frenchmozilla.sourceforge.net</a>.
+  </p>
+</body>
+</html>

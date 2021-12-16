@@ -1,0 +1,5 @@
+<!-- Entities for the Sample Extension Options Dialog go here -->
+<!ENTITY reporterMenu.title                         "Signaler un site non fonctionnel">
+<!ENTITY reporterToolBarButton.title                "Signaler un site">
+<!ENTITY reporterMenu.tooltip                       "Signaler un site non fonctionnel">
+<!ENTITY reporterMenu.accesskey                     "S">

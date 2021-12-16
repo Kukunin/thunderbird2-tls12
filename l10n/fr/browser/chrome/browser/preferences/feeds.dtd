@@ -1,0 +1,8 @@
+<!ENTITY  feedClick.label             "Quand je clique sur un flux Web :">
+<!ENTITY  showPreview.label           "Afficher un aperçu et demander quel lecteur de flux utiliser">
+<!ENTITY  showPreview.accesskey       "A">
+<!ENTITY  subscribeUsing.label        "S'abonner au flux en utilisant :">
+<!ENTITY  subscribeUsing.accesskey    "S">
+<!ENTITY  liveBookmarks.label         "les marque-pages dynamiques">
+<!ENTITY  chooseApplication.label     "en choisissant une application…">
+<!ENTITY  chooseApplication.accesskey "e">

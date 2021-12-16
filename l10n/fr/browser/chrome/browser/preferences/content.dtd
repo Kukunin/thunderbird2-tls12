@@ -1,0 +1,49 @@
+<!ENTITY  blockPopups.label           "Bloquer les fenêtres popup">
+<!ENTITY  blockPopups.accesskey       "B">
+<!ENTITY  popupExceptions.label       "Exceptions…">
+<!ENTITY  popupExceptions.accesskey   "E">
+
+<!ENTITY  loadImages.label            "Charger les images automatiquement">
+<!ENTITY  loadImages.accesskey        "h">
+<!ENTITY  exceptions.label            "Exceptions…">
+<!ENTITY  exceptions.accesskey        "x">
+
+<!ENTITY  enableJavaScript.label      "Activer JavaScript">
+<!ENTITY  enableJavaScript.accesskey  "S">
+<!ENTITY  advancedJS.label            "Avancé…">
+<!ENTITY  advancedJS.accesskey        "n">
+
+<!ENTITY  enableJava.label            "Activer Java">
+<!ENTITY  enableJava.accesskey        "J">
+
+<!ENTITY  fontsAndColors.label        "Polices et couleurs">
+
+<!ENTITY  defaultFont.label           "Police par défaut :">
+<!ENTITY  defaultFont.accesskey       "P">
+<!ENTITY  defaultSize.label           "Taille :">
+<!ENTITY  defaultSize.accesskey       "T">
+
+<!ENTITY  advancedFonts.label         "Avancé…">
+<!ENTITY  advancedFonts.accesskey     "v">
+
+<!ENTITY  colors.label                "Couleurs…">
+<!ENTITY  colors.accesskey            "C">
+
+<!ENTITY  feeds.label                 "Flux">
+
+<!ENTITY  feedReader.label            "Lecteur de flux :">
+<!ENTITY  feedReader.accesskey        "L">
+
+<!ENTITY  feedClick.label             "Lors d'un clic sur un flux Web :">
+<!ENTITY  ask.label                   "Demander ce qu'il faut utiliser">
+<!ENTITY  ask.accesskey               "D">
+<!ENTITY  subLiveBookmark.label       "Toujours s'abonner en utilisant un marque-page dynamique">
+<!ENTITY  subLiveBookmark.accesskey   "T">
+<!ENTITY  subReader.label             "Toujours s'abonner en utilisant le lecteur de flux">
+<!ENTITY  subReader.accesskey         "b">
+
+<!ENTITY fileTypes.label              "Types de fichiers">
+
+<!ENTITY configureFileTypes.label     "Configurer la façon de traiter certains types de fichiers par &brandShortName;">
+<!ENTITY manage.label                 "Gérer…">
+<!ENTITY manage.accesskey             "G">

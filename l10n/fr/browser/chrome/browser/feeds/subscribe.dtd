@@ -1,0 +1,10 @@
+<!ENTITY feedPage.title "Affichage des flux">
+<!ENTITY feedSubscriptionInfo1a "Ceci est un &#8220;">
+<!ENTITY feedName "flux">
+<!ENTITY feedSubscriptionInfo1b "&#8221; dont le contenu du site change fréquemment.">
+<!ENTITY feedSubscriptionInfo2 "Vous pouvez vous abonner à ce flux pour recevoir les mises à jour lorsque ce contenu change.">
+<!ENTITY feedSubscribeNow "S'abonner maintenant">
+<!ENTITY subscribeUsing "S'abonner à ce flux en utilisant : ">
+<!ENTITY feedLiveBookmarks "Marque-pages dynamiques">
+<!ENTITY error.title "Erreur de traitement du flux">
+<!ENTITY error.message "Il y a eu une erreur lors du traitement de ce flux. Ceci est de notre faute. :-( Vous pouvez toujours vous abonner à ce flux si vous le connaissez. Pour référence, l'erreur était :">

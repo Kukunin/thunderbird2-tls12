@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/locale/intl.css" type="text/css"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"[
+    <!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd" >
+    %brandDTD;
+    <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd" >
+    %browserDTD;
+]>
+
+<!--
+Traduction:
+  Marie Léger-St-Jean <marie.leger-st-jean@videotron.ca> (révision)
+-->  
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<head>
+	<title>Glossaire</title>
+	<link rel="stylesheet" type="text/css" href="chrome://help/skin/helpFileLayout.css"/>
+</head>
+
+<body>
+
+<p>Ce glossaire est fourni uniquement pour votre information. On ne doit en aucun cas s'y fier comme &eacute;tant une description exhaustive ou de r&eacute;f&eacute;rence 
+ des termes d&eacute;finis ci-dessous ou des ramifications ayant trait &agrave; la s&eacute;curit&eacute; des 
+ technologies d&eacute;crites.</p>
+<hr/>
+
+<h1 id="glossary">Glossaire</h1>
+
+<dl>
+
+<dt id="Internet_protocol_address">adresse <acronym title="Internet Protocol">IP</acronym>&nbsp;(<em>protocole Internet</em>)</dt>
+    <dd>L'adresse d'un ordinateur sur un r&eacute;seau 
+     <a href="#TCP_IP" class="glossary">TCP/IP</a>. 
+     Chaque ordinateur a une seule et unique adresse IP. Un 
+     <a href="#client" class="glossary">client</a> peut avoir une adresse IP 
+     permanente ou bien elle peut lui &ecirc;tre assign&eacute;e dynamiquement 
+     chaque fois qu'il se connecte au r&eacute;seau. Les adresses IP sont 
+     compos&eacute;es de 4 nombres entre 0 et 255 s&eacute;par&eacute;s par des
+     points, par exemple&nbsp;: <kbd>204.171.64.2</kbd>.</dd>
+    
+<dt id="authentication">authentification</dt>
+<dd>L'utilisation d'un mot de passe, certificat, num&eacute;ro d'identification personnel&nbsp;(NIP/PIN) ou toute autre information pour certifier une identit&eacute; sur un r&eacute;seau 
+  informatique.</dd>
+
+<dt id="location_bar">Barre d'adresse</dt>
+<dd>Le champ (et les boutons associ&eacute;s) en haut de la fen&ecirc;tre du 
+  navigateur o&ugrave; vous pouvez saisir une adresse
+  <a href="#Uniform_Resource_Locator" class="glossary">URL</a> ou un terme &agrave; 
+  chercher.</dd>
+
+<dt id="Status_Bar">Barre d'&eacute;tat</dt>
+<dd>La barre d'outils situ&eacute;e en bas de la fen&ecirc;tre de &brandShortName;. 
+  Elle inclut les ic&ocirc;nes de notification sur la droite.</dd>
+
+<dt id="Bookmarks_Toolbar">Barre personnelle</dt>
+<dd>La barre modifiable qui appara&icirc;t par d&eacute;faut juste en dessous de la barre 
+  d'adresse dans &brandShortName;. Elle contient des boutons pour vos marque-pages favoris
+  (ou des dossiers contenant des groupes de marque-pages) que vous pouvez ajouter ou enlever.</dd>
+
+<dt id="navigation_toolbar">Barre d'outils de navigation</dt>
+<dd>La barre d'outils situ&eacute;e vers le haut de &brandShortName; qui contient les boutons 
+ <q>&forwardCmd.label;</q> et <q>&backCmd.label;</q>.</dd>
+
+<dt id="cache">cache</dt>
+<dd>Une collection de pages Web enregistr&eacute;es sur le disque dur de votre ordinateur ou 
+ dans la m&eacute;moire vive&nbsp;(RAM). &brandShortName; accumule ces copies lorsque vous naviguez 
+ sur Internet. Quand vous cliquez sur un lien ou tapez une <a href="#Uniform_Resource_Locator" 
+ class="glossary">URL</a> pour aller sur une page Web qui se trouve d&eacute;j&agrave; dans le 
+ cache, &brandShortName; compare la copie mise en cache et l'original. Si rien n'a chang&eacute;, 
+ &brandShortName; utilise la copie mise en cache plut&ocirc;t que de rechercher l'original, 
+ r&eacute;duisant ainsi le temps de t&eacute;l&eacute;chargement.</dd>
+
+<dt id="certificate">certificat</dt>
+<dd>L'&eacute;quivalent num&eacute;rique d'une carte d'identit&eacute;. Un certificat sp&eacute;cifie le nom 
+ d'un individu, d'une soci&eacute;t&eacute; ou d'une autre entit&eacute; et certifie 
+ qu'une cl&eacute; publique, qui est incluse dans le certificat, appartient bien 
+ &agrave; cette entit&eacute;. Quand vous signez num&eacute;riquement un message ou 
+ une autre donn&eacute;e, la signature num&eacute;rique pour ce message est cr&eacute;&eacute;e 
+ &agrave; l'aide de la <a href="#private_key">cl&eacute; priv&eacute;e</a> correspondant &agrave; la cl&eacute; publique 
+ de votre certificat. Un certificat provient et est sign&eacute; num&eacute;riquement par 
+ une autorit&eacute; de certification&nbsp;(AC). La validit&eacute; d'un certificat peut &ecirc;tre 
+ v&eacute;rifi&eacute;e en regardant la signature 
+ num&eacute;rique de l'AC. Aussi appel&eacute; <em>identit&eacute; num&eacute;rique</em>, <em>passeport 
+ digital</em>, <em>certificat de cl&eacute; publique</em>, <em>certificat X.509</em> et <em>certificat de 
+ s&eacute;curit&eacute;</em>.</dd>
+
+<dt id="encryption">chiffrement</dt>
+<dd>Processus pour chiffrer des informations dans le but de masquer leur sens. Par exemple, 
+ les connexions chiffr&eacute;es entre ordinateurs rendent la t&acirc;che tr&egrave;s 
+ dure &agrave; une tierce personne qui voudrait d&eacute;chiffrer ou <em>d&eacute;coder</em> 
+ l'information qui circule. Une information chiffr&eacute;e ne peut &ecirc;tre 
+ d&eacute;chiffr&eacute;e que si quelqu'un poss&egrave;de la bonne cl&eacute;.</dd>
+
+<dt id="private_key">cl&eacute; priv&eacute;e</dt>
+<dd>Une des cl&eacute;s de la paire utilis&eacute;e dans la cryptographie &agrave; 
+ cl&eacute; publique. La cl&eacute; priv&eacute;e est gard&eacute;e secr&egrave;te et 
+ utilis&eacute;e pour d&eacute;chiffrer les donn&eacute;es qui ont &eacute;t&eacute; 
+ chiffr&eacute;es avec la cl&eacute; publique correspondante.</dd>
+
+<dt id="client">client</dt>
+<dd>Logiciel (le navigateur en est un) qui envoie des requ&ecirc;tes et re&ccedil;oit 
+ des informations d'un <a href="#server" class="glossary">serveur</a>, qui 
+ tourne en g&eacute;n&eacute;ral sur un autre ordinateur. Un ordinateur sur 
+ lequel un logiciel client tourne est &eacute;galement appel&eacute; client.</dd>
+
+<dt id="cookie">cookie</dt>
+<dd>Un petit bloc d'informations stock&eacute;es sur votre ordinateur par certains 
+ sites Web. Quand vous visitez un tel site, celui-ci demande &agrave; votre navigateur 
+ de mettre un ou plusieurs cookies sur votre disque dur. Lorsque vous revenez sur ce 
+ site, votre navigateur envoie les cookies qui lui appartiennent. Les cookies permettent 
+ aux sites Web de conserver une trace d'information sur vous, comme le contenu de votre 
+ panier d'achats. Vous pouvez configurer votre gestionnaire de cookies et contr&ocirc;ler 
+ comment les cookies sont utilis&eacute;s et quelles informations vous voulez laisser aux 
+ sites Web.</dd>
+
+<dt id="cryptography">cryptographie</dt>
+<dd>L'art et la mani&egrave;re de coder (chiffrer) et d&eacute;coder (d&eacute;chiffrer) 
+ l'information. Par exemple, les techniques de cryptographie sont utilis&eacute;es pour coder 
+ et d&eacute;coder des informations qui circulent entre un site Web commercial et &brandShortName;.</dd>
+
+<dt id="decryption">d&eacute;chiffrement</dt>
+<dd>Le processus pour d&eacute;chiffrer des donn&eacute;es qui ont &eacute;t&eacute; 
+ chiffr&eacute;es. Voir aussi <a href="#encryption" class="glossary">chiffrement</a>.</dd>
+
+<dt id="FIPS_PUBS_140-1"><acronym title="Federal Information 
+ Processing Standards Publications">FIPS PUBS</acronym> 140-1&nbsp;(<em>publications des Standards f&eacute;d&eacute;raux de traitement de l'information</em>)</dt>
+<dd>Les Standards f&eacute;d&eacute;raux de traitement de l'information sont des standards du gouvernement am&eacute;ricain pour 
+ l'implantation de modules de cryptographie, qui sont un mat&eacute;riel ou un
+ logiciel qui chiffre et d&eacute;chiffre des donn&eacute;es ou ex&eacute;cute d'autres 
+ op&eacute;rations de chiffrement (comme cr&eacute;er ou v&eacute;rifier des signatures 
+ num&eacute;riques). Beaucoup de produits vendus au gouvernement am&eacute;ricain doivent 
+ se soumettre &agrave; l'un ou plusieurs standards FIPS.</dd>
+
+<dt id="feed">flux</dt>
+<dd>Une page Web au format <a href="#XML">XML</a> qui contient une liste de liens vers
+d'autres pages Web. Des programmes sp&eacute;ciaux peuvent lire des flux pour cr&eacute;er une liste
+de titres &agrave; partir de ces liens et mettre &agrave; jour automatiquement la liste quand elle change.
+Les sites de journaux utilisent des flux pour mettre &agrave; jour rapidement les derni&egrave;res nouvelles; les
+journaux personnels en ligne utilisent souvent aussi des flux pour signaler rapidement aux visiteurs
+de nouvelles entr&eacute;es. Voir &eacute;galement <a href="#live_bookmark">marque-page dynamique</a>.</dd>
+
+<dt id="File_Transfer_Protocol"><acronym title="File Transfer Protocol">FTP</acronym> (<em>Protocole de transfert de fichier</em>)</dt>
+<dd>Un standard permettant &agrave; un utilisateur de 
+ transf&eacute;rer des fichiers d'un ordinateur &agrave; un autre via un r&eacute;seau. 
+ Vous pouvez utiliser votre navigateur pour r&eacute;cup&eacute;rer des fichiers par FTP.</dd>
+
+<dt id="Password_Manager">Gestionnaire de mots de passe</dt>
+<dd>La partie de &brandShortName; qui vous aide &agrave; retenir certains ou tous 
+ vos noms d'utilisateur et mots de passe en les enregistrant sur votre disque dur et 
+ qui les entre &agrave; nouveau automatiquement quand vous revisitez ces sites.</dd>
+
+<dt id="Hypertext_Markup_Language"><acronym title="HyperText Markup Language">HTML</acronym> (<em>langage de balisage hypertexte</em>)</dt>
+<dd>Le format de document utilis&eacute; pour les 
+ pages Web. Le standard <acronym>HTML</acronym> d&eacute;finit les balises, c'est-&agrave;-dire les 
+ codes utilis&eacute;s pour d&eacute;finir la disposition des textes, polices, styles, 
+ images et tous les autres &eacute;l&eacute;ments qui constituent une page Web.</dd>
+
+<dt id="digital_ID">Identit&eacute; num&eacute;rique</dt>
+<dd>Voir <a href="#certificate">certificat</a>.</dd>
+
+<dt id="Internet">Internet</dt>
+<dd>Un r&eacute;seau mondial de millions d'ordinateurs qui communiquent entre eux en 
+ utilisant des protocoles standards comme le <a href="#TCP_IP" 
+ class="glossary">TCP/IP</a>. D&eacute;velopp&eacute; &agrave; l'origine pour l'arm&eacute;e 
+ am&eacute;ricaine en 1969, Internet s'est agrandi pour inclure des institutions de recherche et 
+ d'&eacute;ducation et, vers la fin des ann&eacute;es 1990, des millions d'entreprises,
+ d'organisations et d'individus. Aujourd'hui Internet est utilis&eacute; pour le courrier 
+ &eacute;lectronique, la navigation sur le <a href="#World_Wide_Web" class="glossary">Web</a>, la messagerie instantan&eacute;e, les listes de diffusion et les forums, ainsi qu'&agrave; plusieurs autres fins.</dd>
+
+<dt id="Java">Java</dt>
+<dd>Un langage de programmation d&eacute;velopp&eacute; par Sun Microsystems. Un programme 
+ en Java peut tourner sur diff&eacute;rents types d'ordinateurs, &eacute;vitant ainsi 
+ aux programmeurs de devoir cr&eacute;er des versions s&eacute;par&eacute;es du programme 
+ pour chaque type d'ordinateur. &brandShortName; peut automatiquement t&eacute;l&eacute;charger 
+ et lancer des programmes Java (aussi appel&eacute;s applets).</dd>
+
+<dt id="JavaScript">JavaScript</dt>
+<dd>Un langage de script utilis&eacute; couramment pour construire des pages Web. 
+ Les programmeurs utilisent le JavaScript pour cr&eacute;er des pages Web plus interactives 
+ (pour afficher des formulaires et des boutons, par exemple). Le JavaScript peut &ecirc;tre 
+ utilis&eacute; avec le Java, mais techniquement, c'est un langage diff&eacute;rent. 
+ Java n'est pas n&eacute;cessaire &agrave; JavaScript.</dd>
+
+<dt id="bookmark">marque-page</dt>
+<dd>L'adresse d'une page Web (<a href="#Uniform_Resource_Locator" class="glossary">URL</a>) enregistr&eacute;e 
+que vous pouvez retrouver facilement dans la barre d'outils personnelle ou dans le menu des marque-pages.</dd>
+
+<dt id="live_bookmark">marque-page dynamique</dt>
+<dd>Un type sp&eacute;cial de marque-page qui se comporte comme un dossier pour contenir les liens d'un
+ <a href="#feed">flux</a>. Vous pouvez cr&eacute;er un marque-page dynamique en visitant un site
+ qui contient un flux, en cliquant sur l'ic&ocirc;ne de marque-page dynamique dans la barre d'adresse
+ et en s&eacute;lectionnant le format de flux que vous souhaitez utiliser.</dd>
+
+<dt id="master_password">mot de passe principal</dt>
+<dd>Un mot de passe utilis&eacute; pour prot&eacute;ger vos mots de passe enregistr&eacute;s 
+ et autres donn&eacute;es priv&eacute;es. &brandShortName; demandera votre mot de passe principal 
+ quand vous souhaitez acc&eacute;der &agrave; ces donn&eacute;es.
+ Si vous avez plusieurs p&eacute;riph&eacute;riques de s&eacute;curit&eacute;, chacun d'eux 
+ n&eacute;cessitera un mot de passe principal s&eacute;par&eacute;.</dd>
+
+<dt id="search_engine">moteur de recherche</dt>
+<dd>Un programme du Web qui permet aux utilisateurs de chercher et de trouver des informations 
+ sur le World Wide Web. Le moteur de recherche peut chercher dans le contenu d'un document Web ou 
+ dans une liste de mots-cl&eacute;s. Il peut aussi utiliser des biblioth&eacute;caires qui parcourent les documents 
+ Web et les indexent manuellement pour la recherche. Habituellement, l'utilisateur tape un mot ou 
+ une phrase dans une bo&icirc;te de recherche, et le moteur 
+ de recherche affiche les liens de pages Web pertinentes.</dd>
+
+<dt id="home_page">page d'accueil</dt>
+<dd>La page que &brandShortName; affiche chaque fois que vous le lancez ou que vous cliquez 
+ sur le bouton <q>&homeButton.label;</q>. Aussi utilis&eacute; pour parler de la page principale d'un site Web, 
+ &agrave; partir de laquelle vous pouvez visiter tout le reste du site.</dd>
+
+<dt id="web_page">page Web</dt>
+<dd>Un simple document du World Wide Web qui est d&eacute;crit par une adresse unique 
+ ou <a href="#Uniform_Resource_Locator" class="glossary">URL</a> et qui peut contenir du texte, des liens hypertextuels ou des images.</dd>
+
+<dt id="PKCS_11"><acronym title="Public Key Cryptography Standard">PKCS</acronym> #11&nbsp;(<em>standard de cryptographie &agrave; cl&eacute; publique</em>)</dt>
+<dd>Le standard de cryptographie &agrave; cl&eacute; publique qui r&eacute;git les 
+ p&eacute;riph&eacute;riques de s&eacute;curit&eacute; comme les cartes &agrave; puce.</dd>
+
+<dt id="Plugin">plugin</dt>
+<dd>Les plugins ajoutent de nouvelles capacit&eacute;s &agrave; votre navigateur, comme lire des clips audio 
+ ou vid&eacute;o. Contrairement &agrave; d'autres utilitaires, un plugin s'installe 
+ dans le r&eacute;pertoire Plugins du r&eacute;pertoire d'installation du navigateur 
+ et peut &ecirc;tre ouvert directement par le navigateur. Par exemple, un plugin audio 
+ permet d'&eacute;couter de la musique d'une page Web ou d'un message &eacute;lectronique. 
+ Macromedia Flash Player et Java sont deux exemples de plugins.</dd>
+
+<dt id="proxy">proxy</dt>
+<dd>Un programme interm&eacute;diaire qui agit comme <a href="#server" class="glossary">serveur</a> 
+ et comme <a href="#client" class="glossary">client</a> dans le but d'envoyer des requ&ecirc;tes 
+ &agrave; la place d'autres clients.</dd>
+
+<dt id="server">serveur</dt>
+<dd>Logiciel (comme les logiciels qui envoient les pages Web) qui re&ccedil;oit 
+ des requ&ecirc;tes et envoie des informations &agrave; un <a href="#client" class="glossary">client</a>, 
+ qui tourne en g&eacute;n&eacute;ral sur un autre ordinateur. Un ordinateur qui fait tourner un 
+ logiciel serveur est &eacute;galement appel&eacute; serveur.</dd>
+
+<dt id="secure_site">site s&eacute;curis&eacute;</dt>
+<dd>Un site utilisant le <a href="#encryption">chiffrement</a> dans ses connexions
+  avec &brandShortName; afin d'emp&ecirc;cher d'autres utilisateurs malveillants
+  d'Internet de voir les donn&eacute;es transmises. Lorsque vous visitez des sites
+  s&eacute;curis&eacute;s, &brandShortName; affiche une ic&ocirc;ne de cadenas dans la
+  <a href="#Status_Bar">Barre d'&eacute;tat</a> et la <a href="#location_bar">Barre d'adresse</a>.
+  &brandShortName; affiche &eacute;galement le nom de domaine du site dans la barre d'&eacute;tat
+  (pour emp&ecirc;cher des sites malveillants de voler vos donn&eacute;es) et colore
+  le fond de la barre d'adresse en jaune.</dd>
+<dd>Certains sites peuvent contenir &agrave; la fois des donn&eacute;es s&eacute;curis&eacute;es
+ et non s&eacute;curis&eacute;es. Les donn&eacute;es non s&eacute;curis&eacute;es ne
+ sont en g&eacute;n&eacute;ral pas priv&eacute;es, bien qu'il n'y a aucune garantie.
+ Pour ces sites, &brandShortName; affichera une ic&ocirc;ne de cadenas barr&eacute;e dans la barre
+ d'&eacute;tat et la barre d'adresse en plus de <em>ne pas</em> afficher le nom de domaine du site
+ dans la barre d'&eacute;tat afin que vous sachiez que la page n'est pas totalement s&eacute;curis&eacute;e.</dd>
+ 
+<dt id="web_site">site Web</dt>
+<dd>Un groupe de pages Web de sujet commun, reli&eacute;es par des liens hypertextuels 
+ et g&eacute;r&eacute;e par une compagnie, une organisation ou un individu. Un 
+ site Web peut contenir du texte, des images, des fichiers audio et vid&eacute;o ainsi que 
+ des liens vers d'autres sites Web.</dd>
+
+<dt id="Secure_Sockets_Layer"><acronym title="Secure Sockets Layer">SSL</acronym>&nbsp;(<em>couche d'interface de connexion s&eacute;curis&eacute;e</em>)</dt>
+<dd>Un protocole qui permet des authentifications 
+ mutuelles entre un <a href="#client" class="glossary">client</a> et un <a href="#server" 
+ class="glossary">serveur</a> dans le but d'&eacute;tablir une connexion authentifi&eacute;e 
+ et chiffr&eacute;e. Le SSL marche avec TCP/IP, HTTP, LDAP, IMAP, NNTP, et d'autres protocoles 
+ de haut niveau. Le nouveau standard du <acronym title="Internet Engineering Task Force">IETF</acronym> (<em>groupe de travail d'ing&eacute;nierie d'Internet</em>) 
+ appel&eacute; <acronym title="Transport Layer Security">TLS</acronym> (<em>s&eacute;curit&eacute; de couche  transport</em>) est bas&eacute; sur le SSL. Voir aussi <a href="#authentication" 
+ class="glossary">authentification</a>, <a href="#encryption" class="glossary">chiffrement</a>.</dd>
+
+<dt id="TCP_IP"><acronym title="Transmission Control Protocol/Internet Protocol">TCP/IP</acronym>&nbsp;(<em>protocole de contr&ocirc;le de transmission/protocole Internet</em>)</dt>
+<dd>Un protocole Unix 
+ utilis&eacute; pour connecter des ordinateurs tournant sur divers syst&egrave;mes 
+ d'exploitation. Le TCP/IP est un des protocoles Internet essentiels et est devenu 
+ un standard mondial.</dd>
+
+<dt id="TLS">TLS</dt>
+<dd>Voir <a href="#Secure_Sockets_Layer">SSL</a>.</dd>
+
+<dt id="Uniform_Resource_Locator"><acronym title="Uniform Resource Locator">URL</acronym>&nbsp;(<em>rep&egrave;re de ressources uniforme</em>)</dt>
+<dd>L'adresse standardis&eacute;e qui indique 
+ &agrave; votre navigateur comment localiser un fichier ou une autre donn&eacute;es sur 
+ le Web. Par exemple&nbsp;: <tt>http://www.mozilla.org.</tt> Vous pouvez entrer des URL 
+ dans la barre de location du navigateur pour atteindre des pages Web. Les URL sont 
+ aussi utilis&eacute;es dans les liens des pages Web o&ugrave; vous pouvez cliquer 
+ pour vous rendre sur une autre page Web. Aussi appel&eacute;e <em>adresse Internet</em> ou 
+ <em>adresse Web</em>.</dd>
+
+<dt id="World_Wide_Web">World Wide Web</dt>
+<dd>Aussi appel&eacute; tout simplement <em>Web</em>. Une partie d'Internet qui est compos&eacute; 
+ des pages Web stock&eacute;es sur les <a href="#server" class="glossary">serveurs</a> 
+ et affich&eacute;es par les <a href="#client" class="glossary">clients</a> appel&eacute;s 
+ navigateur (comme &brandShortName;).</dd>
+
+<dt id="XML"><acronym title="eXtensible Markup Language">XML</acronym>&nbsp;(<em>langage de balisage extensible</em>)</dt>
+<dd>Un standard libre pour d&eacute;crire des donn&eacute;es. 
+ Contrairement au <a href="#Hypertext_Markup_Language" class="glossary">HTML</a>, XML permet au d&eacute;veloppeur d'une page Web de d&eacute;finir 
+ ses propres balises. Pour plus d'information, voir le document en ligne du W3C, <a href="http://www.w3.org/XML/" 
+ hreflang="en" target="_blank">Extensible Markup Language&nbsp;(XML)</a>.</dd>
+
+</dl>
+
+<p>
+[&nbsp;<a href="#glossary">Retour au d&eacute;but du glossaire</a>&nbsp;]
+</p>
+
+<div class="contentsBox"><em>7 avril 2005</em></div>
+
+  <p>Copyright &copy; 2003-2006 Les contributeurs du Projet Mozilla Help Viewer.</p>
+
+  <p><em>Traduction&nbsp;: derni&egrave;re r&eacute;vision&nbsp;: 24 mai 2005</em></p>
+  <p>Ce texte a &eacute;t&eacute; traduit et adapt&eacute; par une &eacute;quipe 
+   internationale de b&eacute;n&eacute;voles francophones.<br />
+   Pour plus d'informations, visitez notre site&nbsp;: <a href="http://frenchmozilla.sourceforge.net"
+   hreflang="fr" target="_blank">http://frenchmozilla.sourceforge.net</a>.</p>
+
+</body>
+</html>

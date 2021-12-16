@@ -1,0 +1,9 @@
+<!ENTITY aboutDialog.title      "À propos de &brandFullName;">
+<!ENTITY copyright              "Contributeurs">
+<!ENTITY aboutLink              "&lt; À propos de &brandShortName;">
+<!ENTITY aboutVersion           "version">
+<!ENTITY copyrightText          "&#169;1998-2006 Les contributeurs. Tous droits réservés. Firefox et les 
+                                 logos Firefox sont des marques déposées de la Mozilla Foundation. 
+                                 Tous droits réservés. Certains droits sont utilisés sous licence 
+                                 de The Charlton Company.">
+<!ENTITY cmdClose.macKey        "W">

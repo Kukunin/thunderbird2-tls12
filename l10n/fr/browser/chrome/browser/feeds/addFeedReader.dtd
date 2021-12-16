@@ -1,0 +1,5 @@
+<!ENTITY addFeedReader.title "Ajouter un lecteur de flux">
+<!ENTITY addAsDefault.label "En faire mon lecteur de flux par défaut">
+<!ENTITY addAsDefault.accesskey "E">
+<!ENTITY forSite.label "Site :">
+<!ENTITY feedReaderRegistered.title "Lecteur de flux déjà enregistré">

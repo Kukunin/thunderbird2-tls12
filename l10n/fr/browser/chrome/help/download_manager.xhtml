@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/locale/intl.css" type="text/css"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"[
+    <!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd" >
+    %brandDTD;
+    <!ENTITY % platformDTD SYSTEM "chrome://browser/locale/help/platformStrings.dtd" >
+    %platformDTD;
+    <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd" >
+    %browserDTD;
+    <!ENTITY % downloadsDTD SYSTEM "chrome://mozapps/locale/downloads/downloads.dtd" >
+    %downloadsDTD;
+    <!ENTITY % historyDTD SYSTEM "chrome://browser/locale/history/history.dtd" >
+    %historyDTD;
+    <!ENTITY % preferencesDTD SYSTEM "chrome://browser/locale/preferences/preferences.dtd" >
+    %preferencesDTD;
+    <!ENTITY % extensionsDTD SYSTEM "chrome://mozapps/locale/extensions/extensions.dtd">
+    %extensionsDTD;
+]>
+
+<!--
+Contributors:
+  Nilson Cain <mybugs@bellsouth.net> (original author)
+  Jeff Walden <jwalden+code@mit.edu>
+Traduction:
+  Alexandre Lissy <alexandrelissy@free.fr> (traduction originale)
+  Frédéric Chateaux <freed.castles@wanadoo.fr> (relecture et formatage)
+  Marie Léger-St-Jean <marianika@hotmail.com> (corrections)
+  Cédric Corazza <cedric.corazza@wanadoo.fr> (corrections et adresse)
+  Benoît Leseul <benoit.leseul@easynet.be> (mise à jour pour la 1.0, relecture)
+  Marie Léger-St-Jean <marie.leger-st-jean@videotron.ca> (révision)
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<head>
+  <title>Utilisation du gestionnaire de t&eacute;l&eacute;chargements</title>
+  <link rel="stylesheet" type="text/css" href="chrome://help/skin/helpFileLayout.css" />
+</head>
+
+<body>
+
+<h1>Utilisation du gestionnaire de t&eacute;l&eacute;chargements</h1>
+
+  <div class="contentsBox">Dans cette section&nbsp;:
+    <ul>
+      <li><a href="#what_is_download_manager">Pr&eacute;sentation du gestionnaire de
+        t&eacute;l&eacute;chargements</a></li>
+      <li><a href="#do_with_download_manager">Utilisation du
+        gestionnaire de t&eacute;l&eacute;chargements</a></li>
+      <li><a href="#download_manager_options">&pref.pluralCaps; du gestionnaire de
+        t&eacute;l&eacute;chargements</a></li>
+    </ul>
+  </div>
+
+  <h2 id="what_is_download_manager">Pr&eacute;sentation du gestionnaire de t&eacute;l&eacute;chargements</h2>
+
+    <p>Le gestionnaire de t&eacute;l&eacute;chargements est une fonction de
+      &brandShortName; qui vous permet de suivre et de g&eacute;rer vos
+      t&eacute;l&eacute;chargements pass&eacute;s et en cours. Cela
+      &eacute;vite l'ouverture de nombreuses fen&ecirc;tres de
+      t&eacute;l&eacute;chargement tout en pr&eacute;servant un acc&egrave;s aux
+      informations de t&eacute;l&eacute;chargement.</p>
+
+    <p>Le gestionnaire de t&eacute;l&eacute;chargements appara&icirc;tra quand vous
+      t&eacute;l&eacute;chargerez un fichier, quand vous s&eacute;lectionnerez
+      <span class="menuPath">&toolsMenu.label; &gt; &downloads.label;</span> ou quand
+      vous utiliserez le raccourci clavier &accelKey;+<kbd style="text-transform: uppercase"><span class="noUnix">&downloads.commandkey;</span><span 
+   class="unix">&downloadsUnix.commandkey;</span></kbd>.</p>
+
+  <h2 id="do_with_download_manager">Utilisation du gestionnaire de t&eacute;l&eacute;chargements</h2>
+
+    <p>En plus de conserver au m&ecirc;me endroit des informations sur tous
+      vos t&eacute;l&eacute;chargements, le gestionnaire de t&eacute;l&eacute;chargements 
+      permet d'acc&eacute;der &agrave; diverses actions relatives aux t&eacute;l&eacute;chargements.</p>
+
+    <dl>
+      <dt>Interrompre</dt>
+      <dd>Vous pouvez ais&eacute;ment interrompre un t&eacute;l&eacute;chargement en 
+        cliquant sur <em>&cmd.pause.label;</em> sous le nom du fichier. Cela peut &ecirc;tre utile, 
+        par exemple, si vous avez besoin de lancer un petit
+        t&eacute;l&eacute;chargement, alors qu'un fichier plus imposant est en cours
+        de transfert. Interrompre certains t&eacute;l&eacute;chargements vous permet de 
+        d&eacute;terminer quels sont vos t&eacute;l&eacute;chargements les plus prioritaires. Quand vous voulez
+        reprendre un t&eacute;l&eacute;chargement interrompu, cliquez sur
+        <em>&cmd.resume.label;</em>.</dd>
+
+      <dt>Annuler</dt>
+      <dd>Si, apr&egrave;s avoir lanc&eacute; un t&eacute;l&eacute;chargement, vous
+        ne souhaitez plus du tout obtenir ce fichier, cliquez sur <em>&cmd.cancel.label;</em>
+        &agrave; droite du nom du fichier.</dd>
+
+      <dt>Ouvrir le fichier</dt>
+      <dd>Quand un t&eacute;l&eacute;chargement est termin&eacute;, le lien
+        <em>&openLinkInWindow.label;</em> appara&icirc;t &agrave; droite du nom du fichier.
+        Utilisez-le pour ouvrir le fichier.</dd>
+
+      <dt>Supprimer l'entr&eacute;e du fichier</dt>
+      <dd>Si vous ne souhaitez plus conserver les informations relatives &agrave; un
+        t&eacute;l&eacute;chargement termin&eacute;, cliquez sur <em>&cmd.remove.label;</em>
+        &agrave; droite du nom du fichier.</dd>
+
+      <dt>Relancer un t&eacute;l&eacute;chargement</dt>
+      <dd>Si, pour une raison quelconque, un t&eacute;l&eacute;chargement n'a pu
+        s'achever correctement, vous pouvez essayer
+        de le relancer. Pour cela, cliquez sur <em>&cmd.retry.label;</em> &agrave;
+        droite du nom du fichier et &brandShortName; relancera le
+        t&eacute;l&eacute;chargement.</dd>
+
+      <dt>&filesSavedTo.label;</dt>
+      <dd>Si vous avez param&eacute;tr&eacute; &brandShortName; pour enregistrer tous vos
+        t&eacute;l&eacute;chargements dans un r&eacute;pertoire dans les
+        <a href="#download_manager_options">&pref.pluralCaps; du gestionnaire de t&eacute;l&eacute;chargements</a>,
+        vous pouvez ouvrir ce r&eacute;pertoire en cliquant sur le <em>Nom du r&eacute;pertoire</em> au bas de
+        la fen&ecirc;tre de t&eacute;l&eacute;chargements.</dd>
+    </dl>
+
+  <h2 id="download_manager_options">&pref.pluralCaps; du gestionnaire de t&eacute;l&eacute;chargements</h2>
+
+    <p>Les &pref.plural; du gestionnaire de t&eacute;l&eacute;chargements sont accessibles 
+      en ouvrant la section <em>&downloads.label;</em> du panneau &paneMain.title; de la fen&ecirc;tre des
+      &pref.pluralCaps;. Elles vous permettent de changer de 
+      nombreux param&egrave;tres relatifs aux t&eacute;l&eacute;chargements. Pour plus 
+      d'informations sur ces param&egrave;tres, r&eacute;f&eacute;rez-vous &agrave; la section 
+      sur la <a href="prefs.xhtml#downloads_options">page des &pref.pluralCaps;</a>.</p>
+
+
+<div class="contentsBox"><em>12 septembre 2006</em></div>
+
+  <p>Copyright &copy; 2003-2006 Les contributeurs du Projet Mozilla Help Viewer.</p>
+
+  <p><em>Traduction&nbsp;: derni&egrave;re r&eacute;vision&nbsp;: 14 septembre 2006</em></p>
+  <p>Ce texte a &eacute;t&eacute; traduit et adapt&eacute; par une &eacute;quipe
+    internationale de b&eacute;n&eacute;voles francophones. Pour plus
+    d'informations, visitez notre site&nbsp;: <a href="http://frenchmozilla.sourceforge.net/" 
+    target="_blank">http://frenchmozilla.sourceforge.net</a>.
+  </p>
+</body>
+
+</html>

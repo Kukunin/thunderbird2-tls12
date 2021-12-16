@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/locale/intl.css" type="text/css"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"[
+    <!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd" >
+    %brandDTD;
+    <!ENTITY % platformDTD SYSTEM "chrome://browser/locale/help/platformStrings.dtd" >
+    %platformDTD;
+    <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd" >
+    %browserDTD;
+    <!ENTITY % baseMenuOverlayDTD SYSTEM "chrome://browser/locale/baseMenuOverlay.dtd" >
+    %baseMenuOverlayDTD;
+    <!ENTITY % extensionsDTD SYSTEM "chrome://mozapps/locale/extensions/extensions.dtd" >
+    %extensionsDTD;
+    <!ENTITY % customizeToolbarDTD SYSTEM "chrome://global/locale/customizeToolbar.dtd" >
+    %customizeToolbarDTD;
+    <!ENTITY % preferencesDTD SYSTEM "chrome://browser/locale/preferences/preferences.dtd" >
+    %preferencesDTD;
+    <!ENTITY % advancedDTD SYSTEM "chrome://browser/locale/preferences/advanced.dtd" >
+    %advancedDTD;
+]>
+
+<!--
+Contributors:
+  Nilson Cain <nilson@gmail.com> (original author)
+  Steffen Wilberg <steffen.wilberg@web.de>
+  Traduction:
+  Cédric Corazza <cedric.corazza@wanadoo.fr> (corrections)
+  Éric Jousse <ericj@geckozone.org> (relecture et corrections)
+  Marie Léger-St-Jean <marie.leger-st-jean@videotron.ca> (révision)
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<head>
+   <title>Personnalisation de &brandFullName;</title>
+   <link rel="stylesheet" type="text/css" href="chrome://help/skin/helpFileLayout.css"/>
+</head>
+
+<body>
+<h1>Personnalisation de &brandFullName;</h1>
+
+<div class="contentsBox">Dans cette section&nbsp;:
+ <ul>
+
+   <li><a href="#toolbars">Barres d'outils</a></li>
+   <li><a href="#add_onss">Modules compl&eacute;mentaires (extensions et th&egrave;mes)</a></li>
+ </ul>
+</div>
+<h2 id="toolbars">Barres d'outils</h2>
+
+<p>Dans cette section, il vous sera expliqu&eacute; comment ajouter, supprimer, r&eacute;agencer ou masquer les barres d'outils dans &brandFullName;. Pour ceux qui ne sont pas
+ habitu&eacute;s &agrave; ces termes, une barre d'outils est une des bo&icirc;tes (habituellement grises) au-dessus de la zone o&ugrave;
+  les sites sont affich&eacute;s.</p>
+
+<ul>
+  <li class="noMac"><strong>Barre de menus</strong>&nbsp;: contient les diff&eacute;rents menus (<em>&fileMenu.label;</em>, <em>&editMenu.label;</em>, <em><span class="win">&helpMenuWin.label;</span><span class="noWin">&helpMenu.label;</span></em>,&nbsp;etc.).</li>
+  <li><strong>Barre de navigation</strong>&nbsp;: contient la zone d'adresse et les boutons utilis&eacute;s pour naviguer.</li>
+  <li><strong>Barre personnelle</strong>&nbsp;: contient vos dossiers de marque-pages.</li>
+
+</ul>
+
+<p>Il y a deux fa&ccedil;ons principales de personnaliser les barres d'outils dans &brandShortName;&nbsp;:</p>
+
+<ul>
+<li><a href="#rearranging_toolbar_items">R&eacute;organisation des &eacute;l&eacute;ments dans les barres d'outils</a></li>
+<li><a href="#adding_removing_toolbars">Ajout, suppression et masquage des barres d'outils</a></li>
+</ul>
+
+<h3 id="rearranging_toolbar_items">R&eacute;organisation des &eacute;l&eacute;ments dans les barres d'outils</h3>
+
+<p>Pour r&eacute;organiser les &eacute;l&eacute;ments (ic&ocirc;nes, boutons, bo&icirc;tes de texte,&nbsp;etc.) dans votre barre d'outils, <span class="noMac">cliquez avec le bouton droit de votre souris</span><span class="mac">cliquez en appuyant sur &ctrlKey;</span> sur n'importe quel endroit de la barre d'outils qui n'est pas une bo&icirc;te de texte ou une ic&ocirc;ne et s&eacute;lectionnez <span class="menuPath">&viewCustomizeToolbar.label;</span>. Ceci ouvrira la bo&icirc;te de dialogue de personnalisation des barres d'outils.</p>
+
+<p>D&eacute;placez n'importe quel &eacute;l&eacute;ment vers ou &agrave; partir de la barre d'outils <span class="noMac">(&agrave; l'exclusion des &eacute;l&eacute;ments du menu)</span>. Vous pouvez
+  &eacute;galement r&eacute;organiser les ic&ocirc;nes d&eacute;j&agrave; pr&eacute;sentes en les d&eacute;pla&ccedil;ant o&ugrave; vous le souhaitez.
+  Une fois que l'organisation obtenue vous convient, cliquez sur <em>&saveChanges.label;</em>.</p>
+
+<h4 id="special_toolbar_items">&Eacute;l&eacute;ments sp&eacute;ciaux de barre d'outils</h4>
+
+<p>Des &eacute;l&eacute;ments sp&eacute;ciaux deviennent accessibles quand vous voulez personnaliser une barre d'outils. Ces &eacute;l&eacute;ments sont les suivants&nbsp;:</p>
+
+<ul>
+  <li><strong>S&eacute;parateurs</strong>&nbsp;: ils vous permettent de cr&eacute;er de petites lignes verticales pour s&eacute;parer les &eacute;l&eacute;ments.</li>
+
+  <li><strong>Espaces</strong>&nbsp;: ils vous permettent de cr&eacute;er un espace entre les &eacute;l&eacute;ments d'une taille g&eacute;n&eacute;ralement fix&eacute;e &agrave; 20&nbsp;pixels dans tous les th&egrave;mes.</li>
+  <li><strong>Espaces flexibles</strong>&nbsp;: ces espaces se redimensionnent automatiquement pour utiliser
+    toute la place libre dans la barre d'outils. Ils sont utiles notamment pour positionner un &eacute;l&eacute;ment &agrave; droite de la barre d'outils.</li>
+</ul>
+
+
+<h3 id="adding_removing_toolbars">Ajout, suppression et masquage des barres d'outils</h3>
+
+<p>Vous pouvez masquer la barre de navigation et la barre de marque-pages si vous ne souhaitez pas les
+  conserver affich&eacute;es &agrave; l'&eacute;cran. <span class="noMac">Vous ne pouvez par contre
+  pas masquer la barre de menus. En effet, les menus (<em>&fileMenu.label;</em>, <em>&editMenu.label;</em>,
+  <em><span class="win">&helpMenuWin.label;</span><span class="noWin">&helpMenu.label;</span></em>,&nbsp;etc.)
+  ne peuvent &ecirc;tre d&eacute;plac&eacute;s dans une autre barre, et il est indispensable qu'ils restent &agrave; l'&eacute;cran.</span></p>
+
+<p>Pour afficher ou masquer une barre d'outils, s&eacute;lectionnez <span class="menuPath">
+  &viewMenu.label; &gt; &viewToolbarsMenu.label;</span>
+  et cliquez sur le nom de la barre d'outils que vous voulez afficher ou masquer.</p>
+
+<p>Pour ajouter une barre d'outils personnalis&eacute;e, s&eacute;lectionnez <span class="menuPath">&viewMenu.label; &gt; &viewToolbarsMenu.label; &gt; &viewCustomizeToolbar.label;</span>.
+  Cliquez sur <em>&addNewToolbar.label;</em> (dans le bas de la bo&icirc;te de dialogue). Vous obtenez une bo&icirc;te de dialogue avec une bo&icirc;te de texte. Si vous saisissez un nom et cliquez sur <em>OK</em>, votre nouvelle barre d'outils appara&icirc;t. Vous pouvez alors y d&eacute;poser ou retirer des &eacute;l&eacute;ments. Pour supprimer une barre d'outils personnalis&eacute;e, retirez tous les &eacute;l&eacute;ments de la barre et cliquez sur <em>&saveChanges.label;</em>. Vous pouvez &eacute;galement masquer une barre
+d'outils personnalis&eacute;e en suivant les indications donn&eacute;es dans le paragraphe pr&eacute;c&eacute;dent.</p>
+
+<h2 id="add_ons">Modules compl&eacute;mentaires (extensions et th&egrave;mes)</h2>
+
+<p>Les modules compl&eacute;mentaires sont de petits logiciels qui changent l'apparence ou ajoutent de nouvelles
+  fonctionnalit&eacute;s &agrave; &brandShortName;. Il y a deux types de modules&nbsp;: les extensions et les th&egrave;mes.</p>
+
+<dl>
+  <dt>Les extensions</dt>
+  <dd>Les extensions ajoutent de nouvelles fonctionnalit&eacute;s &agrave; &brandShortName;. Elles peuvent
+    ajouter n'importe quoi, d'un simple bouton de barre d'outils &agrave; une toute nouvelle
+    fonctionnalit&eacute;. Elles permettent de personnaliser l'application pour s'adapter aux besoins de chaque
+    utilisateur tout en minimisant la taille et l'apparence de l'application elle-m&ecirc;me.</dd>
+
+  <dt>Les th&egrave;mes</dt>
+  <dd>Les th&egrave;mes modifient l'apparence de &brandShortName;. Ils permettent de modifier l'habillage de
+    &brandShortName; et l'adaptent &agrave; votre go&ucirc;t. Un th&egrave;me peut simplement modifier les
+    images des boutons ou totalement changer l'apparence de &brandShortName;.</dd>
+</dl>
+
+<h3 id="add_ons_installing">Obtenir et installer des modules compl&eacute;mentaires</h3>
+
+<p>Vous pouvez t&eacute;l&eacute;charger et installer beaucoup de modules compl&eacute;mentaires &agrave;
+  partir de <a href="https://addons.mozilla.org/firefox/" target="_blank">&brandShortName;
+  Add-ons</a>. Une recherche sur Internet vous permettra &eacute;galement de trouver beaucoup
+  d'autres modules.</p>
+
+<p>Quand vous cliquez sur un lien pour installer un module, &brandShortName; affiche un message
+  demandant votre permission pour installer le module. Vous pouvez choisir d'autoriser le t&eacute;l&eacute;chargement
+  et l'installation ou annuler le processus.</p>
+
+<h2 id="add_ons_manager">Utiliser le gestionnaire de modules</h2>
+<p>Les modules sont g&eacute;r&eacute;s dans le gestionnaire de modules. S&eacute;lectionnez <span
+  class="menuPath">&toolsMenu.label; &gt; &addons.label;</span> pour l'ouvrir.</p>
+
+<h3 id="add_ons_updating">Mettre &agrave; jour les modules compl&eacute;mentaires</h3>
+
+<p>Par d&eacute;faut, &brandShortName; v&eacute;rifie p&eacute;riodiquement si une nouvelle version des modules
+  que vous avez install&eacute;s est disponible. Si c'est le cas, il vous demandera au prochain d&eacute;marrage
+  d'installer les mises &agrave; jour. Vous pouvez changer ce comportement dans l'onglet
+  <a href="prefs.xhtml#advanced_update"><em>&updateTab.label;</em></a>
+  du panneau <em>&paneAdvanced.title;</em> des &pref.pluralCaps;.</p>
+
+<p>Vous pouvez v&eacute;rifier manuellement la pr&eacute;sence de mises &agrave; jour en s&eacute;lectionnant
+  les panneaux <em>&extensions.label;</em> ou
+  <em>&themes.label;</em> et en cliquant sur le bouton <em>&cmd.checkUpdatesAll.label;</em>. Si des mises &agrave; jour
+  sont disponibles, le gestionnaire de modules affiche un panneau <em>&update.label;</em>
+  o&ugrave; vous pouvez choisir les mises &agrave; jour &agrave; installer. Cliquez sur le bouton
+  <em>&cmd.installUpdatesAll.label;</em> pour mettre &agrave; jour vos modules.
+  Vous devrez red&eacute;marrer &brandShortName; pour que les changements soient pris en compte.</p>
+
+<h3 id="add_ons_uninstalling">D&eacute;sactiver, activer et d&eacute;sinstaller des modules</h3>
+
+<p>Si vous en avez marre d'une extension, vous pouvez soit la d&eacute;sactiver temporairement,
+  de sorte qu'elle soit facilement disponible si vous vouliez la r&eacute;activer plus tard,
+  soit la d&eacute;sinstaller. Les th&egrave;mes ne peuvent &ecirc;tre que d&eacute;sinstall&eacute;s
+  car tous les th&egrave;mes, except&eacute; celui en cours d'utilisation, sont d&eacute;sactiv&eacute;s automatiquement.</p>
+  
+<p>Pour d&eacute;sactiver ou activer une extension, s&eacute;lectionnez l'extension de votre choix et cliquez sur
+  ses boutons <em>&cmd.disable.label;</em> ou <em>&cmd.enable.label;</em>. Pour retirer un module de
+  &brandShortName;, s&eacute;lectionnez le module que vous souhaitez supprimer et cliquez sur son bouton
+  <em>&cmd.uninstall.label;</em>. Vous devrez red&eacute;marrer &brandShortName; pour que les changements soient pris
+  en compte.</p>
+
+<h3 id="add_ons_further">Autres fonctionnalit&eacute;s</h3>
+
+<p>D'autres fonctionnalit&eacute;s comme <em>&cmd.homepage.label;</em> et <em>&cmd.about2.label;</em> sont disponibles
+  en s&eacute;lectionnant le module de votre choix, <span class="mac">en appuyant sur la touche
+  &ctrlKey; et en cliquant sur </span><span class="noMac">en faisant un clic-droit sur</span> le module et en
+  s&eacute;lectionnant l'&eacute;l&eacute;ment appropri&eacute; dans le menu contextuel.</p>
+
+<h3 id="add_ons_specific">T&acirc;ches sp&eacute;cifiques aux extensions et aux th&egrave;mes</h3>
+<h4 id="add_ons_configuring_extensions">Configurer des extensions</h4>
+
+<p>Les extensions proposent souvent un moyen de configurer leur fonctionnalit&eacute;s. Pour ouvrir la fen&ecirc;tre des
+  &pref.plural; d'une extension, s&eacute;lectionnez le panneau <em>&extensions.label;</em>, puis
+  l'extension de votre choix et cliquez sur son bouton <em>&pref.pluralCaps;</em>,
+  ou faites simplement un double-clic sur l'extension.</p>
+
+<h4 id="add_ons_switching_themes">Changer de th&egrave;me</h4>
+
+<p>Pour basculer entre les diff&eacute;rents th&egrave;mes install&eacute;s, s&eacute;lectionnez le panneau
+ <em>&themes.label;</em>, puis le th&egrave;me de votre choix et cliquez sur le bouton <em>&cmd.useTheme.label;</em>.
+  Vous devrez red&eacute;marrer &brandShortName; pour que les changements soient pris en compte.</p>
+
+<div class="contentsBox"><em>12 septembre 2006</em></div>
+
+  <p>Copyright &copy; 2003-2006 Les contributeurs du Projet Mozilla Help Viewer.</p>
+
+  <p><em>Traduction&nbsp;: derni&egrave;re r&eacute;vision&nbsp;: 14 septembre 2006</em></p>
+  <p>Ce texte a &eacute;t&eacute; traduit et adapt&eacute; par une &eacute;quipe
+    internationale de b&eacute;n&eacute;voles francophones. Pour plus
+    d'informations, visitez notre site&nbsp;: <a
+    href="http://frenchmozilla.sourceforge.net/" target="_blank">http://frenchmozilla.sourceforge.net</a>.
+  </p>
+
+</body>
+
+</html>

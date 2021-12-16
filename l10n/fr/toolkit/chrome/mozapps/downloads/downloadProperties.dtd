@@ -1,0 +1,7 @@
+<!ENTITY dateStarted.label      "Démarré :">
+<!ENTITY dateEnded.label        "Terminé :">
+<!ENTITY window.title           "Propriétés">
+<!ENTITY downloadedFrom.label   "Depuis :">
+<!ENTITY path.label             "Vers :">
+<!ENTITY acceptButton.label     "Fermer">
+<!ENTITY cmd.close.commandKey   "w">

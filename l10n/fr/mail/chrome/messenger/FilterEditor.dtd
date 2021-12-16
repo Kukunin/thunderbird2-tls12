@@ -1,0 +1,52 @@
+<!ENTITY window.title "Modifier le filtre">
+<!ENTITY subject.label "sujet">
+<!ENTITY sender.label "expéditeur">
+<!ENTITY date.label "date">
+<!ENTITY anyText.label "un texte">
+<!ENTITY keyword.label "mot-clé">
+<!ENTITY age.label "âge en jours">
+<!ENTITY to.label "pour">
+
+<!-- LOCALIZATION NOTE (cc.label): DONT_TRANSLATE -->
+<!ENTITY cc.label "CC">
+
+<!ENTITY status.label "statut">
+<!ENTITY priority.label "priorité">
+<!ENTITY body.label "corps">
+<!ENTITY contains.label "contient">
+<!ENTITY nocontains.label "ne contient pas">
+<!ENTITY filterName.label "Nom du filtre :">
+<!ENTITY filterName.accesskey "i">
+
+<!ENTITY junk.label "Indésirable">
+<!ENTITY notJunk.label "Acceptable">
+
+<!ENTITY lowestPriorityCmd.label "Minimale">
+<!ENTITY lowPriorityCmd.label "Basse">
+<!ENTITY normalPriorityCmd.label "Normale">
+<!ENTITY highPriorityCmd.label "Haute">
+<!ENTITY highestPriorityCmd.label "Maximale">
+
+<!ENTITY conditionDesc.label "Quand de nouveaux messages arrivent dans ma boîte, chercher les messages qui :">
+<!ENTITY filterActionDesc.label "Exécuter ces actions :">
+<!ENTITY filterActionDesc.accesskey "x">
+
+<!ENTITY newFolderButton.label "Nouveau dossier">
+<!ENTITY newFolderButton.accesskey "N">
+
+<!-- New Style Filter Rule Actions -->
+<!ENTITY moveMessage.label "Déplacer le message vers">
+<!ENTITY copyMessage.label "Copier le message dans">
+<!ENTITY forwardTo.label "Transférer le message à">
+<!ENTITY replyWithTemplate.label "Répondre avec le modèle">
+<!ENTITY markMessageRead.label "Marquer comme lu">
+<!ENTITY markMessageStarred.label "Suivre">
+<!ENTITY labelMessage.label "Étiqueter le message comme">
+<!ENTITY setPriority.label "Définir la priorité à">
+<!ENTITY addTag.label "Marquer le message">
+<!ENTITY setJunkScore.label "Définir le statut indésirable à">
+<!ENTITY deleteMessage.label "Supprimer le message">
+<!ENTITY deleteFromPOP.label "Supprimer du serveur POP">
+<!ENTITY fetchFromPOP.label "Rapatrier du serveur POP">
+<!ENTITY ignoreThread.label "Ignorer le fil">
+<!ENTITY watchThread.label "Surveiller le fil">

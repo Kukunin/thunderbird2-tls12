@@ -1,0 +1,27 @@
+<!ENTITY newBookmark.title          "Ajouter un marque-page">
+<!ENTITY newbookmark.label          "&brandShortName; ajoutera un marque-page sur ce document.">
+<!ENTITY name.label                 "Nom :">
+<!ENTITY name.accesskey             "o">
+<!ENTITY keyword.label              "Mot-clé :">
+<!ENTITY keyword.accesskey          "M">
+<!ENTITY microsummary.label         "Titres dynamiques">
+<!ENTITY url.label                  "Adresse :">
+<!ENTITY url.accesskey              "a">
+<!ENTITY button.createin.label      "Créer dans &gt;&gt;">
+<!ENTITY button.createin.accesskey  "c">
+<!ENTITY button.createin2.label     "Créer dans &lt;&lt;">
+<!ENTITY createin.label             "Créer dans :">
+<!ENTITY createin.accesskey         "e">
+<!ENTITY moveto.label               "Déplacer vers :">
+<!ENTITY moveto.accesskey           "p">
+<!ENTITY button.newfolder.label     "Nouveau dossier…">
+<!ENTITY button.newfolder.accesskey "n">
+<!ENTITY alwayscreateinfolder.label "Ne plus afficher cette fenêtre">
+<!ENTITY alwayscreateinfolder.accesskey "a">
+<!ENTITY dontshowmessage.tooltip    "Quand cette option est sélectionnée, les nouveaux marque-pages sont ajoutés en utilisant le titre de la page.">
+<!ENTITY selectFolder.label         "Choisir un dossier">
+
+<!ENTITY expanderDown.tooltip    "Afficher tous les dossiers de marque-pages">
+<!ENTITY expanderUp.tooltip      "Masquer">
+<!ENTITY acceptButton.label            "Ajouter">
+<!ENTITY bookmarksToolbar.label  "Barre personnelle">

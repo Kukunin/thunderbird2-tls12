@@ -1,0 +1,16 @@
+
+<!ENTITY addressbookPicker.label            "Carnet d'adresses :">
+<!ENTITY searchInput.label                  "Chercher :">
+<!ENTITY SearchNameOrEmail.label            "Nom ou adresse">
+
+<!ENTITY addtoToFieldMenu.label             "Ajouter au champ Pour">
+<!ENTITY addtoCcFieldMenu.label             "Ajouter au champ Copie à">
+<!ENTITY addtoBccFieldMenu.label            "Ajouter au champ Copie cachée à">
+
+<!ENTITY toButton.label                     "Ajout Pour :">
+<!ENTITY ccButton.label                     "Ajout Copie à :">
+
+
+
+
+

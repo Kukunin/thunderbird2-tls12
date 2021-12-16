@@ -1,0 +1,19 @@
+<!-- extracted from content/pref-publish.xul -->
+
+<!--LOCALIZATION NOTE : FILE The Publish preferences screen -->
+<!ENTITY  pref.publish.title "Publication">
+<!ENTITY  composerHeader.label "Publication">
+<!ENTITY  maintainCheckbox.label "Maintien des liens">
+<!ENTITY  keepCheck.label "Garder les images avec la page">
+
+<!--LOCALIZATION NOTE (adjustDesc.label): Attempt to maintain approximate line length, linefeeds and white space -->
+<!ENTITY  adjustDesc.label "Ajuster les liens avec l'adresse de la page (les liens vers une page locale fonctionneront si une version locale existe.)   ">
+<!--LOCALIZATION NOTE (saveDesc.label): Attempt to maintain approximate line length, linefeeds and white space -->
+<!ENTITY  saveDesc.label "Enregistrer une copie des images à l'adresse de la page. Les images apparaîtront ainsi dans la version locale et à la publication de la page.">
+<!ENTITY  tip.label "Astuce : cochez les deux options si vous comptez utiliser la publication distante.">
+<!ENTITY defaultHeader.label  "Adresse de publication par défaut">
+<!--LOCALIZATION NOTE (publishFtp.label): Edit box appears beside this label -->
+<!ENTITY  publishFtp.label "Si vous publiez sur un site FTP, saisissez l'adresse HTTP correspondante :">
+<!--LOCALIZATION NOTE (publishhtp.label): Edit box appears beside this label -->
+<!ENTITY  publishhtp.label "Si vous publiez sur un site FTP, saisissez l'adresse HTTP correspondante :">
+

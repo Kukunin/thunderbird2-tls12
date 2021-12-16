@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/locale/intl.css" type="text/css"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"[
+    <!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd" >
+    %brandDTD;
+    <!ENTITY % platformDTD SYSTEM "chrome://browser/locale/help/platformStrings.dtd" >
+    %platformDTD;
+    <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd" >
+    %browserDTD;
+    <!ENTITY % mainDTD SYSTEM "chrome://browser/locale/preferences/main.dtd" >
+    %mainDTD;
+    <!ENTITY % fontsDTD SYSTEM "chrome://browser/locale/preferences/fonts.dtd" >
+    %fontsDTD;
+    <!ENTITY % colorsDTD SYSTEM "chrome://browser/locale/preferences/colors.dtd" >
+    %colorsDTD;
+    <!ENTITY % feedsDTD SYSTEM "chrome://browser/locale/preferences/feeds.dtd" >
+    %feedsDTD;
+    <!ENTITY % connectionDTD SYSTEM "chrome://browser/locale/preferences/connection.dtd" >
+    %connectionDTD;
+    <!ENTITY % privacyDTD SYSTEM "chrome://browser/locale/preferences/privacy.dtd" >
+    %privacyDTD;
+    <!ENTITY % contentDTD SYSTEM "chrome://browser/locale/preferences/content.dtd" >
+    %contentDTD;
+    <!ENTITY % permissionsDTD SYSTEM "chrome://browser/locale/preferences/permissions.dtd" >
+    %permissionsDTD;
+    <!ENTITY % tabsDTD SYSTEM "chrome://browser/locale/preferences/tabs.dtd" >
+    %tabsDTD;
+    <!ENTITY % languagesDTD SYSTEM "chrome://browser/locale/preferences/languages.dtd" >
+    %languagesDTD;
+    <!ENTITY % advancedDTD SYSTEM "chrome://browser/locale/preferences/advanced.dtd" >
+    %advancedDTD;
+    <!ENTITY % advanced-scriptsDTD SYSTEM "chrome://browser/locale/preferences/advanced-scripts.dtd" >
+    %advanced-scriptsDTD;
+    <!ENTITY % downloadsDTD SYSTEM "chrome://browser/locale/preferences/downloads.dtd" >
+    %downloadsDTD;
+    <!ENTITY % downloadactionsDTD SYSTEM "chrome://browser/locale/preferences/downloadactions.dtd" >
+    %downloadactionsDTD;
+    <!ENTITY % changeactionDTD SYSTEM "chrome://browser/locale/preferences/changeaction.dtd" >
+    %changeactionDTD;
+    <!ENTITY % securityWarningsDTD SYSTEM "chrome://browser/locale/preferences/securityWarnings.dtd" >
+    %securityWarningsDTD;
+    <!ENTITY % cookieExceptionsDTD SYSTEM "chrome://browser/locale/cookieviewer/CookieExceptions.dtd" >
+    %cookieExceptionsDTD;
+    <!ENTITY % updateDTD SYSTEM "chrome://mozapps/locale/preferences/update.dtd" >
+    %updateDTD;
+    <!ENTITY % preferencesDTD SYSTEM "chrome://browser/locale/preferences/preferences.dtd" >
+    %preferencesDTD;
+    <!ENTITY % sanitizeDTD SYSTEM "chrome://browser/locale/preferences/sanitize.dtd" >
+    %sanitizeDTD;
+    <!ENTITY % securityDTD SYSTEM "chrome://browser/locale/preferences/security.dtd" >
+    %securityDTD;
+]>
+
+<!--
+Contributors:
+  David Tenser <tenser@comhem.se> (original author)
+  Steffen Wilberg <steffen.wilberg@web.de>
+  Ryan Flint <rflint@dslr.net>
+  Jeff Walden <jwalden+code@mit.edu>
+
+Traduction:
+  ??? (traduction originale)
+  Marie Léger-St-Jean <marianika@hotmail.com> (mise à jour 0.9)
+  François Constantineau <fconstantineau@laposte.net> (nombreuses corrections, passage aux entités)
+  Cédric Corazza <cedric.corazza@wanadoo.fr> (coquilles et reformulations)
+  Benoît Leseul <benoit.leseul@easynet.be> (passage à la 1.0, reformatage)
+  Marie Léger-St-Jean <marie.leger-st-jean@videotron.ca> (révision)
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<head>
+  <title>Pr&eacute;f&eacute;rences/Options de &brandFullName;</title>
+  <link rel="stylesheet" type="text/css" href="chrome://help/skin/helpFileLayout.css"/>
+</head>
+
+<body>
+
+<h1>&pref.pluralCaps; de &brandFullName;</h1>
+<div>Ce document d&eacute;taille toutes les options disponibles
+	dans la fen&ecirc;tre &pref.pluralCaps; de &brandFullName;.</div>
+
+<div class="contentsBox">Dans cette section&nbsp;:
+  <ul>
+    <li><a href="#main_options">&pref.pluralCaps; g&eacute;n&eacute;rales</a></li>
+    <li><a href="#tabs_options">&pref.pluralCaps; des onglets</a></li>
+    <li><a href="#content_options">&pref.pluralCaps; de contenu</a></li>
+    <li><a href="#feeds_options">&pref.pluralCaps; de flux</a></li>
+    <li><a href="#privacy_options">&pref.pluralCaps; de vie priv&eacute;e</a></li>
+    <li><a href="#security_options">&pref.pluralCaps; de sécurité</a></li>
+    <li><a href="#advanced_options">&pref.pluralCaps; avanc&eacute;es</a></li>
+  </ul>
+</div>
+
+<h2 id="main_options">&pref.pluralCaps; g&eacute;n&eacute;rales</h2>
+   
+	<h3 id="startup">&startup.label;</h3>
+	<p>Quand vous ouvrez &brandShortName;, par d&eacute;faut votre
+   <a href="glossary.xhtml#home_page">page de d&eacute;marrage</a> est affich&eacute;e. Cela peut &ecirc;tre un site que
+   vous visitez souvent, un moteur de recherche ou peut-&ecirc;tre votre compte de courrier &eacute;lectronique, mais le choix
+   vous appartient. Vous pouvez choisir de modifier votre page de d&eacute;marrage pour en afficher une
+   diff&eacute;rente ou plusieurs au d&eacute;marrage de &brandShortName; dans cette section.</p>
+
+  <dl>
+    <dt>&startupPage.label;</dt>
+    <dd>Par d&eacute;faut, quand &brandShortName; d&eacute;marre, il ouvre votre page de d&eacute;marrage (indiqu&eacute;e
+    dans la bo&icirc;te de texte situ&eacute;e juste au-dessous), qui correspond &agrave;
+    au choix <em>&startupHomePage.label;</em>. Vous pouvez aussi choisir d'afficher une page vide au d&eacute;marrage
+    (peut-&ecirc;tre pour supprimer le temps de chargement de cette page &agrave; partir d'Internet)
+    en s&eacute;lectionnant <em>&startupBlankPage.label;</em>.<br/><br/>
+
+    Enfin, &brandShortName; peut &eacute;galement rouvrir les fen&ecirc;tres et onglets
+    que vous utilisiez lors de votre derni&egrave;re session de navigation.
+    C'est un moyen pratique de sauvegarder ce que vous faisiez lors de la fermeture de
+    &brandShortName;, peut-&ecirc;tre pour installer une mise &agrave; jour du syst&egrave;me d'exploitation. Vous pouvez choisir
+    cette &pref.singular; en s&eacute;lectionnant <em>&startupLastSession.label;</em>.</dd>
+
+  <dt>&location.label;</dt>
+    <dd>Si vous avez choisi que &brandShortName; ouvre votre page d'accueil au d&eacute;marrage,
+    saisissez son adresse ici. Vous pouvez &eacute;galement cliquer sur l'un des boutons
+    sous la bo&icirc;te de texte pour choisir une page de d&eacute;marrage particuli&egrave;re&nbsp;:</dd>
+
+  <dl>
+    <dt>&useCurrentPage.label;</dt>
+    <dd>Indique d'utiliser la page en cours (ou les pages,
+      si plusieurs onglets sont ouverts) comme page(s) de d&eacute;marrage.</dd>
+    <dt>&useBookmark.label;</dt>
+    <dd>Indique d'utiliser le marque-page s&eacute;lectionn&eacute;
+      (ou si vous avez s&eacute;lectionn&eacute; un dossier, l'ensemble des marque-pages qu'il contient)
+      comme page(s) de d&eacute;marrage</dd>
+    <dt>&restoreDefault.label;</dt>
+    <dd>R&eacute;tablit la page de d&eacute;marrage d'origine.</dd>
+  </dl>
+  </dl>
+
+  <h3 id="downloads">&downloads.label;</h3>
+  <p>Cette section recense les &pref.plural; d&eacute;terminant le comportement de &brandShortName;
+    avec le t&eacute;l&eacute;chargement de fichiers.</p>
+  <dl>
+  <dt>&showWhenDownloading.label;</dt>
+    <dd>En s&eacute;lectionnant cette &pref.singular;, &brandShortName; ouvrira la <a
+    href="download_manager.xhtml">fen&ecirc;tre &downloads.label;</a> au d&eacute;marrage
+    d'un t&eacute;l&eacute;chargement de fichier.</dd>
+
+  <dt>&closeWhenDone.label;</dt>
+    <dd>S&eacute;lectionnez cette &pref.singular; pour que &brandShortName; ferme la fen&ecirc;tre &downloads.label;
+    quand tous les t&eacute;l&eacute;chargements en cours sont termin&eacute;s.</dd>
+
+  <dt id="download_folder">&saveTo.label;</dt>
+    <dd>Par d&eacute;faut, les fichiers t&eacute;l&eacute;charg&eacute;s sont automatiquement enregistr&eacute;s
+    sur le Bureau, &eacute;vitant ainsi de sp&eacute;cifier &agrave; chaque fois l'emplacement du dossier o&ugrave;
+    placer le fichier &agrave; t&eacute;l&eacute;charger. Vous pouvez choisir un autre dossier en cliquant sur le
+    bouton <em>&chooseFolderWin.label;</em>.</dd>
+
+  <dt>&alwaysAsk.label;</dt>
+    <dd>En s&eacute;lectionnant cette &pref.singular;, &brandShortName; vous demandera o&ugrave;
+    enregistrer chaque fichier &agrave; t&eacute;l&eacute;charger (au lieu d'utiliser le dossier par d&eacute;faut
+    indiqu&eacute; au-dessus).</dd>
+  </dl>
+
+  <h3 id="system_defaults">&systemDefaults.label;</h3>
+  <dl>
+  <dt>&alwaysCheckDefault.label;</dt>
+    <dd>S&eacute;lectionnez cette &pref.singular; si vous voulez que &brandShortName; v&eacute;rifie qu'il est le
+    navigateur par d&eacute;faut au d&eacute;marrage. Ceci assurera que &brandShortName; sera utilis&eacute;
+    chaque fois qu'une application essaie d'afficher une page Web. Vous pouvez aussi cliquer sur le bouton
+    <em>&checkNow.label;</em> pour effectuer une v&eacute;rification imm&eacute;diatement.</dd>
+  </dl>
+
+<h2 id="tabs_options">&pref.pluralCaps; des onglets</h2>
+  <dl>
+    <dt>&newPagesIn.label;</dt>
+      <dd>Cette &pref.singular; contr&ocirc;le si les liens provenant d'autres applications ou d'une page Web
+    qui s'ouvriraient dans de nouvelles fen&ecirc;tres sont ouverts dans <em>&inNewWindow.label;</em>
+    ou <em>&inNewTab.label;</em>.</dd>
+
+    <p><strong>Note&nbsp;</strong>: Si vous avez choisi d'ouvrir les liens dans de nouveaux onglets,
+    &brandShortName; ignorera cette &pref.singular; et ouvrira une nouvelle fen&ecirc;tre
+    &agrave; partir du lien si l'auteur de la page a sp&eacute;cifi&eacute; que la nouvelle fen&ecirc;tre devait avoir une
+    taille sp&eacute;cifique, car certaines pages ne peuvent &ecirc;tre correctement affich&eacute;es qu'avec certaines
+    dimensions.</p>
+
+    <dt>&warnCloseMultipleTabs.label;</dt>
+      <dd>Quand vous fermez une fen&ecirc;tre avec plusieurs onglets, &brandShortName; vous demandera de
+    confirmer ce choix. Ceci vous emp&ecirc;che de fermer accidentellement toute la fen&ecirc;tre
+    quand vous ne vouliez fermer que l'onglet courant. D&eacute;cochez cette case pour &eacute;viter cet
+    avertissement et laisser &brandShortName; fermer automatiquement la fen&ecirc;tre.</dd>
+
+    <dt>&warnOpenManyTabs.label;</dt>
+    <dd>Lors de l'ouverture d'un grand nombre d'onglets en m&ecirc;me temps, &brandShortName; vous demandera de
+    confirmer ce choix. Ceci emp&ecirc;che de ralentir accidentellement votre syst&egrave;me lors du chargement des
+    pages. D&eacute;cochez cette &pref.singular; pour d&eacute;sactiver cet avertissement.</dd>
+
+    <dt>&showTabBar.label;</dt>
+      <dd>Si vous ne visionnez qu'une seule page Web dans une fen&ecirc;tre de &brandShortName;, la barre des
+    onglets est masqu&eacute;e. D&eacute;cochez cette case pour afficher toujours la barre des onglets.</dd>
+
+    <dt>&switchToNewTabs.label;</dt>
+      <dd>Quand vous chargez un lien dans un nouvel onglet <span class="nomac">en cliquant avec le bouton central de la souris sur des liens, en appuyant sur
+     &accelKey; tout en cliquant avec le bouton gauche de la souris ou encore</span> en s&eacute;lectionnant <em>&openLinkCmdInTab.label;</em> dans le menu contextuel, 
+     cet onglet ne sera pas visible directement; il sera charg&eacute; en arri&egrave;re-plan.
+     Cochez cette case pour charger le lien dans un onglet en avant-plan, qui affichera cet onglet
+     imm&eacute;diatement.</dd>
+
+  </dl>
+
+<h2 id="content_options">&pref.pluralCaps; de contenu</h2>
+
+  <dl>
+    <dt>&blockPopups.label;</dt>
+      <dd>Par d&eacute;faut, &brandShortName; emp&ecirc;che les fen&ecirc;tres popup g&ecirc;nantes de s'afficher
+  sur les sites Web. D&eacute;cochez cette case pour d&eacute;sactiver le blocage des popups.</dd>
+
+  <p>Certains sites utilisent les fen&ecirc;tres popup de mani&egrave;re l&eacute;gitime.
+   De ce fait, vous pouvez autoriser ceux-ci &agrave; ouvrir des popups malgr&eacute; tout.
+   Pour ce faire, cliquez sur <em>&popupExceptions.label;</em>,
+   puis saisissez le site que vous autorisez &agrave; ouvrir des fen&ecirc;tres popup 
+   et cliquez sur <em>&allow.label;</em>.</p>
+
+  <p>Pour supprimer un site de cette liste, s&eacute;lectionnez ce site dans la liste et 
+   cliquez sur <em>&removepermission.label;</em>. Pour vider compl&egrave;tement 
+   la liste, cliquez sur <em>&removeallpermissions.label;</em>.</p>
+
+  <dt>&loadImages.label;</dt>
+      <dd>Par d&eacute;faut, les images sont charg&eacute;es sur 
+  les pages Web. D&eacute;cochez cette case pour emp&ecirc;cher totalement le chargement des images.</dd>
+
+  <p>Selon que vous autorisiez ou non le chargement d'images, vous pouvez modifier la 
+   liste des sites bloqu&eacute;s et autoris&eacute;s en cliquant sur <em>&exceptions.label;</em>.
+   Saisissez l'adresse du site pour lequel vous voulez autoriser/refuser le chargement d'images 
+   et cliquez sur <em>&allow.label;</em> pour autoriser, ou cliquez sur <em>&block.label;</em> pour 
+   bloquer les images.</p>
+
+  <dt>&enableJavaScript.label;</dt>
+  <dd>JavaScript est un langage de script utilis&eacute; couramment pour construire des pages Web interactives.
+  Cependant, il permet aussi de r&eacute;aliser certains comportements ennuyeux beaucoup plus facilement.
+  Pour d&eacute;sactiver JavaScript, d&eacute;cochez cette &pref.singular;. Notez que d&eacute;sactiver JavaScript peut
+  emp&ecirc;cher certains sites de fonctionner correctement. Pour un contr&ocirc;le plus pr&eacute;cis de ce que peut
+  ou ne peut pas faire JavaScript, cliquez sur le bouton <em>&advancedJS.label;</em>.</dd>
+
+  <h4 id="advanced_javascript">&advancedJSDialog.title;</h4>
+  <dl>
+    <dt>&moveResizeWindows.label;</dt>
+    <dd>D&eacute;cochez cette &pref.singular; pour d&eacute;sactiver le d&eacute;placement
+      ou le redimensionnement des fen&ecirc;tres par les scripts.</dd>
+
+    <dt>&raiseLowerWindows.label;</dt>
+    <dd>D&eacute;cochez cette &pref.singular; pour vous assurez que les scripts ne peuvent pas faire
+      passer &agrave; l'avant ou &agrave; l'arri&egrave;re-plan les fen&ecirc;tres existantes.</dd>
+
+    <dt>&disableContextMenus.label;</dt>
+    <dd>D&eacute;cochez cette &pref.singular; pour emp&ecirc;cher les pages Web de d&eacute;sactiver
+      ou de modifier le menu contextuel de &brandShortName;.</dd>
+
+    <dt>&hideStatusBar.label;</dt>
+    <dd>D&eacute;cochez cette &pref.singular; pour forcer l'affichage de la barre d'&eacute;tat
+      dans une fen&ecirc;tre popup.</dd>
+
+    <dt>&changeStatusBar.label;</dt>
+    <dd>D&eacute;cochez cette &pref.singular; pour d&eacute;sactiver les ennuyeux textes d&eacute;filant dans
+      la barre d'&eacute;tat et le masquage des adresses Web.</dd>
+  </dl>
+
+  <dt>&enableJava.label;</dt>
+      <dd>Java est un langage de programmation d&eacute;velopp&eacute; par Sun Microsystems. Un programme 
+ en Java peut tourner sur diff&eacute;rents types d'ordinateurs, &eacute;vitant ainsi 
+ aux programmeurs de devoir cr&eacute;er des versions s&eacute;par&eacute;es du programme 
+ pour chaque type d'ordinateur. D&eacute;sactiver cette option emp&ecirc;chera l'ex&eacute;cution 
+   des applets Java dans &brandShortName;. Notez que vous devez installer le plugin Java de Sun 
+   pour que les applets Java fonctionnent.</dd>
+</dl>
+
+  <h3 id="fonts_and_colors">&fontsAndColors.label;</h3>
+  <dl>
+    <dt>&defaultFont.label; et &defaultSize.label;</dt>
+      <dd>Les pages Web sont normalement affich&eacute;es avec la police et la taille indiqu&eacute;es ici.
+      Cependant, les pages Web peuvent passer outre ces choix &agrave; moins que vous ne le sp&eacute;cifiez
+      dans la bo&icirc;te de dialogue <em>&advancedFonts.label;</em>.</dd>  
+  </dl>
+   <p>Cliquez sur le bouton <em>&advancedFonts.label;</em> pour avoir plus d'options
+   pour les polices.</p>
+   
+    <h4>Bo&icirc;te de dialogue &advancedFonts.label;</h4>
+      <ol>
+        <li>&Agrave; partir de la liste d&eacute;roulante <em>&language.label;</em>, choisissez un
+	groupe de langue / script.
+        Par exemple, pour d&eacute;finir les polices par d&eacute;faut pour les langues / script
+	occidentales (latin), choisissez <em>&font.langGroup.latin1;</em>. Pour une langue ou script ne figurant
+	pas encore dans la liste, choisissez <em>&font.langGroup.unicode;</em>.</li>
+        <li>S&eacute;lectionnez si le texte proportionnel doit &ecirc;tre serif (comme <q>Times
+        New Roman</q>) ou sans-serif (comme <q>Arial</q>). Sp&eacute;cifiez par la suite la taille
+        de police que vous voulez pour le texte proportionnel.</li>
+        <li>Sp&eacute;cifiez la police &agrave; utiliser pour les polices serif, sans-serif et monospace.
+        Vous pouvez aussi changer la taille pour les <code>polices monospace</code>.</li>
+      </ol>
+
+      <p>De plus, vous pouvez d&eacute;finir la taille de police minimale utilis&eacute;e &agrave;
+      l'&eacute;cran. Cela peut &ecirc;tre utile pour certains sites utilisant de tr&egrave;s petites
+      polices difficilement lisibles.</p>
+
+  <dl>
+    <dt>&allowPagesToUse.label;</dt>
+      <dd>Par d&eacute;faut, &brandShortName; utilise les polices s&eacute;cifi&eacute;es dans la page Web par
+	l'auteur. D&eacute;sactiver cette option forcera tous les sites &agrave; utiliser les polices par
+	d&eacute;faut &agrave; la place.</dd>
+
+      <dt>&languages.customize.DefaultCharset.label;</dt>
+      <dd>L'encodage des caract&egrave;res s&eacute;lectionn&eacute; ici sera utilis&eacute; pour afficher
+	les pages pour lesquelles l'encodage n'est pas indiqu&eacute;.</dd>
+  </dl>
+
+    <h4>Bo&icirc;te de dialogue &colors.label;</h4>
+      <h5>&color;</h5>
+        <p>Vous pouvez changer ici la couleur par d&eacute;faut du texte et de l'arri&egrave;re-plan
+        &agrave; utiliser pour les pages Web pour lesquelles cette information n'est pas indiqu&eacute;e.
+	Cliquez sur les &eacute;chantillons de couleur pour s&eacute;lectionner une couleur.</p>
+
+   <dl>
+    <dt>&useSystemColors.label;</dt>
+      <dd>Cochez cette case pour utiliser les couleurs d&eacute;finies dans votre syst&egrave;me d'exploitation
+        &agrave; la place des couleurs indiqu&eacute;es au-dessus.</dd>
+  </dl>
+
+      <h5>&links;</h5>
+      <p>Vous pouvez changer ici les couleurs par d&eacute;faut pour les hyperliens. Cliquez sur les
+	&eacute;chantillons de couleur pour en s&eacute;lectionner une.</p>
+
+  <dl>
+    <dt>&underlineLinks.label;</dt>
+      <dd>Par d&eacute;faut, les liens sont soulign&eacute;s dans les pages Web. D&eacute;cochez cette
+	option pour d&eacute;sactiver ce comportement. Notez que beaucoup de sites indiquent leurs propres
+	r&egrave;gles de style et cette option n'aura aucun effet sur ceux-ci.</dd>
+  </dl>
+	
+  <dl>
+      <dt>&allowPagesToUse.label;</dt>
+      <dd>Par d&eacute;faut, &brandShortName; utilise les couleurs indiqu&eacute;es par l'auteur de la page
+	Web. D&eacute;sactiver cette option forcera tous les sites &agrave; utiliser vos couleurs par
+	d&eacute;faut &agrave; la place.</dd>
+  </dl>
+
+<h2 id="file_types">&fileTypes.label;</h2>
+
+    <p>La bo&icirc;te de dialogue <em>&downloadactionsWindow.title;</em>, qui peut &ecirc;tre ouverte en cliquant sur
+    le bouton <em>&manage.label;</em>, contient les types de fichiers que vous avez
+    t&eacute;l&eacute;charg&eacute;s. Vous pouvez choisir ce que &brandShortName; doit faire lorsque vous cliquez
+    sur un type de fichier sp&eacute;cifique en s&eacute;lectionnant le type de fichier que vous voulez
+    modifier et en cliquant sur le bouton <em>&edit.label;</em>.</p>
+
+    <p>Ceci affichera la bo&icirc;te de dialogue <em>&changeAction.title;</em>, o&ugrave; vous pouvez choisir si le
+    type de fichier sera ouvert par l'application par d&eacute;faut, par une application que vous avez
+    choisie, enregistr&eacute; sur le disque ou affich&eacute; par un plugin install&eacute;. Par
+    exemple, si vous visionnez beaucoup de fichiers multim&eacute;dias sur le Web, vous voudrez peut-&ecirc;tre 
+    indiquer &agrave; &brandShortName; de toujours ouvrir vos fichiers multim&eacute;dias dans votre lecteur de 
+    fichiers multim&eacute;dias plut&ocirc;t que de vous demander &agrave; chaque fois o&ugrave; vous voulez
+    enregistrer des fichiers de ce type.</p>
+
+  <dl>
+    <dt>&openDefault.label;</dt>
+      <dd>S&eacute;lectionnez cette option pour ouvrir ce type de fichier
+    dans l'application par d&eacute;faut pour ce type de fichier (d&eacute;termin&eacute;e par le 
+    syst&egrave;me d'exploitation).</dd>
+    <dt>&openApplication.label;</dt>
+      <dd>S&eacute;lectionnez cette option pour sp&eacute;cifier une autre
+    application qui doit ouvrir ce type de fichier. Vous verrez une bo&icirc;te de dialogue vous demandant de 
+    sp&eacute;cifier l'application &agrave; utiliser.</dd>
+    <dt>&saveToDisk.label;</dt>
+      <dd>Cette option forcera l'enregistrement des fichiers sur votre disque dur. Si vous avez 
+    s&eacute;lectionn&eacute; <em>&saveTo.label;</em>,
+    les fichiers seront enregistr&eacute;s automatiquement.</dd>
+    <dt>&usePlugin.label;</dt>
+      <dd>S&eacute;lectionnez cette option pour laisser le plugin afficher ce type de fichier.</dd>
+  </dl>
+
+<h2 id="feeds_options">&pref.pluralCaps; des flux</h2>
+<p>Les flux sont des documents particuliers qui r&eacute;sument le contenu
+  de sites Web. Par exemple, un flux peut r&eacute;sumer les derniers titres d'un site
+  d'information ou les derniers billets post&eacute;s sur un blog. Vous pouvez voir le
+  contenu des flux dans &brandShortName;, en cr&eacute;ant des marque-pages dynamiques pour ceux-ci,
+  en les ajoutant &agrave; votre lecteur de flux local ou Web. Ces &pref.plural; dans ce panneau
+  d&eacute;terminent ce que doit faire &brandShortName; quand vous voyez un flux.</p>
+
+<dl>
+<dt>&showPreview.label;</dt>
+  <dd>Quand vous voyez un flux dans &brandShortName;, il affichera un aper&ccedil;u
+  de son contenu. En s&eacute;lectionnant cette &pref.singular;, vous aurez toujours le choix
+  de ce que vous voulez utiliser pour vous abonner au flux en haut de la page d'aper&ccedil;u.</dd>
+
+<dt>&subscribeUsing.label;</dt>
+  <dd>Au lieu d'afficher un aper&ccedil;u du flux, vous pouvez l'ouvrir directement
+  dans un lecteur de flux en s&eacute;lectionnant un lecteur dans la liste propos&eacute;e.
+  Vous pouvez choisir une application sur votre ordinateur pour vous abonner aux flux en cliquant
+  sur le bouton <strong>&chooseApplication.label;</strong>
+  et en recherchant l'application sur votre ordinateur. Vous pouvez aussi choisir de vous abonner
+  automatiquement aux flux en les enregistrant en tant que marque-pages dynamiques.
+  Pour choisir une m&eacute;thode d'abonnement, s&eacute;lectionnez-en une &agrave; partir de la liste.</dd>
+</dl>
+
+<h2 id="privacy_options">&pref.pluralCaps; de vie priv&eacute;e</h2>
+
+<h3 id="privacy_history">&history.label;</h3>
+<dl>
+  <dt>&rememberBefore.label; xx &rememberAfter.label;</dt>
+  <dd>Ici vous pouvez sp&eacute;cifier combien de jours vous voulez que le navigateur se 
+   souvienne des pages que vous avez visit&eacute;es. Par d&eacute;faut, l'historique remontera 
+   jusqu'&agrave; 9 jours.</dd>
+
+   <dt>&rememberForms.label;</dt>
+   <dd>Quand vous introduisez des informations dans un 
+   formulaire Web, &brandShortName; se rappelle de ces informations et fait des suggestions 
+   pour la saisie semi-automatique de nouvelles entr&eacute;es. Pour &eacute;viter ce comportement, 
+   d&eacute;cochez cette case.</dd>
+
+   <dt>&rememberDownloads.label;</dt>
+    <dd>Cette &pref.singular; d&eacute;termine si les t&eacute;l&eacute;chargements pr&eacute;c&eacute;dents
+    doivent &ecirc;tre affich&eacute;s dans la fen&ecirc;tre &downloads.label;.
+    La fen&ecirc;tre &downloads.label; (accessible depuis <span
+    class="menuPath">&toolsMenu.label;</span> ou en appuyant sur les touches <span
+    class="noUnix">&accelKey;+<kbd>J</kbd></span><span
+    class="unix">&accelKey;+<kbd>Y</kbd></span>) affiche une liste de vos r&eacute;cents
+    t&eacute;l&eacute;chargements. Les &pref.plural; de t&eacute;l&eacute;chargements sont accessibles
+    Dans le panneau <a href="#main_options"><em>&paneMain.title;</em></a>.</dd>
+  </dl>
+
+  <h3 id="privacy_cookies">&itemCookies.label;</h3>
+  <p>Un cookie est un fichier cr&eacute;&eacute; par un site Web pour enregistrer des informations 
+   sur votre ordinateur, comme vos pr&eacute;f&eacute;rences de visite.</p>
+
+  <dl>
+    <dt>&acceptCookies.label;</dt>
+      <dd>Par d&eacute;faut, les cookies sont autoris&eacute;s.
+    D&eacute;cochez cette option pour refuser l'utilisation des cookies. Remarquez que certains sites pourraient 
+    ne plus fonctionner si vous refusez les cookies.</dd>
+
+     <dt>&keepUntil.label;</dt>
+      <dd>
+        <ul>
+          <li><strong>&expire.label;</strong>&nbsp;: si cette &pref.singular; est 
+           s&eacute;lectionn&eacute;e, le cookie sera supprim&eacute; d&egrave;s qu'il aura atteint 
+           sa date d'expiration&nbsp;;</li>
+          <li><strong>&close.label;</strong>&nbsp;: si cette &pref.singular; est 
+           s&eacute;lectionn&eacute;e, le cookie sera supprim&eacute; au prochain lancement de
+           &brandShortName;. Les sites Web n&eacute;cessitant l'utilisation de cookies fonctionneront
+           correctement, n&eacute;anmoins, si vous relancez &brandShortName;, ces sites Web supposeront
+           que c'est la premi&egrave;re fois que vous les visitez&nbsp;;</li>
+          <li><strong>&askEachTime.label;</strong>&nbsp;: &agrave; chaque fois qu'un
+          site Web tentera de stocker un cookie, une alerte s'affichera pour demander votre autorisation.</li>
+        </ul>
+      </dd>
+    </dl>
+
+  <p>Pour contr&ocirc;ler les sites qui peuvent ou non d&eacute;finir des cookies, cliquez sur le bouton
+  <em>&cookieExceptions.label;</em>.</p>
+
+  <p>Pour afficher le gestionnaire de cookies, cliquez sur <em>&showCookies.label;</em>.</p>
+
+  <p>Pour en savoir plus sur les cookies, cette option et comment contr&ocirc;ler les sites autoris&eacute;s
+    &agrave; stocker des cookies sur votre ordinateur, lisez la 
+   section <a href="cookies.xhtml">Gestion des cookies</a>.</p>
+
+<h3 id="private_data">&privateData.label;</h3>
+  <dl>
+  <dt>&alwaysClear.label;</dt>
+    <dd>Vous pouvez choisir d'effacer vos donn&eacute;es personnelles lors de la fermeture
+    de &brandShortName;. Pour d&eacute;finir les donn&eacute;es qui seront effac&eacute;es, cliquez sur le
+    bouton <em>&clearDataSettings.label;</em>.</dd>
+
+  <dt>&askBeforeClear.label;</dt>
+    <dd>En s&eacute;lectionnant cette &pref.singular;, &brandShortName; vous demandera confirmation avant
+    d'effacer automatiquement les donn&eacute;es indiqu&eacute;es en cliquant sur le bouton
+    <em>&clearDataSettings.label;</em>.</dd>
+  </dl>
+
+  <p>Si vous souhaitez effacer vos informations personnelles imm&eacute;diatement, vous pouvez pour cela cliquer
+    sur le bouton <em>&clearDataNow.label;</em>. Pour effacer vos donn&eacute;es personnelles sans passer
+    par la fen&ecirc;tre des pr&eacute;f&eacute;rences, appuyer sur les touches &accelKey;+&shiftKey;+<kbd>Del</kbd>
+    ou s&eacute;lectionnez le menu <span class="menuPath">&toolsMenu.label; &gt; &clearPrivateDataCmd.label;</span>.</p>
+
+  <h2 id="security_options">&pref.pluralCaps; de s&eacute;curit&eacute;</h2>
+  <dl>
+    <dt>&warnAddonInstall.label;</dt>
+    <dd>&brandShortName; vous demande toujours de confirmer l'installation
+    d'extensions ou de th&egrave;mes. Pour emp&ecirc;cher l'affichage de l'invite pour des installations
+    que vous n'avez pas demand&eacute;es (cette invite pouvant amener &agrave; des installations accidentelles),
+    &brandShortName; vous avertit lorsqu'un site essaie d'installer une extension ou un th&egrave;me et bloque
+    l'invite d'installation.
+    Pour autoriser l'installation &agrave; partir de certains sites, cliquez
+    sur <em>&addonExceptions.label;</em>, entrez le nom du site et cliquez sur <em>&allow.label;</em>.
+    D&eacute;cochez cette &pref.singular; pour d&eacute;sactiver l'avertissement pour tous les sites.</dd>
+
+  <dl>
+    <dt>&tellMaybeForgery.label;</dt>
+      <dd>Cochez cette &pref.singular; si vous voulez que &brandShortName; v&eacute;rifie activement si
+      le site que vous visitez peut &ecirc;tre une tentative pour vous abuser en vous conduisant &agrave;
+      fournir des informations personnelles.</dd>
+
+    <dt>&useDownloadedList.label;</dt>
+      <dd>Cochez cette &pref.singular; pour que &brandShortName; v&eacute;rifie le site sur lequel vous naviguez
+      en fonction d'une liste stock&eacute;e sur votre ordinateur. Aucune donn&eacute;e ne sera transmise &agrave;
+      des fournisseurs de donn&eacute;es tiers. Puisque les techniques de phishing (hame&ccedil;onnage) et les
+      sites &eacute;voluent rapidement, ce mode de protection peut ne pas &ecirc;tre aussi efficace qu'utiliser
+      un fournisseur de donn&eacute;es.</dd>
+
+    <dt>&askThirdParty.label;</dt>
+      <dd>Cochez cette &pref.singular; pour que &brandShortName; envoie les donn&eacute;es sur la page parcourue, au
+      moyen d'une connexion chiffr&eacute;e, au fournisseur de donn&eacute;es tiers
+      pour v&eacute;rifier l'identit&eacute; du site. Cette m&eacute;thode offre la plus grande
+      protection, mais veuillez prendre connaissance de la politique de confidentialit&eacute; du fournisseur
+      de donn&eacute;es avant de cocher cette &pref.singular;.</dd>
+  </dl>
+
+<dt>&askThirdParty.label; &hellip; &askThirdPartyAfter.label;</dt>
+  <dd>En s&eacute;lectionnant cette &pref.singular;, &brandShortName; enverra la page en cours
+  au moyen d'une connexion chiffr&eacute;e, au fournisseur de service anti-phishing s&eacute;lectionn&eacute;
+  afin de v&eacute;rifier l'identit&eacute; du site. Cette m&eacute;thode offre la plus grande protection,
+  mais des informations comme votre adresse <acronym title="Internet Protocol">IP</acronym> et la version de
+  votre navigateur peuvent &ecirc;tre envoy&eacute;e et conserv&eacute; par le fournisseur de service
+  s&eacute;lectionn&eacute;. Il vous sera demand&eacute; de lire et d'accepter la politique de confidentialit&eacute;
+  du fournisseur de service apr&egrave;s avoir s&eacute;lectionn&eacute; cette &pref.singular;.</dd>
+</dl>
+
+  <h3 id="security_passwords">Mots de passe</h3>
+  <dl>
+   <dt>&rememberPasswords.label;</dt>
+   <dd>&brandShortName; peut enregistrer de mani&egrave;re 
+   s&eacute;curis&eacute;e les mots de passe que vous introduisez dans les formulaires Web afin 
+   de rendre plus facile votre identification sur les sites Web. D&eacute;cochez cette case pour 
+   emp&ecirc;cher &brandShortName; de se souvenir de vos mots de passe.</dd>
+
+   <p>M&ecirc;me en ayant coch&eacute; cette &pref.singular;, il vous sera demand&eacute; si vous voulez
+   enregistrer les mots de passe pour un site que vous visitez pour la premi&egrave;re fois. Si vous choisissez
+   <em>Jamais pour ce site</em>, ce site sera ajout&eacute; &agrave; une liste d'exceptions.
+   Pour acc&eacute;der &agrave; cette liste ou pour y supprimer des sites, cliquer sur le bouton
+   <em>&passwordExceptions.label;</em>.</p>
+
+  <dt id="set_change_master_password">&useMasterPassword.label;</dt>
+    <dd>&brandShortName; peut prot&eacute;ger les mots de passe sauvegard&eacute;s et les certificats
+    en les chiffrant &agrave; l'aide d'un <a href="glossary.xhtml#master_password">mot de passe principal</a>.
+    Si vous cr&eacute;ez un mot de passe principal, &brandShortName; vous demandera de le saisir
+    la premi&egrave;re fois qu'il doit acc&eacute;der &agrave; un certificat ou un mot de passe enregistr&eacute;.
+    d&egrave;s que cela est n&eacute;cessaire. 
+    Vous pouvez cr&eacute;er, modifier ou supprimer le mot de passe principal en cochant ou d&eacute;cochant cette
+    &pref.singular; ou en cliquant sur le bouton <em>&changeMasterPassword.label;</em>. Si le mot de passe principal
+    est d&eacute;j&agrave; d&eacute;fini, vous devrez le saisir afin de le modifier ou le supprimer.</dd>
+
+  <dt>&showPasswords.label;</dt>
+      <dd>Vous pouvez g&eacute;rer les mots de passe enregistr&eacute;s 
+   et effacer individuellement chaque mot de passe en cliquant sur ce bouton.</dd>
+  </dl>
+
+  <h3 id="warning_messages">&warnings.label;</h3>
+  <p>Cliquez sur le bouton <em>&warningSettings.label;</em> pour configurer les messages
+  d'avertissement qu'affiche &brandShortName; lors que vous naviguez sur le Web.</p>
+
+  <h4>Fen&ecirc;tre &securityWarnings.title;</h4>
+  <!--XXX massive suck!  do these provide *any* value whatsoever? -->
+  <dl>
+    <dt>&security.warn_when;</dt>
+    <dt>&security.warn_entering_secure.label;</dt>
+    <dd>Quand cette &pref.singular; est activ&eacute;e, &brandShortName; vous avertira
+    chaque fois que vous &ecirc;tes sur le point de voir une page chiffr&eacute;e.</dd>
+
+    <dt>&security.warn_entering_weak.label;</dt>
+    <dd>Quand cette &pref.singular; est activ&eacute;e, &brandShortName; vous avertira
+      lorsque vous visitez une page faiblement chiffr&eacute;e.</dd>
+
+    <dt>&security.warn_leaving_secure.label;</dt>
+    <dd>Quand cette &pref.singular; est activ&eacute;e, &brandShortName; vous avertira
+      chaque fois que vous vous rendrez d'une page chiffr&eacute;e vers une page qui ne l'est pas,
+      en cliquant sur un lien de la page, en s&eacute;lectionnant un marque-page ou en saisissant
+      une nouvelle adresse dans la barre d'adresse.</dd>
+
+    <dt>&security.warn_submit_insecure.label;</dt>
+    <dd>Quand cette &pref.singular; est activ&eacute;e, &brandShortName; vous avertira
+      quand vous soumettrez des donn&eacute;es via un formulaire qui n'est pas chiffr&eacute;.</dd>
+
+    <dt>&security.warn_viewing_mixed.label;</dt>
+    <dd>Quand cette &pref.singular; est activ&eacute;e, &brandShortName; vous avertira
+      quand la page que vous visitez contient un m&eacute;lange de donn&eacute;es chiffr&eacute;es et
+      non chiffr&eacute;es. Si une page chiffr&eacute;e contient des donn&eacute;es non chiffr&eacute;es,
+      vous devriez v&eacute;rifier l'identit&eacute; de la page avant de saisir des donn&eacute;es sensibles.</dd>
+  </dl>
+
+
+<h2 id="advanced_options">&pref.pluralCaps; avanc&eacute;es</h2>
+
+  <p>Le panneau des &pref.plural; avanc&eacute;es contient des &pref.plural; qui ne sont pas utiles 
+   &agrave; la plupart des utilisateurs, mais qui sont parfois int&eacute;ressantes, voire critiques,
+   pour d'autres.</p>
+
+  <h3 id="advanced_general">Onglet &generalTab.label;</h3>
+
+  <h3 id="accessibility">&accessibility.label;</h3>
+  <dl>
+    <dt>&useCursorNavigation.label;</dt>
+      <dd>Quand cette &pref.singular; est activ&eacute;e, &brandShortName; affiche un curseur mobile dans
+      les pages Web, permettant de s&eacute;lectionner du texte &agrave; l'aide du clavier.
+      Vous pouvez changer de mode en appuyant sur la touche <kbd>F7</kbd>.</dd>
+
+    <dt>&searchStartTyping.label;</dt>
+      <dd>Quand cette option est s&eacute;lectionn&eacute;e, &brandShortName; cherchera dans la page en cours le texte
+  que vous saisissez au fur et &agrave; mesure de votre saisie. La barre de recherche sera automatiquement
+  affich&eacute;e au bas de la fen&ecirc;tre pour vous montrer des indications sur ce que vous avez 
+  trouv&eacute;.</dd>
+  </dl>
+
+  <h3 id="browsing">&browsing.label;</h3>
+  <dl>
+    <dt>&useAutoScroll.label;</dt>
+      <dd>Le d&eacute;filement automatique est une fonctionnalit&eacute; utile qui permet de faire 
+   d&eacute;filer la page simplement en cliquant sur le bouton central (habituellement la 
+   molette) et en montant ou descendant la souris. Cette &pref.singular; peut &ecirc;tre d&eacute;rangeante 
+   pour certains, aussi elle peut &ecirc;tre d&eacute;sactiv&eacute;e.</dd>
+
+    <dt>&useSmoothScrolling.label;</dt>
+      <dd>Le d&eacute;filement doux peut &ecirc;tre tr&egrave;s utile si 
+   vous lisez un document long contenant plusieurs pages d'&eacute;cran. Normalement, lorsque vous 
+   utilisez la roulette de la souris, que vous utilisez les fl&egrave;ches directionnelles ou que vous
+   appuyez sur la touche <kbd>Page suivante</kbd>, l'affichage descend de fa&ccedil;on brutale. 
+   Avec le d&eacute;filement doux, le d&eacute;filement s'effectue de mani&egrave;re plus lente, 
+   de sorte que vous puissiez voir la page d&eacute;filer. Ceci rend la reprise de la lecture 
+   plus simple.</dd>
+
+   <dt>&checkSpelling.label;</dt>
+      <dd>Quand cette &pref.singular; est activ&eacute;e, &brandShortName; v&eacute;rifiera l'orthographe
+      et proposera des corrections possibles lorsque vous &eacute;crivez dans des formulaires Web.
+      Vous aurez peut-&ecirc;tre besoin de t&eacute;l&eacute;charger un dictionnaire pour cela&nbsp;: <span
+      class="noMac">faites un clic-droit</span><span class="mac">appuyer sur la touche &ctrlKey; et
+      cliquez</span> sur n'importe quel champ de texte, activez le v&eacute;rificateur orthographique si
+      n&eacute;cessaire, puis utilisez le menu <span class="menuPath">&languages.label;</span> pour
+      t&eacute;l&eacute;charger un dictionnaire.</dd>
+  </dl>
+
+    <h3 id="languages">&languages.label;</h3>
+
+      <p>Certaines pages Web sont disponibles en plusieurs langues. Cliquez sur le bouton
+        <em>&chooseButton.label;</em> pour indiquer vos langues pr&eacute;f&eacute;r&eacute;es.</p>
+
+      <h4>Bo&icirc;te de dialogue &languages.customize.Header;</h4>
+        <p>Pour ajouter une langue, cliquez sur <em>&languages.customize.selectLanguage.label;</em>, choisissez la 
+	langue et cliquez sur le bouton <em>&languages.customize.addButton.label;</em>. Supprimez une langue en 
+	la s&eacute;lectionnant dans la liste des langues actives et en cliquant sur le bouton
+	<em>&languages.customize.deleteButton.label;</em>.</p>
+
+      <p>Vous pouvez ordonner les langues pour d&eacute;terminer la langue pr&eacute;f&eacute;r&eacute;e
+      pour le cas o&ugrave; une page propose deux ou plus des langues que vous avez choisies.
+      Pour cela, utilisez les boutons <em>&languages.customize.moveUp.label;</em> et
+      <em>&languages.customize.moveDown.label;</em>.</p>
+
+  <h3 id="advanced_network">Onglet &networkTab.label;</h3>
+  <h3 id="connection_settings">&connectionsDialog.title;</h3>
+
+  <p>Votre organisation ou fournisseur d'acc&egrave;s Internet peut vous proposer
+   ou vous imposer de passer par un serveur proxy. Un proxy agit comme interm&eacute;diaire
+   entre votre ordinateur et le r&eacute;seau Internet. Il intercepte toutes les requ&ecirc;tes
+    vers Internet et voit s'il peut y r&eacute;pondre de lui-m&ecirc;me &agrave;
+   l'aide de son cache. De tels syst&egrave;mes sont utilis&eacute;s pour am&eacute;liorer les
+   performances, filtrer les requ&ecirc;tes et cacher votre ordinateur d'Internet pour
+   augmenter sa s&eacute;curit&eacute;. Ils font souvent partie d'un pare-feu d'entreprise.</p>
+
+  <h4>Bo&icirc;te de dialogue &connectionsDialog.title;</h4>
+
+  <dl>
+    <dt>&directTypeRadio.label;</dt>
+    <dd>C'est l'option par d&eacute;faut, &agrave; utiliser si vous ne passez pas par un serveur proxy.</dd>
+
+    <dt>&WPADTypeRadio.label;</dt>
+    <dd>Choisissez cette option si vous voulez que &brandShortName; d&eacute;tecte automatiquement les
+        param&egrave;tres du proxy pour votre r&eacute;seau.</dd>
+    <dt>&manualTypeRadio.label;</dt>
+    <dd>Choisissez cette option si vous n'avez pas d'adresse proxy (URL). Demandez &agrave; votre 
+     administrateur syst&egrave;me les noms et num&eacute;ros de ports des serveurs sur lesquels 
+     s'ex&eacute;cute le proxy et introduisez ces informations dans les champs correspondants</dd>
+
+    <dt>&autoTypeRadio.label;</dt>
+    <dd>S'il n'existe pas de fichier de configuration du proxy sur votre lieu de travail, demandez 
+     l'URL de configuration &agrave; votre administrateur syst&egrave;me et introduisez-la ici. 
+     Appuyez sur <em>&reload.label;</em> pour charger les param&egrave;tres.</dd>
+  </dl>
+
+  <h3 id="advanced_cache">&itemCache.label;</h3>
+
+  <p>Les pages visualis&eacute;es sont normalement stock&eacute;es dans un dossier cache, permettant 
+   un affichage plus rapide lors des prochaines visites de la m&ecirc;me page. Cette option vous 
+   permet de modifier la quantit&eacute; d'espace disque allou&eacute;e au cache. Vous pouvez
+   aussi effacer imm&eacute;diatement le contenu du cache.</p>
+
+<dl>
+  <dt>&useCacheBefore.label; &hellip; &useCacheAfter.label;</dt>
+    <dd>Permet de sp&eacute;cifier la taille maximum, en M&eacute;gaoctets, allou&eacute;e au cache sur votre ordinateur.</dd>
+
+  <dt>&clearDataNow.label2;</dt>
+    <dd>Efface imm&eacute;diatement le contenu du cache, lib&eacute;rant ainsi l'espace disque utilis&eacute; par le cache.</dd>
+</dl>
+
+  <h3 id="advanced_update">Onglet &updateTab.label;</h3>
+
+  <p>&brandShortName; peut v&eacute;rifier si de nouvelles versions des modules compl&eacute;mentaires
+  install&eacute;s ou de &brandShortName; sont disponibles.</p>
+
+  <p><em>&autoCheck.label;</em><br />
+      Par d&eacute;faut, &brandShortName; v&eacute;rifie automatiquement s'il y a des mises &agrave;
+    jour pour lui-m&ecirc;me, pour les modules compl&eacute;mentaires et pour les moteurs de recherche, de sorte que vous saurez
+    toujours si vous avez les versions les plus r&eacute;centes. Vous pouvez emp&ecirc;cher ce
+    comportement en d&eacute;cochant la case appropri&eacute;e ici.</p>
+
+    <strong>&whenUpdatesFound.label;</strong>
+
+    <dl>
+      <dt>&askMe.label;</dt>
+      <dd>Typiquement, les mises &agrave; jour pour &brandShortName; sont install&eacute;es
+        automatiquement par d&eacute;faut. S&eacute;lectionnez cette &pref.singular; pour
+        contr&ocirc;ler manuellement quand et comment sont install&eacute;es les mises
+        &agrave; jour.</dd>
+      <dt>&modeAutomatic.label;</dt>
+      <dd>Quand cette &pref.singular; est s&eacute;lectionn&eacute;e, les mises &agrave; jour de &brandShortName;
+        sont t&eacute;l&eacute;charg&eacute;es automatiquement et sont install&eacute;es au prochain
+        d&eacute;marrage de &brandShortName;. La case <em>&modeAutoAddonWarn.label;</em> d&eacute;termine
+        si vous &ecirc;tes pr&eacute;venu avant l'installation d'une mise &agrave; jour qui
+        n&eacute;cessiterait de d&eacute;sactiver un modules compl&eacute;mentaire incompatible,
+        pour lesquels il n'existe pas de version plus r&eacute;cente ou compatible. L'avertissement vous
+        permet de reporter &agrave; plus tard l'installation de la mise &agrave; jour, mais vous ne
+        b&eacute;n&eacute;ficierez alors pas des am&eacute;liorations qu'elle apporte.</dd>
+      <dd>Si tous les modules compl&eacute;mentaires sont compatibles ou peuvent &ecirc;tre mis &agrave;
+        jour pour &ecirc;tre compatibles, la mise &agrave; jour de &brandShortName; sera install&eacute;e.
+        Apr&egrave;s le red&eacute;marrage de &brandShortName;, il vous sera demand&eacute; d'installer
+        toutes les mises &agrave; jour n&eacute;cessaires pour les modules compl&eacute;mentaires pour
+        que vous puissiez continuer &agrave; les utiliser.</dd>
+      <dt>&updateHistory.label;</dt>
+      <dd>&brandShortName; enregistre automatiquement toutes les mises &agrave; jour install&eacute;es.
+      Vous pouvez voir le d&eacute;tail de ces mises &agrave; jour en cliquant sur ce bouton.</dd>
+</dl>
+
+    <p><strong>Note&nbsp;:</strong> Vous devez ex&eacute;cuter &brandShortName; en &eacute;tant
+      <span class="win">administrateur</span><span class="noWin">root</span>
+      ou en &eacute;tant l'utilisateur qui a initialement install&eacute; &brandShortName;
+      pour installer les mises &agrave; jour de &brandShortName;.</p>
+  
+  <h3 id="advanced_encryption">Onglet &encryptionTab.label;</h3>
+
+  <h3>&protocols.label;</h3>
+
+  <dl>
+    <dt>&useSSL3.label;</dt>
+      <dd>Sp&eacute;cifie si vous souhaitez activer la transmission d'informations
+    s&eacute;curis&eacute;es en utilisant le protocole <acronym title="Secure Sockets Layer Level 3">SSL3</acronym>.
+    C'est un protocole standard pour les communications s&eacute;curis&eacute;es avec les sites Web.
+    D&eacute;sactiver ce protocole vous emp&ecirc;chera de naviguer sur certains sites s&eacute;curis&eacute;s.</dd>
+
+    <dt>&useTLS1.label;</dt>
+      <dd>Sp&eacute;cifie si vous souhaitez activer la transmission d'informations
+    s&eacute;curis&eacute;es en utilisant le protocole <acronym title="Transport Layer Security">TLS</acronym>, un standard de 
+    s&eacute;curit&eacute; ouvert similaire &agrave; <acronym title="Secure Sockets Layer Level 3">SSL3</acronym>.
+    D&eacute;sactiver ce protocole vous emp&ecirc;chera de naviguer sur certains sites s&eacute;curis&eacute;s.</dd>
+  </dl>
+
+  <h3 id="certificates">&certificates.label;</h3>
+
+  <p>Les certificats permettent d'assurer la confidentialit&eacute; des donn&eacute;es transmises aux <a href="glossary.xhtml#secure_site">sites s&eacute;curis&eacute;s</a>.</p>
+
+  <dl>
+    <dt>&certselect.description;</dt>
+      <dd>Lorsqu'un site Web requiert une connexion s&eacute;curis&eacute;e, &brandShortName; utilisera automatiquement 
+  par d&eacute;faut un certificat appropri&eacute;. Si vous d&eacute;sirez s&eacute;lectionner manuellement un 
+  certificat (par exemple, si vous souhaitez utiliser un type de chiffrement particulier &agrave; la place de ce 
+  qui est s&eacute;lectionn&eacute; automatiquement), choisissez l'option <em>&certs.ask;</em> et vous 
+  aurez le contr&ocirc;le total des certificats que vous utilisez en naviguant.</dd>
+
+    <dt>&viewCerts.label;</dt>
+      <dd>Cliquez sur le bouton <em>&viewCerts.label;</em> pour voir les certificats conserv&eacute;s,
+  en importer de nouveaux et sauvegarder ou effacer de vieux certificats dans &brandShortName;.</dd>
+
+    <dt>&viewCRLs.label;</dt>
+      <dd>&brandShortName; peut utiliser des listes de r&eacute;vocations de certificats (&eacute;galement
+        appel&eacute;es LCR) pour s'assurer que vos certificats ne sont pas invalides. Cliquez sur le
+        bouton <em>&viewCRLs.label;</em> pour g&eacute;rer les LCR install&eacute;es sur votre
+	ordinateur.</dd>
+
+    <dt>&verify.label;</dt>
+      <dd>L'<acronym title="Online Certificate Status Protocol">OCSP</acronym> (protocole d'&eacute;tat de
+        certificats en ligne) est un moyen de valider vos
+        certificats chaque fois qu'ils sont visionn&eacute;s ou utilis&eacute;s. &brandShortName;
+	n'utilise pas OCSP par d&eacute;faut, mais si vous voulez l'activer, vous pouvez le faire
+        ici. Il est fort probable que vous n'aurez &agrave; 
+        changer ce param&egrave;tre que si votre environnement Internet le n&eacute;cessite.</dd>
+
+    <dt>&viewSecurityDevices.label;</dt>
+      <dd>Des p&eacute;riph&eacute;riques de s&eacute;curit&eacute; peuvent chiffrer ou d&eacute;chiffrer des
+      connexions et conserver des certificats et des mots de passe. Si vous avez besoin d'utiliser un
+      p&eacute;riph&eacute;rique autre que celui de &brandShortName; ou que vous avez besoin de changer votre mot
+      de passe principal, cliquez sur le bouton <em>&viewSecurityDevices.label;</em>.</dd>
+  </dl>
+
+<div class="contentsBox"><em>12 septembre 2006</em></div>
+
+  <p>Copyright &copy; 2003-2006 Les contributeurs du Projet Mozilla Help Viewer.</p>
+
+  <p><em>Traduction&nbsp;: derni&egrave;re r&eacute;vision&nbsp;: 17 septembre 2006</em></p>
+  <p>Ce texte a &eacute;t&eacute; traduit et adapt&eacute; par une &eacute;quipe
+  internationale de b&eacute;n&eacute;voles francophones. Pour plus
+  d'informations, visitez notre site&nbsp;:
+  <a href="http://frenchmozilla.sourceforge.net/" target="_blank">http://frenchmozilla.sourceforge.net</a>.</p>
+
+</body>
+</html>

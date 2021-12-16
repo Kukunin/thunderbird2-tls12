@@ -1,0 +1,8 @@
+<!-- extracted from institems.xul -->
+
+<!ENTITY dialog.title "Installation de logiciel">
+<!ENTITY warningText2.label "Certains logiciels malveillants peuvent endommager votre ordinateur ou violer votre vie privée.">
+<!ENTITY warningText3.label "Il est vivement conseillé de n'installer des logiciels qu'à partir de sources de confiance.">
+
+<!ENTITY from.label "depuis :">
+

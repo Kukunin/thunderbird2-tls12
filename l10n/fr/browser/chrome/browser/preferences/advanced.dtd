@@ -1,0 +1,86 @@
+<!-- Note: due to bug 143065, the only remaining accesskeys available to be used in the Advanced pane are: "b", "j", "q", "z" -->
+<!ENTITY generalTab.label               "Général">
+
+<!ENTITY accessibility.label            "Accessibilité">
+
+<!ENTITY useCursorNavigation.label       "Toujours utiliser les touches de navigation pour se déplacer à l'intérieur d'une page">
+<!ENTITY useCursorNavigation.accesskey   "T">
+<!ENTITY searchStartTyping.label         "Lancer la recherche lors de la saisie de texte">
+<!ENTITY searchStartTyping.accesskey     "C">
+
+<!ENTITY browsing.label                  "Navigation">
+
+<!ENTITY useAutoScroll.label             "Utiliser le défilement automatique">
+<!ENTITY useAutoScroll.accesskey         "U">
+<!ENTITY useSmoothScrolling.label        "Utiliser le défilement doux">
+<!ENTITY useSmoothScrolling.accesskey    "s">
+<!ENTITY checkSpelling.label             "Vérifier l'orthographe lors de la frappe">
+<!ENTITY checkSpelling.accesskey         "V">
+
+<!ENTITY languages.label                 "Langues">
+
+<!ENTITY chooseLanguage.label            "Choix de la langue préférée pour l'affichage des pages">
+<!ENTITY chooseButton.label              "Choisir…">
+<!ENTITY chooseButton.accesskey          "o">
+
+<!ENTITY networkTab.label                "Réseau">
+
+<!ENTITY connection.label                "Connexion">
+
+<!ENTITY connectionDesc.label            "Configurer la façon de se connecter à Internet de &brandShortName;">
+<!ENTITY connectionSettings.label        "Paramètres…">
+<!ENTITY connectionSettings.accesskey    "P">
+
+<!ENTITY cache.label                     "Cache">
+
+<!-- LOCALIZATION NOTE:
+  The entities useCacheBefore.label and useCacheAfter.label appear on a single
+  line in preferences as follows:
+
+  &useCacheBefore.label  [ textbox for cache size in MB ]   &useCacheAfter.label;
+-->
+
+<!ENTITY useCacheBefore.label            "Utiliser jusqu'à">
+<!ENTITY useCacheBefore.accesskey        "U">
+<!ENTITY useCacheAfter.label             "Mo d'espace disque pour le cache">
+
+<!ENTITY updateTab.label                 "Mises à jour">
+
+<!ENTITY autoCheck.label                 "Rechercher automatiquement des mises à jour pour :">
+<!ENTITY enableAppUpdate.label           "&brandShortName;">
+<!ENTITY enableAppUpdate.accesskey       "F">
+<!ENTITY enableAddonsUpdate.label        "les modules installés">
+<!ENTITY enableAddonsUpdate.accesskey    "e">
+<!ENTITY enableSearchUpdate.label        "les moteurs de recherche">
+<!ENTITY enableSearchUpdate.accesskey    "m">
+<!ENTITY whenUpdatesFound.label          "Quand des mises à jour pour &brandShortName; sont disponibles :">
+<!ENTITY askMe.label                     "demander ce qu'il faut faire">
+<!ENTITY askMe.accesskey                 "d">
+<!ENTITY modeAutomatic.label             "télécharger et installer automatiquement les mises à jour">
+<!ENTITY modeAutomatic.accesskey         "c">
+<!ENTITY modeAutoAddonWarn.label         "avertir si cela désactive des modules">
+<!ENTITY modeAutoAddonWarn.accesskey     "v">
+<!ENTITY updateHistory.label             "Afficher l'historique des mises à jour">
+<!ENTITY updateHistory.accesskey         "A">
+
+<!ENTITY encryptionTab.label             "Chiffrement">
+
+<!ENTITY protocols.label                 "Protocoles">
+<!ENTITY useSSL3.label                   "Utiliser SSL 3.0">
+<!ENTITY useSSL3.accesskey               "3">
+<!ENTITY useTLS1.label                   "Utiliser TLS 1.0">
+<!ENTITY useTLS1.accesskey               "1">
+<!ENTITY certificates.label              "Certificats">
+<!ENTITY certselect.description          "Lorsqu'un site Web nécessite un certificat :">
+<!ENTITY certs.auto                      "En sélectionner un automatiquement">
+<!ENTITY certs.auto.accesskey            "E">
+<!ENTITY certs.ask                       "Me demander à chaque fois">
+<!ENTITY certs.ask.accesskey             "M">
+<!ENTITY viewCerts.label                 "Afficher les certificats">
+<!ENTITY viewCerts.accesskey             "A">
+<!ENTITY viewCRLs.label                  "Listes de révocation">
+<!ENTITY viewCRLs.accesskey              "L">
+<!ENTITY verify.label                    "Vérification">
+<!ENTITY verify.accesskey                "V">
+<!ENTITY viewSecurityDevices.label       "Périphériques de sécurité">
+<!ENTITY viewSecurityDevices.accesskey   "P">

@@ -1,0 +1,46 @@
+<!ENTITY window.width                     "400">
+<!ENTITY window.height                    "300">
+
+<!ENTITY done.label                       "Terminé">
+<!ENTITY canceled.label                   "Annulé">
+<!ENTITY installing.label                 "Installation…">
+
+<!ENTITY starting.label                   "Démarrage…">
+<!ENTITY failed.label                     "Échoué">
+
+<!ENTITY downloads.title                  "Téléchargements">
+
+<!ENTITY cmd.pause.label                  "Pause">
+<!ENTITY cmd.pause.accesskey              "P">
+<!ENTITY cmd.resume.label                 "Reprendre">
+<!ENTITY cmd.resume.accesskey             "R">
+<!ENTITY cmd.cancel.label                 "Annuler">
+<!ENTITY cmd.cancel.accesskey             "A">
+<!ENTITY cmd.show.label                   "Ouvrir le dossier contenant">
+<!ENTITY cmd.show.labelMac                "Afficher dans le Finder">
+<!ENTITY cmd.show.accesskey               "r">
+<!ENTITY cmd.show.accesskeyMac            "F">
+<!ENTITY cmd.open.label                   "Ouvrir">
+<!ENTITY cmd.open.accesskey               "O">
+<!ENTITY cmd.openWith.label               "Ouvrir avec…">
+<!ENTITY cmd.openWith.accesskey           "v">
+<!ENTITY cmd.retry.label                  "Réessayer">
+<!ENTITY cmd.retry.accesskey              "R">
+<!ENTITY cmd.remove.label                 "Retirer de la liste">
+<!ENTITY cmd.remove.accesskey             "e">
+<!ENTITY cmd.properties.label             "Propriétés">
+<!ENTITY cmd.properties.accesskey         "i">
+<!ENTITY cmd.info.commandKey              "i">
+
+<!ENTITY cmd.close.commandKey             "w">
+<!ENTITY cmd.close2.commandKey            "j">
+<!ENTITY cmd.close2Unix.commandKey        "y">
+<!ENTITY cmd.cleanUp.label                "Nettoyer">
+<!ENTITY cmd.cleanUp.tooltip              "Retire les téléchargements terminés, annulés ou échoués de la liste">
+<!ENTITY cmd.cleanUp.accesskey            "N">
+
+<!ENTITY closeWhenDone.label              "Fermer lorsque les téléchargements sont terminés">
+<!ENTITY closeWhenDone.tooltip            "Ferme la fenêtre des téléchargements lorsque tous les fichiers sont complètement téléchargés">
+
+<!ENTITY filesSavedTo.label               "Les fichiers sont téléchargés vers :">
+<!ENTITY showFolder.label                 "Afficher ce dossier">

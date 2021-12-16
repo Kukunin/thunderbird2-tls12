@@ -1,0 +1,3 @@
+<!ENTITY cmd_engineManager.label        "Gérer les moteurs de recherche…">
+<!ENTITY cmd_engineManager.accesskey    "G">
+<!ENTITY searchEndCap.label             "Rechercher">

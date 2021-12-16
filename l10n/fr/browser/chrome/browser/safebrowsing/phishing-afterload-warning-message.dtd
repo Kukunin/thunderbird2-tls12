@@ -1,0 +1,29 @@
+<!ENTITY safeb.palm.warning.title "Suspicion de site Web contrefait">
+
+<!ENTITY safeb.palm.message.p1 "Cette page a été signalée comme étant une contrefaçon destinée à tromper les utilisateurs afin qu'ils communiquent leurs informations personnelles ou financières. La saisie d'informations personnelles sur cette page peut conduire à un vol d'identité ou à une autre fraude. &#160;">
+<!ENTITY safeb.palm.message.p1.linkText "En savoir plus &#187;">
+<!ENTITY safeb.palm.p1.linkStatusText "En savoir plus &#133;">
+
+<!ENTITY safeb.palm.message.p2.start "Ces types de sites Web sont utilisés dans des arnaques connues sous le terme d'attaques par phishing (ou hameçonnage), dans lesquelles des pages Web ou des courriels frauduleux sont utilisés pour imiter des sources en lesquelles vous pouvez avoir confiance. Vous pouvez en savoir plus sur ">
+
+<!ENTITY safeb.palm.message.p2.linkText "la façon dont &brandShortName; vous protège">
+
+<!ENTITY safeb.palm.message.p2.end " des attaques par phishing.">
+
+<!ENTITY safeb.palm.accept.label "Sortir d'ici !">
+<!ENTITY safeb.palm.accept.statustext "Se rendre sur ma page d'accueil">
+<!ENTITY safeb.palm.decline.label "Ignorer cet avertissement">
+<!ENTITY safeb.palm.decline.statustext "Fermer l'avertissement" >
+<!ENTITY safeb.palm.notforgery.label "Ceci n'est pas une contrefaçon de site Web">
+
+<!ENTITY safeb.palm.addbutton.label "Ajouter à la liste noire">
+<!ENTITY safeb.palm.addbutton.tooltip "Ajoute le site à la liste noire">
+
+<!ENTITY safeb.palm.toolmenu.label "Navigation sécurisée">
+<!ENTITY safeb.palm.toolmenu.pref.label "Préférences…">
+<!ENTITY safeb.palm.toolmenu.reportphishing.label "Signaler un phishing…">
+<!ENTITY safeb.palm.toolmenu.showphishingtestpage.label "Ouvrir la page de test">
+
+<!ENTITY safeb.palm.provider.logo.tooltip "Avertissement de la navigation sécurisée">
+
+<!ENTITY safeb.urlbaricon.tooltip "Cette page pourrait être dangereuse ; cliquer ici pour des détails.">

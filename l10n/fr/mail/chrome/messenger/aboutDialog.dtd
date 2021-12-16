@@ -1,0 +1,7 @@
+<!ENTITY aboutDialog.title "À propos de &brandFullName;">
+<!ENTITY credits "Contributeurs">
+<!ENTITY aboutLink "&lt; À propos de &brandShortName;">
+<!ENTITY aboutVersion "version">
+<!ENTITY copyrightText "&#169;1998-2007 Les contributeurs. Tous droits réservés. Mozilla Thunderbird
+                                    et les logos Thunderbird sont des marques déposées de la Mozilla Foundation.
+                                    Tous droits réservés.">

@@ -1,0 +1,119 @@
+<!--
+# ***** BEGIN LICENSE BLOCK *****
+# Version: MPL 1.1/GPL 2.0/LGPL 2.1
+
+# The contents of this file are subject to the Mozilla Public License Version
+# 1.1 (the "License"); you may not use this file except in compliance with
+# the License. You may obtain a copy of the License at
+# http://www.mozilla.org/MPL/
+#
+# Software distributed under the License is distributed on an "AS IS" basis,
+# WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+# for the specific language governing rights and limitations under the
+# License.
+# 
+# The Original Code is Mozilla Communicator.
+# 
+# The Initial Developer of the Original Code is
+# Netscape Communications Corp.
+# Portions created by the Initial Developer are Copyright (C) 1999
+# the Initial Developer. All Rights Reserved.
+# 
+# Contributor(s):
+#   Stephen Lamm <slamm@netscape.com>
+#   Blake Ross <blaker@netscape.com>
+
+# Alternatively, the contents of this file may be used under the terms of
+# either the GNU General Public License Version 2 or later (the "GPL"), or
+# the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+# in which case the provisions of the GPL or the LGPL are applicable instead
+# of those above. If you wish to allow use of your version of this file only
+# under the terms of either the GPL or the LGPL, and not to allow others to
+# use your version of this file under the terms of the MPL, indicate your
+# decision by deleting the provisions above and replace them with the notice
+# and other provisions required by the GPL or the LGPL. If you do not delete
+# the provisions above, a recipient may use your version of this file under
+# the terms of any one of the MPL, the GPL or the LGPL.
+#
+# ***** END LICENSE BLOCK *****
+-->
+
+<!ENTITY fileMenu.label                 "Fichier">
+<!ENTITY fileMenu.accesskey             "F">
+<!ENTITY viewMenu.label                 "Affichage">
+<!ENTITY viewMenu.accesskey             "c">
+
+<!ENTITY closeCmd.label "Fermer">
+<!ENTITY closeCmd.accesskey "F">
+<!ENTITY closeCmd.commandkey "W">
+
+<!-- extracted from bookmarksManager.xul -->
+<!ENTITY menuitem.newBookmark.label    "Nouveau marque-page">
+<!ENTITY menuitem.newBookmark.accesskey "N">
+<!ENTITY menuitem.newLivemark.label    "Nouveau marque-page dynamique…">
+<!ENTITY menuitem.newLivemark.accesskey "o">
+<!ENTITY menuitem.newFolder.label        "Nouveau dossier">
+<!ENTITY menuitem.newFolder.accesskey   "d">
+<!ENTITY menuitem.newSeparator.label     "Nouveau séparateur">
+<!ENTITY menuitem.newSeparator.accesskey "s">
+<!ENTITY menuitem.import.label         "Importer…">
+<!ENTITY menuitem.import.accesskey     "i">
+<!ENTITY menuitem.export.label         "Exporter…">
+<!ENTITY menuitem.export.accesskey     "E">
+<!ENTITY menuitem.find.label           "Rechercher dans les marque-pages…">
+<!ENTITY command.findBookmarks.label   "Rechercher…">
+<!ENTITY menuitem.find.accesskey       "h">
+<!ENTITY edit.find.keybinding          "f">
+<!ENTITY command.properties.label      "Propriétés…">
+<!ENTITY command.properties.accesskey  "i">
+<!ENTITY edit.properties.keybinding    "i">
+<!ENTITY command.rename.label          "Renommer…">
+<!ENTITY command.rename.accesskey      "R">
+<!ENTITY command.delete.label          "Supprimer">
+<!ENTITY command.delete.accesskey      "p">
+<!ENTITY command.moveBookmark.label    "Classer le marque-page…">
+<!ENTITY command.moveBookmarkShort.label    "Classer…">
+<!ENTITY command.moveBookmark.accesskey "C">
+<!ENTITY command.addBookmark.label     "Ajouter…">
+<!ENTITY command.manageBookmarks.label "Gérer">
+<!ENTITY command.refreshLivemark.label "Rafraîchir les entrées">
+<!ENTITY command.refreshLivemark.accesskey "l">
+
+<!ENTITY menuitem.view.command.toolbar.label        "Barre d'outils">
+<!ENTITY menuitem.view.command.toolbar.accesskey    "t">
+<!ENTITY menuitem.view.show_columns.label           "Afficher les colonnes">
+<!ENTITY menuitem.view.show_columns.accesskey       "S">
+<!ENTITY menuitem.view.unsorted.label               "Non trié">
+<!ENTITY menuitem.view.unsorted.accesskey           "n">
+<!ENTITY sortAscending.label                        "Tri ascendant">
+<!ENTITY sortAscending.accesskey                    "a">
+<!ENTITY sortDescending.label                       "Tri descendant">
+<!ENTITY sortDescending.accesskey                   "d">
+<!ENTITY menuitem.personaltoolbarfolder.label       "Définir comme dossier de barre d'outils personnelle">
+<!ENTITY menuitem.personaltoolbarfolder.accesskey   "b">
+
+<!ENTITY treecol.name.label             "Nom">
+<!ENTITY treecol.name.accesskey         "n">
+<!ENTITY treecol.url.label              "Adresse">
+<!ENTITY treecol.url.accesskey          "r">
+<!ENTITY treecol.shortcut.label         "Mot-clef">
+<!ENTITY treecol.shortcut.accesskey     "f">
+<!ENTITY treecol.addedon.label          "Date d'ajout">
+<!ENTITY treecol.addedon.accesskey      "a">
+<!ENTITY treecol.lastmod.label          "Dernière modification">
+<!ENTITY treecol.lastmod.accesskey      "m">
+<!ENTITY treecol.lastvisit.label        "Dernière visite">
+<!ENTITY treecol.lastvisit.accesskey    "v">
+<!ENTITY treecol.description.label      "Description">
+<!ENTITY treecol.description.accesskey  "d">
+
+<!ENTITY bookmarksRoot.label            "Marque-pages">
+
+<!ENTITY bookmarksWindowTitle.label     "Gestionnaire de marque-pages">
+
+<!ENTITY search.label                     "Chercher :">
+<!ENTITY search.accesskey                 "h">
+
+<!-- selectBookmark.xul -->
+<!ENTITY selectBookmark.title      "Choisir comme page d'accueil">
+<!ENTITY selectBookmark.label      "Choisissez un marque-page qui deviendra votre page d'accueil. Si vous choisissez un dossier, les marque-pages de ce dossier seront ouverts dans des onglets.">

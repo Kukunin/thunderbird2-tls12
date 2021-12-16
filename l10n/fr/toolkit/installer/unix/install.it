@@ -1,0 +1,91 @@
+
+[String Resources]
+
+;------------------------------------------------------------------------------
+;   UI strings
+;------------------------------------------------------------------------------
+
+NEXT=Suivant >
+BACK=< Précédent
+CANCEL=Annuler
+ACCEPT=Accepter
+DECLINE=Refuser
+INSTALL=Installer
+PAUSE=Pause
+RESUME=Reprendre
+DEFAULT_TITLE=Installation de Mozilla
+DEST_DIR=Répertoire de destination
+BROWSE=Changer…
+SELECT_DIR=Choisir un répertoire
+DOESNT_EXIST=Le répertoire %s n'existe pas. Voulez-vous le créer ?
+YES_LABEL=Oui
+NO_LABEL=Non
+OK_LABEL=OK
+DELETE_LABEL=Supprimer le répertoire
+CANCEL_LABEL=Annuler
+ERROR=Erreur [%d] : %s
+FATAL_ERROR=Erreur fatale [%d] : %s
+DESCRIPTION=Description
+WILL_INSTALL=Les composants suivants vont être installés :
+TO_LOCATION=à l'emplacement suivant :
+PREPARING=Préparation de %s…
+EXTRACTING=Extraction de %s…
+INSTALLING_XPI=Installation de %s…
+PROCESSING_FILE=Traitement du fichier %d sur %d…
+NO_PERMS=Choisissez un autre répertoire. Vous n'avez pas la permission d'installer dans : %s
+DL_SETTINGS=Paramètres de téléchargement
+SAVE_MODULES=Enregistrer les modules d'installation téléchargés
+PROXY_SETTINGS=Paramètres de proxy…
+PS_LABEL0=Adresse du proxy [requis] :
+PS_LABEL1=Port [requis] :
+PS_LABEL2=Nom d'utilisateur [optionnel] :
+PS_LABEL3=Mot de passe du proxy [optionnel] :
+ERROR_TITLE=Erreur
+DS_AVAIL=Espace disque disponible : %ld Ko
+DS_REQD=Espace disque nécessaire : %ld Ko
+NO_DISK_SPACE=Veuillez choisir un répertoire sur un disque disposant de suffisamment d'espace libre pour procéder à l'installation, ou libérer de l'espace sur le disque sélectionné.
+CXN_DROPPED=La connexion réseau a été interrompue. Veuillez vérifier votre connexion au réseau et appuyez sur Reprendre, ou appuyez sur Annuler pour quitter l'installation.
+CRC_CHECK=Certains fichiers n'ont pas pu être téléchargés correctement. Nouvelle tentative.
+CRC_FAILED=L'installation a échoué suite à plusieurs erreurs CRC.
+DOWNLOADING=Téléchargement :
+FROM=De :
+TO=Vers :
+STATUS=État :
+DL_STATUS_STR=%d Ko  sur  %d Ko (à %d Ko/s)
+USAGE_MSG=Utilisation : %s [options]%s	[options] peut être une combinaison des options suivantes :%s		-h :	Ce message d'aide.%s		-ma :	Exécuter l'installation en mode automatique :%s			afficher la progression, mais utiliser les défauts%s			sans intervention de l'utilisateur.%s		-ms :	Exécuter l'installation en mode silencieux :%s			ne rien afficher et ne nécessiter aucune intervention%s			de l'utilisateur.%s		-ira :	Ignorer les sections [RunAppX]%s
+UNKNOWN=Inconnu
+
+;------------------------------------------------------------------------------
+;   Error strings
+;------------------------------------------------------------------------------
+
+-601=Mémoire insuffisante
+-602=Paramètre invalide
+-603=Variable membre invalide
+-604=Pointeur invalide
+-605=La clé n'a aucune valeur
+-606=Impossible de lire le fichier lisezmoi
+-607=Impossible de lire la licence
+-608=Hors des limites de la liste de composants
+-609=Compteurs de références incompatibles
+-610=Aucun composant dans le fichier INI
+-611=Aucun type d'installation dans le fichier INI
+-612=L'URL à cet index existe déjà
+-613=Impossible de créer le répertoire
+-614=Adresse FTP invalide
+-615=Téléchargement échoué
+-616=L'extraction de XPCOM a échoué
+-617=Impossible de forker un processus
+-618=Impossible d'ouvrir la bibliothèque xpistub
+-619=Impossible d'obtenir un symbole dans la bibliothèque
+-620=Un appel à xpistub a échoué
+-621=Un module de l'installation %s (.xpi) n'a pas pu être installé
+-622=Un module de l'installation (.xpi) n'a pas pu être copié
+-623=Le répertoire de destination n'existe pas
+-624=Impossible de créer le répertoire de destination. Veuillez essayer un autre répertoire.
+-625=Une installation précédente existe déjà.
+-626=Permissions insuffisantes
+-627=Espace disque insuffisant
+-628=Erreurs CRC multiples
+
+

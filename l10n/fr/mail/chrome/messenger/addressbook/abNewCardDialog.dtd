@@ -1,0 +1,89 @@
+<!-- Labels -->
+<!ENTITY chooseAddressBook.label	"Ajouter à: ">
+<!ENTITY chooseAddressBook.accesskey    "A">
+
+<!-- Contact Tab -->
+<!ENTITY Contact.tab                     "Contact"> 
+<!ENTITY Name.box                        "Identité"> 
+<!-- LOCALIZATION NOTE: 
+ NameField1, NameField2, PhoneticField1, PhoneticField2
+ those fields are either LN or FN depends on the target country.
+ "FirstName" and "LastName" can be swapped for id to change the order
+ but they should not be translated (same applied to phonetic id).
+ Make sure the translation of label corresponds to the order of id.
+-->
+<!-- LOCALIZATION NOTE (NameField1.id) : DONT_TRANSLATE -->
+<!ENTITY NameField1.id                  "FirstName"> 
+<!-- LOCALIZATION NOTE (NameField2.id) : DONT_TRANSLATE -->
+<!ENTITY NameField2.id                  "LastName"> 
+<!-- LOCALIZATION NOTE (PhoneticField1.id) : DONT_TRANSLATE -->
+<!ENTITY PhoneticField1.id              "PhoneticFirstName"> 
+<!-- LOCALIZATION NOTE (PhoneticField2.id) : DONT_TRANSLATE -->
+<!ENTITY PhoneticField2.id              "PhoneticLastName"> 
+<!ENTITY NameField1.label               "Prénom:">
+<!ENTITY NameField1.accesskey           "P">
+<!ENTITY NameField2.label               "Nom:">
+<!ENTITY NameField2.accesskey           "N">
+<!ENTITY PhoneticField1.label           "Phonétique:">
+<!ENTITY PhoneticField2.label           "Phonétique:">
+<!ENTITY DisplayName.label		"Nom à afficher :"> 
+<!ENTITY DisplayName.accesskey          "o">
+<!ENTITY NickName.label			"Surnom :"> 
+<!ENTITY NickName.accesskey             "S">
+<!ENTITY Internet.box			"E-mail"> 
+<!ENTITY PrimaryEmail.label		"Adresse électronique :"> 
+<!ENTITY PrimaryEmail.accesskey         "d">
+<!ENTITY SecondEmail.label		"Adresse alternative :"> 
+<!ENTITY SecondEmail.accesskey          "r">
+<!ENTITY PreferMailFormat.label         "Préfère recevoir les messages au format :">
+<!ENTITY PreferMailFormat.accesskey     "P">
+<!ENTITY PlainText.label	        "Texte simple (sans HTML)"> 
+<!ENTITY HTML.label                     "HTML">
+<!ENTITY Unknown.label                  "Inconnu">
+<!ENTITY ScreenName.label               "Pseudo :">
+<!ENTITY ScreenName.accesskey           "e">
+<!ENTITY Phones.box			"Numéros de téléphone"> 
+<!ENTITY WorkPhone.label		"Travail :"> 
+<!ENTITY WorkPhone.accesskey            "l">
+<!ENTITY HomePhone.label		"Domicile :"> 
+<!ENTITY HomePhone.accesskey            "i">
+<!ENTITY FaxNumber.label		"Fax :"> 
+<!ENTITY FaxNumber.accesskey            "x">
+<!ENTITY PagerNumber.label		"Pager :"> 
+<!ENTITY PagerNumber.accesskey          "g">
+<!ENTITY CellularNumber.label	        "Portable :"> 
+<!ENTITY CellularNumber.accesskey       "t">
+
+<!-- Address Tab -->
+<!ENTITY Address.tab			"Adresses"> 
+<!ENTITY Home.box			"Personnelle"> 
+<!ENTITY HomeAddress.label		"N°, rue :"> 
+<!ENTITY HomeAddress2.label		""> 
+<!ENTITY HomeCity.label			"Ville/Localité :"> 
+<!ENTITY HomeState.label		"État/Prov. :"> 
+<!ENTITY HomeZipCode.label		"Code postal :"> 
+<!ENTITY HomeCountry.label		"Pays :">
+<!ENTITY HomeWebPage.label              "Page Web :">
+<!ENTITY Work.box			"Professionnelle"> 
+<!ENTITY JobTitle.label			"Fonction :"> 
+<!ENTITY Department.label		"Service :"> 
+<!ENTITY Company.label			"Société :"> 
+<!ENTITY WorkAddress.label		"Adresse :"> 
+<!ENTITY WorkAddress2.label		""> 
+<!ENTITY WorkCity.label			"Ville/Localité :"> 
+<!ENTITY WorkState.label		"État/Prov. :"> 
+<!ENTITY WorkZipCode.label		"Code Postal :"> 
+<!ENTITY WorkCountry.label		"Pays :">
+<!ENTITY WorkWebPage.label              "Page Web :">
+
+<!-- Other Tab -->
+<!ENTITY Other.tab			"Informations complémentaires"> 
+<!ENTITY Custom1.label			"Divers 1 :"> 
+<!ENTITY Custom1.accesskey              "1">
+<!ENTITY Custom2.label			"Divers 2 :"> 
+<!ENTITY Custom2.accesskey              "2">
+<!ENTITY Custom3.label			"Divers 3 :"> 
+<!ENTITY Custom3.accesskey              "3">
+<!ENTITY Custom4.label			"Divers 4 :"> 
+<!ENTITY Custom4.accesskey              "4">
+<!ENTITY Notes.box			"Remarques"> 
