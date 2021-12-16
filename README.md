@@ -107,6 +107,9 @@ Select the required locale in `mozconfig`:
 
     ac_add_options --enable-ui-locale=fr
 
+For some reason, locale files still uses "Mail/News" name instead of "Thunderbird".
+You can change it manually at `l10n/fr/mail/chrome/branding/brand.properties`.
+
 ### Troubleshooting the build
 
 * **Endless loop for: `Updating dependencies for: .deps/.all.pp`**
