@@ -1220,7 +1220,7 @@ ssl_GatherRecord1stHandshake(sslSocket *ss)
      * (ss->version == 0) but with DTLS it gets confused, so we force the
      * SSL3 version.
      */
-    if ((ss->version >= SSL_LIBRARY_VERSION_3_0) || IS_DTLS(ss)) {
+    if ((ss->version >= SSL_LIBRARY_VERSION_3_0) || ss->version == 0) {
 	/* Wait for handshake to complete, or application data to arrive.  */
 	rv = ssl3_GatherCompleteHandshake(ss, 0);
     } else {
